@@ -1,0 +1,763 @@
+\documentclass[conference]{IEEEtran}
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+   \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+%\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\usepackage{booktabs}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Harmful Developer Pairs}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Adrian Schr{\"o}ter}
+\IEEEauthorblockA{University of Victoria, Canada\\
+schadr@acm.org}
+\and
+\IEEEauthorblockN{Daniela Damian}
+\IEEEauthorblockA{University of Victoria, Canada\\
+danielad@cs.uvic.ca}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+Investigating social interactions in software development is becoming 
+prominent in current research. The misalignment
+between the social and technical dimensions of software work has been
+linked to losses in developer productivity and defects. In a case study of
+coordination in the IBM Jazz\texttrademark\ project, we investigate the
+communication and technical dependencies between developers involved in
+software builds and relate their misalignment to the build failure. We found
+that historical project information about socio-technical coordination and software
+builds can be used in a model that predicts the quality of upcoming builds. We
+also identify a number of
+developer pairs that did not communicate about their dependencies and thus
+increased the likelihood of build failure. Upon this actionable knowledge developers and mangers can act to prevent build failure. If any one of these pairs is present in a
+builds social network, the build had at least an 74\% chance to fail. 
+This has several practical implications for the design of collaborative systems, such as the integration of recommendations about inter-personal relationships.
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the conference you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals/conferences frown on
+% math in the abstract anyway.
+
+% no keywords
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+We hypothesize that with the ever growing size of software teams the lack of
+effective coordination is the main source of integration failures.  With the
+ever growing complexity and sophistication of large software projects,
+error-free integrations are not only important but difficult to achieve. The
+development work that precedes integrations involves significant coordination of
+developers that work in teams and need to rely on the code of others and its
+stability. But often code is everything but stable, further contributing to
+developers' need to coordinate to keep up with code changes that impact their work. This problem is
+amplified in software builds where an entire team needs to integrate their work
+and on which the development of new features depends. Not only do
+failed builds destabilize the product~\cite{cusumano1997} but they also demotivate
+software developers~\cite{holck2004}.
+
+Despite their importance, keeping integrations builds error-free can be a very time consuming
+process. A lightweight approach that can determine whether the build contains
+failures before invoking the build process is thus very valuable to developers.
+This lightweight approach could determine a builds outcome in minutes rather than hours or days. Having a faster way to
+assess the quality of a build helps developers to continue working with newest
+builds while being aware of its quality. Previous
+research~\cite{wolf:icse:2009,hassan:ase:2006} trained predictive models to assess the quality of software builds without the need of invoking large test
+suits. Although this research
+reaches a high degree of accuracy in their predictions, knowing that a
+build will fail does not necessarily help developers to actually prevent
+the build from failing.
+The goal of this research is to find a way to create actionable knowledge that
+developers can act upon to avoid
+integration failure.
+
+In this paper we describe a case study of IBM's Jazz project where we leverage
+information about socio-technical developer coordination and software builds to
+identify pairs of developers that negatively influence the quality of the
+upcoming build. Using historical project information we construct socio-technical
+networks that capture information about developers with technical dependencies
+as well as their ongoing communication as conceptualization of their coordination.
+We found that using a support vector machine on a combination of this social
+and technical project data yields a powerful predictor of build failure. We
+then identify that there are certain pairs of developers that have a
+negative influence on the build outcome. On this knowledge developers and management can
+act upon to avoid future build failure.
+
+Maintaining proper communication and awareness of work others perform is
+important in any kind of project. Specifically in software engineering many studies found
+that factors such as geographical and organizational distance have an impact on
+communication and even effect software quality~\cite{nagappan:icse:2008}. In our
+study we uncover the existence of pairs of
+developers, that, if technically dependent in a build but not discussing their
+dependencies, have a negative influence on the success on builds. This
+actionable knowledge can be integrated in real-time recommender systems that
+indicate, based on project historical data, which developer pairs tend to be
+failure related. Developers and management can then devise strategies to
+prevent the failure before build time. 
+
+
+
+\section{Which Pairs Induce Failure?}
+\label{sec:pattern}
+We seek to generate actionable knowledge upon which developers can act to
+avoid a build from failing. Past research suggests that the absence of
+communication between developers that are technically dependent leads to
+problems, such as slow down in development~\cite{cataldo:esem:2008}.
+
+
+We hypothesize that due to the high coordination needs the absence of this
+important communication also has a negative influence on build outcome. Communication problems can arise from many factors including organizational,
+social or technical reasons. Being able to pinpoint
+mismatches between technical dependencies and required communication that
+relate to build failure is even more important in a team's
+ability to devise strategies to avoid build failure. Thus, we
+investigate pairs of developers that share a technical dependency without talking
+with each other (referred to as \emph{technical pairs}):
+\ \\ \
+
+
+\textbf{RQ} Are there technical pairs that influence the build outcome?
+
+\ \\
+\indent Acknowledging that build failure can be the result
+of factors other than lack of developer
+communication, e.g. the number of changes or developers in a build~\cite{hassan:ase:2006}, our
+analysis also studies the effect of technical pairs in the presence of such
+confounding variables. 
+
+ \section{Related Work}
+\label{sec:relwork}
+Our study aims on integrating work investigating team collaboration and failure prediction to produce actionable knowledge upon which developer can act.
+Several studies bear relevance with respect to different dimensions of our work:
+
+\paragraph{With respect to research on software builds:}
+To the best of our knowledge the studies by Hassan et al.~\cite{hassan:ase:2006}
+and Wolf et al.~\cite{wolf:icse:2009} are the only studies that conducted
+research to predict build outcome. Hassan et al.~\cite{hassan:ase:2006} found
+that a combination of social metrics (e.g. number of authors) and technical
+metrics (e.g. number of code changes) derived from the source code repository
+yield to be best predictor. On the other hand Wolf et al.~\cite{wolf:icse:2009}
+solely used metrics that they derived from the social network created from
+discussions among developers and showed that communication structure has an
+influence on the build outcome.
+
+\paragraph{With respect to team coordination:}
+In
+order to manage changes and maintain quality, developers must coordinate. In
+software development, coordination is largely achieved through communicating with
+people who depend on the work that you do \cite{kraut1995:coordination}. The
+software engineering literature is recognizing the role of communication as
+something that should be nurtured not eliminated and recent
+collaborative software development environments aim to support developers'
+social interactions along with artifact creation activities~\cite{nakakoji2010:rdc}.
+
+Ehrlich et al.~\cite{ehrlich:icgse:2006} investgiated how social networks can be
+used to leverage knowledge in distributed teams. Backstrom et
+al.~\cite{backstrom:kdd:2006} took a more general approach and investigated the
+evolution of large social networks and the information they hold. Chung et
+al.~\cite{chung:cpr:07} reported in recent work about behavior of individuals
+while performing knowledge intensive tasks. There have been a number of studies
+that investigated communication structures to identify good
+coordination practices
+(e.g.~\cite{hinds:cscw:2006,hossain:cscw:2006,bird:fse:2008,hinds:hicss:2008}). In contrast to studies of the general development process, Marczak studied social
+networks to identify best practices for requirements management
+processes~\cite{marczak:re:2008}.
+
+Inspired by Conways Law~\cite{conway:datamination:1968}, Cataldo et
+al.~\cite{cataldo:cscw:2006,cataldo:esem:2008} formulated a coefficient that
+measures the alignment of the social and technical networks defining the term of
+socio-technical congruence. They observed that higher socio-technical congruence
+leads to higher developer
+productivity~\cite{cataldo:cscw:2006,cataldo:esem:2008}. Others used this
+notion and coefficient to further investigate the effect of congruence
+(e.g.~\cite{valetto:msr:2007}). Prior to Cataldo et
+al.~\cite{cataldo:cscw:2006,cataldo:esem:2008} proposal,
+Ducheneaut~\cite{ducheneaut:cscw:2005} investigated the evolution of social and
+technical relationships of open source project participants to see how those
+participants become a part of the community.
+
+
+\paragraph{With respect to failures related to team coordination:}
+More recent studies started to relate the social with the technical
+dimensions of software development to build predictive models. Pinzger et
+al.~\cite{pinzger:fse:2008} successfully used social networks connecting
+developers via code artifacts to predict failures. Meneely et
+al.~\cite{meneely:fse:2008} used similar networks but excluded the code artifacts
+and connected the developers directly. Two studies at Microsoft looked into the
+geographical~\cite{bird:acm:2009} and organizational~\cite{nagappan:icse:2008}
+distance between people that worked on the same binary and the relation to the
+failure proneness of said binary. They found that the organizational distance is
+a very powerful predictor of failure proneness of binaries whereas the
+investigation of geographical distance has little to no effect. A recent
+study~\cite{bird:issre:2009} combines the work of Pinzger et
+al.~\cite{pinzger:fse:2008} and
+Zimmermann~\cite{zimmermann:icse:2008} by creating
+socio-technical networks that capture developer contributions and binary
+interdependencies. They found this combination to be a more powerful predictor
+that works for different software project and even prevails across multiple
+revisions of a project.
+
+
+
+\input{significant-pairs}
+
+\section{Analysis of Socio-Technical Gaps}
+The lack of communication between two developers that share a
+technical dependency is referred to in the literature as a
+socio-technical gap~\cite{valetto:msr:2007}. Because research suggests negative influence of such gaps, we are interested in analyzing pairs of developers that share a technical edge (implying coordination need) but no social edge (implying
+unmet coordination need) in socio-technical networks. We refer to these pairs of
+developers as \emph{technical pairs} (there is a gap), and to those that do
+share a socio-technical edge (there is no gap) as \emph{socio-technical pairs}. 
+
+To answer our second research question, we analyze the
+technical pairs in relation to build
+failure. Our analysis proceeds in four steps:
+
+\begin{enumerate}
+\item Identify all technical pairs from the socio-technical networks.
+\item For each technical pair count occurrences in socio-technical networks of
+failed builds.
+\item For each technical pair count occurrences in socio-technical networks of
+successful builds.
+\item Determine if the pair is significantly related to success or failure.
+\end{enumerate}
+
+For example, 
+the technical pair (Adam, Bart) appears in 3 successful builds and in
+13 failed builds. Thus it does not appear in 224 successful builds, which is the total number of successful builds minus the number of successful builds the pair appeared in, and it is absent in 86 failed builds.
+A Fischer Exact Value test yields significance at a confidence level of $\alpha = .05$ with a p-value of $4.273\cdot10^{-5}$.
+
+Note that we adjust the p-values of the Fischer Exact Value test to account for multiple hypothesis testing using the Bonferroni adjustment.
+The adjustment is necessary because we deal with 961 technical pairs that need to be tested. 
+
+To enable us to discuss the findings as to whether closing socio-technical gaps
+are needed to avoid build failure, or which of these gaps are more important to
+close, we peform two additional analyses. 
+First we analyze whether the
+socio-technical pairs also appear to be build failure-related or not, by
+following the same steps as above for socio-technical pairs. 
+Secondly, we prioritize the developer pairs using the coefficient $p_x$,
+which represents the normalized likelihood of a build
+to fail in the presence of the specific pair:
+
+$$
+p_x\text{=}\frac{ \text{pair}_{failed} / \text{total}_{failed} }
+                     { \text{pair}_{failed} / \text{total}_{failed} + \text{pair}_{success} / \text{total}_{successs}}
+$$
+
+The coefficient is comprised of four counts: (1) pair$_{failed}$, the number of failed builds where the pair occurred; (2) total$_{failed}$, the number of failed builds; (3) pair$_{success}$, the number of successful builds where the pair occurred; (4) total$_{success}$, the number of successful builds.
+A value closer to one means that the developer pair is strongly related to build
+failure. 
+
+\section{Data}
+To evaluate our approach we used data provided by the IBM Rational Team Concert\texttrademark\ development team.
+The repository spans three months in which the team started 326 builds with 99 failed and 227 successful builds.
+The team consists of more than 100 developers distributed across seven major sites in Europe, Asia, and North America.
+Rational Team Concert itself is a product that integrates source code management, agile planing, and issue management into a single server/client application that the team itself uses for development.
+
+
+\section{Results}
+We found a total of 2872 developer pairs in all the constructed
+socio-technical networks, out of which 961 were technical pairs. 
+We choose to present the twenty that are most frequent across failed builds.
+
+We rank the failure relating \emph{technical} pairs (see Tables~\ref{tab:badtechpairs})
+by the coefficient $p_{x}$. This coefficient indicates the strength of
+relationship between the developer pair and build failure. For instance, the
+developer pair (Adam, Bart), appears in 13 failed builds and in 3
+successful builds. This means that pair$_{failed}$ = 13 and pair$_{success}$ = 3
+with total$_{failed}$= 99 and total$_{success}$= 227 result in $p_x$= 0.9016.
+Besides that we report the number of successful builds the pair was observed with
+(\#successful) as well as the number of failed builds the pairs was observed with
+(\#failed). The $p_x$ values are all above 0.74, implying that the likelihood
+of failure is at least 74\% in all builds in which these developers pairs are
+involved. 
+
+We then checked for the 120 pairs whether the corresponding \emph{socio-technical} pairs are related to failure.
+Only 23 of the 120 technical pairs had an existing corresponding socio-technical pair of which none were statistically related to build failure. 
+In Table~\ref{tab:pairs}\ref{tab:stechpairs} we show the socio-technical pairs that match the 20 technical pairs shown in Table~\ref{tab:pairs}\ref{tab:badtechpairs}.
+If the corresponding socio-technical pair existed we computed the same statistics as for the technical pairs, but for those that existed we could not find statistical significance.
+Note that we use fictitious names for confidentiality reasons.
+
+
+\section{Discussion}
+These results show that there is a strong relationship between certain technical
+developer pairs and increased likelihood of a build failure.
+Out of the total of 120 technical pairs that increase the likelihood of a
+build to fail, only 23 had an existing
+corresponding socio-technical pair. Of these, none were statistically
+related to build failure. This means that 97 pairs of developers that had a
+technical dependency did not communicate with each other and
+consequently increased the likelihood of a build failure. Our results not only
+corroborate past findings~\cite{cataldo:cscw:2006,cataldo:esem:2008} that socio-technical gaps
+have a negative effect in software development. More importantly, they indicate
+that the analysis presented in this paper is able to identify the specific
+socio-technical gaps, namely the actual developer pairs where the gaps occur
+and that increase the likelihood of build failure. 
+
+Although not a goal of this paper, we sought possible explanations for the
+socio-technical gaps in this project. A preliminary analysis of developers
+membership to teams shows that most
+of the technical pairs related to build failure consist of developer belonging to
+different teams. Naggappan et al.~\cite{nagappan:icse:2008} found that using the
+organizational distance between people predicts failures. They reasoned that this
+is due to the lack of awareness what people separated by organizational distance
+work on. Although the Jazz team strongly emphasizes communication
+regardless of team boundaries, it still seems that organizational distance has
+an influence on its communication behavior.
+
+
+\section{Threats To Validity}
+\label{sec:threats}
+%\todo{rework}
+During our study we identified two main threats. 
+One threat covers issues that arise from the underlying data we used.
+The other threat deals with possible problems from the conceptualization of
+constructs in our study.
+
+\subsection{Data}
+We performed all our analysis on one set of data, the Jazz\texttrademark\
+repository. This limits the generalizability of our findings, due to the fact
+that we only made the observations within one project. The  
+project size and the project properties -- incorporating open
+source practices such as open development and encouraging community involvement
+-- make us believe that our findings still hold value.
+
+Furthermore we only investigated three months of the project's lifetime. This
+might lead to smaller significance of our results. However, since the three
+months are directly before a major release of the project, this dataset contains
+the most viable data for our analysis. In those three months a lack of necessary
+coordination is the most harmful to the project.
+
+Another threat that is inevitable in studies of software engineers is
+the possible lack of recorded communication. This and the possibility of people
+coordinating without communicating, such as reading each others source
+code~\cite{bolici:stc:2009}, are mitigated in Jazz by its development process.
+The Jazz\texttrademark\ team's development process demands that the developers
+coordinate using workitem discussion. 
+
+
+\subsection{Conceptualization}
+Our conceptualization of the three edges we use to construct the
+socio-technical networks might introduce inaccuracy in our findings.
+First, social edges are extracted from workitem discussions. We assumed that
+every developer commenting on or subscribed to a work item reads all comments of that
+work item. This assumption might not always be correct. By manual inspection of
+a selected number of work items, however, we found that developers who
+commented on a work item are aware of the other comments, confirming our assumption.
+
+Second, the technical edges are not problematic by themselves, but they are not
+complete, since there are more technical relationships between developers that
+can be examined. For example, two developers can be connected if one developer
+changes someone else's code. This however does not invalidate our findings, it
+just suggests that there is room for improvement, which we should address
+next.
+
+Third, socio-technical edges on the other hand may suffer from the combination of
+social and technical edges. For example, it is not necessarily true that the
+discussion of  two developers in a technical dependency is always about their
+technical dependency. 
+In our study however, since the changes to
+source code files we use to extract technical dependencies are attached to workitem discussion, we are
+confident that they addressed the changes at least indirectly.
+
+\section{Conclusion}
+Our study investigated the relationship between pairs of developers that share
+a technical dependency but do not communicate and build failures. We were
+motivated by findings in the literature that suggested that high alignment between technical dependencies and actual coordination in a project has a positive effect on task
+performance.
+We hypothesized that a similar relationship may be found in relation to a broader
+coordination outcome, i.e. integration outcome, because developers not
+coordinating about dependencies in their work might lead to errors remaining in
+the code that break the build.
+
+Our case study of coordination in the Jazz project indicates that 
+historical project information about socio-technical coordination and software
+builds can be used in a model that predicts the quality of upcoming builds. We also found
+that the influence of developer pairs with a socio-technical gap on the build
+failure was very high. This means that if any one of these pairs was present in a
+social network of a build, the build had at least an 74\% chance to fail.
+We plan to extend this research into the following direction:
+
+\emph{More specific information in socio-technical networks.}
+We plan to study socio-technical coordination at a finer level by refining all
+three edge types social, technical and socio-technical as well as the
+information about developers. For the social edges we plan on identifying who
+people are talking to and exactly about what. Technical edges can be refined by examining other source code relations, such as call
+graphs, or changes made to others' source code. 
+To combine social and technical
+edges to socio-technical edges we plan to use content analysis techniques on
+communication to match it to the appropriate technical edge. We also plan
+on also investigating the developers that are part of the social networks more
+closely by incorporating developer characteristics, such as experience,
+geographical location, role or team allocation.
+
+
+
+
+
+
+% conference papers do not normally have an appendix
+
+
+% use section* for acknowledgement
+%\section*{Acknowledgment}
+%
+%
+%The authors would like to thank...
+
+
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{bib}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+
+
+
+
+% that's all folks
+\end{document}
+
+
