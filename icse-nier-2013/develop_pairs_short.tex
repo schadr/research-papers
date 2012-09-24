@@ -364,24 +364,21 @@ This has several practical implications for the design of collaborative systems,
 
 \section{Introduction}
 We hypothesize that with the ever growing size of software teams the lack of
-effective coordination is the main source of integration failures.  With the
-ever growing complexity and sophistication of large software projects,
+effective coordination is the main source of integration failures, thus
 error-free integrations are not only important but difficult to achieve. The
 development work that precedes integrations involves significant coordination of
-developers that work in teams and need to rely on the code of others and its
-stability. But often code is everything but stable, further contributing to
+developers that work in teams and need to rely on the code of others. 
+But often code is everything but stable, further contributing to
 developers' need to coordinate to keep up with code changes that impact their work. This problem is
 amplified in software builds where an entire team needs to integrate their work
 and on which the development of new features depends. Not only do
 failed builds destabilize the product~\cite{cusumano1997} but they also demotivate
 software developers~\cite{holck2004}.
 
-Despite their importance, keeping integrations builds error-free can be a very time consuming
-process. A lightweight approach that can determine whether the build contains
-failures before invoking the build process is thus very valuable to developers.
-This lightweight approach could determine a builds outcome in minutes rather than hours or days. Having a faster way to
-assess the quality of a build helps developers to continue working with newest
-builds while being aware of its quality. Previous
+Keeping integrations builds error-free can be a very time consuming
+process. 
+Thus lightweight approach that can determine whether the build contains
+failures before invoking the build process holds value. Previous
 research~\cite{wolf:icse:2009,hassan:ase:2006} trained predictive models to assess the quality of software builds without the need of invoking large test
 suits. Although this research
 reaches a high degree of accuracy in their predictions, knowing that a
@@ -517,12 +514,10 @@ following the same steps as above for socio-technical pairs.
 Secondly, we prioritize the developer pairs using the coefficient $p_x$,
 which represents the normalized likelihood of a build
 to fail in the presence of the specific pair:
-
 $$
 p_x\text{=}\frac{ \text{pair}_{failed} / \text{total}_{failed} }
                      { \text{pair}_{failed} / \text{total}_{failed} + \text{pair}_{success} / \text{total}_{successs}}
 $$
-
 The coefficient is comprised of four counts: (1) pair$_{failed}$, the number of failed builds where the pair occurred; (2) total$_{failed}$, the number of failed builds; (3) pair$_{success}$, the number of successful builds where the pair occurred; (4) total$_{success}$, the number of successful builds.
 A value closer to one means that the developer pair is strongly related to build
 failure. 
