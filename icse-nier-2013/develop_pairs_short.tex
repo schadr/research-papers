@@ -595,49 +595,31 @@ constructs in our study.
 
 \subsection{Data}
 We performed all our analysis on one set of data, the Jazz\texttrademark\
-repository. This limits the generalizability of our findings, due to the fact
-that we only made the observations within one project. The  
-project size and the project properties -- incorporating open
-source practices such as open development and encouraging community involvement
--- make us believe that our findings still hold value.
+repository. 
+Although limiting ourselves to studying three months one project limits the generalizability of our findings, the  
+project size and practises make us believe that our findings still hold value.
+Furthermore, since the three months  we studied are directly before a major release of the project, this dataset contains the most viable data for our analysis. In those three months a lack of necessary coordination is the most harmful to the project.
+Furthermore, the Jazz\texttrademark\ team's development process demands that the developers
+coordinate using work item discussion. 
 
-Furthermore we only investigated three months of the project's lifetime. This
-might lead to smaller significance of our results. However, since the three
-months are directly before a major release of the project, this dataset contains
-the most viable data for our analysis. In those three months a lack of necessary
-coordination is the most harmful to the project.
-
-Another threat that is inevitable in studies of software engineers is
-the possible lack of recorded communication. This and the possibility of people
-coordinating without communicating, such as reading each others source
-code~\cite{bolici:stc:2009}, are mitigated in Jazz by its development process.
-The Jazz\texttrademark\ team's development process demands that the developers
-coordinate using workitem discussion. 
-
+Although we believe due to the nature of the three months we studied, most communication data is recorded there might still be instances of coordination that are note recorded.
+Furthermore, we used communication as a proxy for coordination thus our data set does not contain instances of non-verbal coordination such as reading each others source
+code~\cite{bolici:stc:2009}.
 
 \subsection{Conceptualization}
-Our conceptualization of the three edges we use to construct the
-socio-technical networks might introduce inaccuracy in our findings.
-First, social edges are extracted from workitem discussions. We assumed that
-every developer commenting on or subscribed to a work item reads all comments of that
-work item. This assumption might not always be correct. By manual inspection of
-a selected number of work items, however, we found that developers who
-commented on a work item are aware of the other comments, confirming our assumption.
+Our conceptualization of the three edges we use to construct the socio-technical networks might introduce inaccuracy in our findings.
+First, social edges are extracted from work item discussions. 
+We assumed that every developer commenting on or subscribed to a work item reads all comments of that work item. 
+By manual inspection of a selected number of work items, however, we found that developers who commented on a work item are aware of the other comments, confirming our assumption.
 
-Second, the technical edges are not problematic by themselves, but they are not
-complete, since there are more technical relationships between developers that
-can be examined. For example, two developers can be connected if one developer
-changes someone else's code. This however does not invalidate our findings, it
-just suggests that there is room for improvement, which we should address
-next.
+Second, technical edges only represent a limited number of technical dependencies that exists between code artifacts. 
+For example, two developers can be connected if one developer changes someone else's code. 
+This does not invalidate our findings, it suggests room for improvement, which we will address in future work.
 
-Third, socio-technical edges on the other hand may suffer from the combination of
-social and technical edges. For example, it is not necessarily true that the
-discussion of  two developers in a technical dependency is always about their
-technical dependency. 
-In our study however, since the changes to
-source code files we use to extract technical dependencies are attached to workitem discussion, we are
-confident that they addressed the changes at least indirectly.
+Third, socio-technical edges may suffer from the combination of social and technical edges. 
+Social edges might not be related to the code changes the technical edge was inferred from.
+Since the changes we used are directly linked to work item discussion we are confident that the vast majority of matches are appropriate.
+
 
 \section{Conclusion}
 Our study investigated the relationship between pairs of developers that share
