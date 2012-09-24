@@ -466,57 +466,15 @@ In
 order to manage changes and maintain quality, developers must coordinate. In
 software development, coordination is largely achieved through communicating with
 people who depend on the work that you do \cite{kraut1995:coordination}. The
-software engineering literature is recognizing the role of communication as
-something that should be nurtured not eliminated and recent
-collaborative software development environments aim to support developers'
-social interactions along with artifact creation activities~\cite{nakakoji2010:rdc}.
-
-Ehrlich et al.~\cite{ehrlich:icgse:2006} investgiated how social networks can be
-used to leverage knowledge in distributed teams. Backstrom et
-al.~\cite{backstrom:kdd:2006} took a more general approach and investigated the
-evolution of large social networks and the information they hold. Chung et
-al.~\cite{chung:cpr:07} reported in recent work about behavior of individuals
-while performing knowledge intensive tasks. There have been a number of studies
-that investigated communication structures to identify good
-coordination practices
-(e.g.~\cite{hinds:cscw:2006,hossain:cscw:2006,bird:fse:2008,hinds:hicss:2008}). In contrast to studies of the general development process, Marczak studied social
-networks to identify best practices for requirements management
-processes~\cite{marczak:re:2008}.
-
-Inspired by Conways Law~\cite{conway:datamination:1968}, Cataldo et
-al.~\cite{cataldo:cscw:2006,cataldo:esem:2008} formulated a coefficient that
-measures the alignment of the social and technical networks defining the term of
-socio-technical congruence. They observed that higher socio-technical congruence
-leads to higher developer
-productivity~\cite{cataldo:cscw:2006,cataldo:esem:2008}. Others used this
-notion and coefficient to further investigate the effect of congruence
-(e.g.~\cite{valetto:msr:2007}). Prior to Cataldo et
-al.~\cite{cataldo:cscw:2006,cataldo:esem:2008} proposal,
-Ducheneaut~\cite{ducheneaut:cscw:2005} investigated the evolution of social and
-technical relationships of open source project participants to see how those
-participants become a part of the community.
+software engineering literature is recognizing the role of communication as essential~\cite{nakakoji2010:rdc}.
+Several researchers in the software engineering community investigated the effects of communication on several topics such as knowledge distribution in ~\cite{ehrlich:icgse:2006}, coordination~\cite{hinds:cscw:2006}, and Conway's Law~\cite{cataldo:cscw:2006}.
 
 
 \paragraph{With respect to failures related to team coordination:}
-More recent studies started to relate the social with the technical
-dimensions of software development to build predictive models. Pinzger et
-al.~\cite{pinzger:fse:2008} successfully used social networks connecting
-developers via code artifacts to predict failures. Meneely et
-al.~\cite{meneely:fse:2008} used similar networks but excluded the code artifacts
-and connected the developers directly. Two studies at Microsoft looked into the
-geographical~\cite{bird:acm:2009} and organizational~\cite{nagappan:icse:2008}
-distance between people that worked on the same binary and the relation to the
-failure proneness of said binary. They found that the organizational distance is
-a very powerful predictor of failure proneness of binaries whereas the
-investigation of geographical distance has little to no effect. A recent
-study~\cite{bird:issre:2009} combines the work of Pinzger et
-al.~\cite{pinzger:fse:2008} and
-Zimmermann~\cite{zimmermann:icse:2008} by creating
-socio-technical networks that capture developer contributions and binary
-interdependencies. They found this combination to be a more powerful predictor
-that works for different software project and even prevails across multiple
-revisions of a project.
-
+Coordination among developers is often represented in the form of social networks.
+These social networks when related to actual code artifacts can be used to predict its failure-likelihood.
+Several studies based on social network metrics derived from such networks can form good failure predictors (e.g.~\cite{meneely:fse:2008}).
+Furthermore, when combining these social networks with information of organizational hierarchies~\cite{nagappan:icse:2008} or geographical distance~\cite{bird:acm:2009} yield not only better predictors but also shine alight on other factors influencing the difficulty of coordination.
 
 
 \input{significant-pairs}
