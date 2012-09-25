@@ -331,13 +331,10 @@ between the social and technical dimensions of software work has been
 linked to losses in developer productivity and defects. In a case study of
 coordination in the IBM Jazz\texttrademark\ project, we investigate the
 communication and technical dependencies between developers involved in
-software builds and relate their misalignment to the build failure. We found
-that historical project information about socio-technical coordination and software
-builds can be used in a model that predicts the quality of upcoming builds. We
-also identify a number of
-developer pairs that did not communicate about their dependencies and thus
-increased the likelihood of build failure. Upon this actionable knowledge developers and mangers can act to prevent build failure. If any one of these pairs is present in a
-builds social network, the build had at least an 74\% chance to fail. 
+software builds and relate their misalignment to the build failure.  
+We identify a number of developer pairs that did not communicate about their dependencies and thus increased the likelihood of build failure. 
+Upon this actionable knowledge developers and mangers can act to prevent build failure. 
+If any one of these pairs is present in a build's social network, the build had at least an 74\% chance to fail. 
 This has several practical implications for the design of collaborative systems, such as the integration of recommendations about inter-personal relationships.
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
@@ -364,8 +361,7 @@ This has several practical implications for the design of collaborative systems,
 
 \section{Introduction}
 We hypothesize that with the ever growing size of software teams the lack of
-effective coordination is the main source of integration failures, thus
-error-free integrations are not only important but difficult to achieve. The
+effective coordination is the main source of integration failures. The
 development work that precedes integrations involves significant coordination of
 developers that work in teams and need to rely on the code of others. 
 But often code is everything but stable, further contributing to
@@ -394,9 +390,7 @@ identify pairs of developers that negatively influence the quality of the
 upcoming build. Using historical project information we construct socio-technical
 networks that capture information about developers with technical dependencies
 as well as their ongoing communication as conceptualization of their coordination.
-We found that using a support vector machine on a combination of this social
-and technical project data yields a powerful predictor of build failure. We
-then identify that there are certain pairs of developers that have a
+We identify that there are certain pairs of developers that have a
 negative influence on the build outcome. On this knowledge developers and management can
 act upon to avoid future build failure.
 
@@ -406,7 +400,7 @@ that factors such as geographical and organizational distance have an impact on
 communication and even effect software quality~\cite{nagappan:icse:2008}. In our
 study we uncover the existence of pairs of
 developers, that, if technically dependent in a build but not discussing their
-dependencies, have a negative influence on the success on builds. This
+dependencies, have a negative influence on build success. This
 actionable knowledge can be integrated in real-time recommender systems that
 indicate, based on project historical data, which developer pairs tend to be
 failure related. Developers and management can then devise strategies to
@@ -434,43 +428,34 @@ with each other (referred to as \emph{technical pairs}):
 
 
 \textbf{RQ} Are there technical pairs that influence the build outcome?
-
-\ \\
-\indent Acknowledging that build failure can be the result
-of factors other than lack of developer
-communication, e.g. the number of changes or developers in a build~\cite{hassan:ase:2006}, our
-analysis also studies the effect of technical pairs in the presence of such
-confounding variables. 
+ 
 
  \section{Related Work}
 \label{sec:relwork}
-Our study aims on integrating work investigating team collaboration and failure prediction to produce actionable knowledge upon which developer can act.
+Our study aims on integrating work investigating team collaboration to produce actionable knowledge upon which developer can act.
 Several studies bear relevance with respect to different dimensions of our work:
 
-\paragraph{With respect to research on software builds:}
+\paragraph{With respect to research on software builds}
 To the best of our knowledge the studies by Hassan et al.~\cite{hassan:ase:2006}
 and Wolf et al.~\cite{wolf:icse:2009} are the only studies that conducted
 research to predict build outcome. Hassan et al.~\cite{hassan:ase:2006} found
 that a combination of social metrics (e.g. number of authors) and technical
 metrics (e.g. number of code changes) derived from the source code repository
-yield to be best predictor. On the other hand Wolf et al.~\cite{wolf:icse:2009}
-solely used metrics that they derived from the social network created from
-discussions among developers and showed that communication structure has an
-influence on the build outcome.
+yield to be best predictor. 
+On the other hand Wolf et al.~\cite{wolf:icse:2009} showed that communication structure has an influence on the build outcome.
 
-\paragraph{With respect to team coordination:}
-In
-order to manage changes and maintain quality, developers must coordinate. In
-software development, coordination is largely achieved through communicating with
-people who depend on the work that you do \cite{kraut1995:coordination}. The
+\paragraph{With respect to team coordination}
+In order to manage changes and maintain quality, developers must coordinate. In
+software development, coordination is largely achieved through communicating among
+people sharing work dependencies \cite{kraut1995:coordination}. The
 software engineering literature is recognizing the role of communication as essential~\cite{nakakoji2010:rdc}.
-Several researchers in the software engineering community investigated the effects of communication on several topics such as knowledge distribution in ~\cite{ehrlich:icgse:2006}, coordination~\cite{hinds:cscw:2006}, and Conway's Law~\cite{cataldo:cscw:2006}.
+Several researchers in the software engineering community investigated the effects of communication on several topics such as knowledge distribution~\cite{ehrlich:icgse:2006}, coordination~\cite{hinds:cscw:2006}, and Conway's Law~\cite{cataldo:cscw:2006}.
 
 
-\paragraph{With respect to failures related to team coordination:}
+\paragraph{With respect to failures related to team coordination}
 Coordination among developers is often represented in the form of social networks.
-These social networks when related to actual code artifacts can be used to predict its failure-likelihood.
-Several studies based on social network metrics derived from such networks can form good failure predictors (e.g.~\cite{meneely:fse:2008}).
+These social networks when related to actual code artifacts can be used to predict the artifact's failure-likelihood.
+Several studies showed that metrics derived from social network form good failure predictors (e.g.~\cite{meneely:fse:2008}).
 Furthermore, when combining these social networks with information of organizational hierarchies~\cite{nagappan:icse:2008} or geographical distance~\cite{bird:acm:2009} yield not only better predictors but also shine alight on other factors influencing the difficulty of coordination.
 
 
@@ -484,7 +469,7 @@ unmet coordination need) in socio-technical networks. We refer to these pairs of
 developers as \emph{technical pairs} (there is a gap), and to those that do
 share a socio-technical edge (there is no gap) as \emph{socio-technical pairs}. 
 
-To answer our second research question, we analyze the
+To answer our research question, we analyze the
 technical pairs in relation to build
 failure. Our analysis proceeds in four steps:
 
@@ -523,7 +508,7 @@ A value closer to one means that the developer pair is strongly related to build
 failure. 
 
 \section{Data}
-To evaluate our approach we used data provided by the IBM Rational Team Concert\texttrademark\ development team.
+To evaluate our approach we used data provided by the IBM Jazz\texttrademark\ development team.
 The repository spans three months in which the team started 326 builds with 99 failed and 227 successful builds.
 The team consists of more than 100 developers distributed across seven major sites in Europe, Asia, and North America.
 Rational Team Concert itself is a product that integrates source code management, agile planing, and issue management into a single server/client application that the team itself uses for development.
@@ -542,9 +527,10 @@ successful builds. This means that pair$_{failed}$ = 13 and pair$_{success}$ = 3
 with total$_{failed}$= 99 and total$_{success}$= 227 result in $p_x$= 0.9016.
 Besides that we report the number of successful builds the pair was observed with
 (\#successful) as well as the number of failed builds the pairs was observed with
-(\#failed). The $p_x$ values are all above 0.74, implying that the likelihood
-of failure is at least 74\% in all builds in which these developers pairs are
-involved. 
+(\#failed). 
+%The $p_x$ values are all above 0.74, implying that the likelihood
+%of failure is at least 74\% in all builds in which these developers pairs are
+%involved. 
 
 We then checked for the 120 pairs whether the corresponding \emph{socio-technical} pairs are related to failure.
 Only 23 of the 120 technical pairs had an existing corresponding socio-technical pair of which none were statistically related to build failure. 
@@ -563,7 +549,7 @@ related to build failure. This means that 97 pairs of developers that had a
 technical dependency did not communicate with each other and
 consequently increased the likelihood of a build failure. Our results not only
 corroborate past findings~\cite{cataldo:cscw:2006,cataldo:esem:2008} that socio-technical gaps
-have a negative effect in software development. More importantly, they indicate
+have a negative effect in software development, more importantly, they indicate
 that the analysis presented in this paper is able to identify the specific
 socio-technical gaps, namely the actual developer pairs where the gaps occur
 and that increase the likelihood of build failure. 
@@ -596,10 +582,7 @@ project size and practises make us believe that our findings still hold value.
 Furthermore, since the three months  we studied are directly before a major release of the project, this dataset contains the most viable data for our analysis. In those three months a lack of necessary coordination is the most harmful to the project.
 Furthermore, the Jazz\texttrademark\ team's development process demands that the developers
 coordinate using work item discussion. 
-
-Although we believe due to the nature of the three months we studied, most communication data is recorded there might still be instances of coordination that are note recorded.
-Furthermore, we used communication as a proxy for coordination thus our data set does not contain instances of non-verbal coordination such as reading each others source
-code~\cite{bolici:stc:2009}.
+Thus we believe due to the nature of the three months we studied, most communication data is recorded.
 
 \subsection{Conceptualization}
 Our conceptualization of the three edges we use to construct the socio-technical networks might introduce inaccuracy in our findings.
