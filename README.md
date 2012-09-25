@@ -4,6 +4,8 @@ This repository contains all the latex files and images I used to write my paper
 For those papers where appropriate I try to also add the small scripts I used for 
 data analysis or point to the respective github repository of the programs I wrote.
 
+The folders in this repository represent the papers which are ordered by year, main conference/journal, sub-event and keyword in case more than one paper was submitted to the same venue.
+
 ## List of Papers ##
 ### 2013 ###
 ICSE NIER - pre-submission
