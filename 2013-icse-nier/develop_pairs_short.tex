@@ -373,26 +373,25 @@ software developers~\cite{holck2004}.
 
 Keeping integrations builds error-free can be a very time consuming
 process. 
-Thus lightweight approach that can determine whether the build contains
+Thus a lightweight approach that can determine whether the build contains
 failures before invoking the build process holds value. Previous
 research~\cite{wolf:icse:2009,hassan:ase:2006} trained predictive models to assess the quality of software builds without the need of invoking large test
 suits. Although this research
 reaches a high degree of accuracy in their predictions, knowing that a
 build will fail does not necessarily help developers to actually prevent
 the build from failing.
-The goal of this research is to find a way to create actionable knowledge that
-developers can act upon to avoid
+The goal of this research is to find a way to create actionable knowledge to avoid
 integration failure.
 
 In this paper we describe a case study of IBM's Jazz project where we leverage
 information about socio-technical developer coordination and software builds to
-identify pairs of developers that negatively influence the quality of the
+identify pairs of developers that negatively influence the outcome of the
 upcoming build. Using historical project information we construct socio-technical
 networks that capture information about developers with technical dependencies
 as well as their ongoing communication as conceptualization of their coordination.
 We identify that there are certain pairs of developers that have a
-negative influence on the build outcome. On this knowledge developers and management can
-act upon to avoid future build failure.
+negative influence on the build outcome. Developers and management can
+act upon this knowledge to avoid future build failure.
 
 Maintaining proper communication and awareness of work others perform is
 important in any kind of project. Specifically in software engineering many studies found
@@ -410,8 +409,8 @@ prevent the failure before build time.
 
 \section{Which Pairs Induce Failure?}
 \label{sec:pattern}
-We seek to generate actionable knowledge upon which developers can act to
-avoid a build from failing. Past research suggests that the absence of
+We seek to generate actionable knowledge to
+prevent a build from failing. Past research suggests that the absence of
 communication between developers that are technically dependent leads to
 problems, such as slow down in development~\cite{cataldo:esem:2008}.
 
@@ -420,7 +419,7 @@ We hypothesize that due to the high coordination needs the absence of this
 important communication also has a negative influence on build outcome. Communication problems can arise from many factors including organizational,
 social or technical reasons. Being able to pinpoint
 mismatches between technical dependencies and required communication that
-relate to build failure is even more important in a team's
+relate to build failure is even more important for a team's
 ability to devise strategies to avoid build failure. Thus, we
 investigate pairs of developers that share a technical dependency without talking
 with each other (referred to as \emph{technical pairs}):
@@ -432,7 +431,7 @@ with each other (referred to as \emph{technical pairs}):
 
  \section{Related Work}
 \label{sec:relwork}
-Our study aims on integrating work investigating team collaboration to produce actionable knowledge upon which developer can act.
+Our study aims at integrating work investigating team collaboration to produce actionable knowledge upon which developer can act.
 Several studies bear relevance with respect to different dimensions of our work:
 
 \paragraph{With respect to research on software builds}
@@ -454,8 +453,8 @@ Several researchers in the software engineering community investigated the effec
 
 \paragraph{With respect to failures related to team coordination}
 Coordination among developers is often represented in the form of social networks.
-These social networks when related to actual code artifacts can be used to predict the artifact's failure-likelihood.
-Several studies showed that metrics derived from social network form good failure predictors (e.g.~\cite{meneely:fse:2008}).
+These social networks, when related to actual code artifacts, can be used to predict the artifact's failure-likelihood.
+Several studies showed that metrics derived from social networks form good failure predictors (e.g.~\cite{meneely:fse:2008}).
 Furthermore, when combining these social networks with information of organizational hierarchies~\cite{nagappan:icse:2008} or geographical distance~\cite{bird:acm:2009} yield not only better predictors but also shine alight on other factors influencing the difficulty of coordination.
 
 
@@ -479,7 +478,7 @@ failure. Our analysis proceeds in four steps:
 failed builds.
 \item For each technical pair count occurrences in socio-technical networks of
 successful builds.
-\item Determine if the pair is significantly related to success or failure.
+\item Determine if the pair is statistically related to success or failure.
 \end{enumerate}
 
 For example, 
@@ -491,7 +490,7 @@ Note that we adjust the p-values of the Fischer Exact Value test to account for 
 The adjustment is necessary because we deal with 961 technical pairs that need to be tested. 
 
 To enable us to discuss the findings as to whether closing socio-technical gaps
-are needed to avoid build failure, or which of these gaps are more important to
+is needed to avoid build failure, or which of these gaps are more important to
 close, we peform two additional analyses. 
 First we analyze whether the
 socio-technical pairs also appear to be build failure-related or not, by
@@ -516,10 +515,11 @@ Rational Team Concert itself is a product that integrates source code management
 
 \section{Results}
 We found a total of 2872 developer pairs in all the constructed
-socio-technical networks, out of which 961 were technical pairs. 
-We choose to present the twenty that are most frequent across failed builds.
+socio-technical networks, out of which 961 were technical pairs.
+Of these 961 technical pairs we found 120 to be statistically related to build failure. 
+We choose to present the twenty that are most frequent that are statistically related to failed builds.
 
-We rank the failure relating \emph{technical} pairs (see Tables~\ref{tab:badtechpairs})
+We rank the failure related \emph{technical} pairs (see Tables~\ref{tab:badtechpairs})
 by the coefficient $p_{x}$. This coefficient indicates the strength of
 relationship between the developer pair and build failure. For instance, the
 developer pair (Adam, Bart), appears in 13 failed builds and in 3
@@ -560,7 +560,7 @@ membership to teams shows that most
 of the technical pairs related to build failure consist of developer belonging to
 different teams. Naggappan et al.~\cite{nagappan:icse:2008} found that using the
 organizational distance between people predicts failures. They reasoned that this
-is due to the lack of awareness what people separated by organizational distance
+is due to the lack of awareness of what people separated by organizational distance
 work on. Although the Jazz team strongly emphasizes communication
 regardless of team boundaries, it still seems that organizational distance has
 an influence on its communication behaviour.
