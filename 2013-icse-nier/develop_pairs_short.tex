@@ -91,7 +91,6 @@ prevent the failure before build time.
 
 \section{Identifying Build Breaking Pairs?}
 \label{sec:pattern}
-%TODO rephrase to focus on approach
 We seek to generate actionable knowledge to
 prevent a build from failing. Past research suggests that the absence of
 communication between developers that are technically dependent leads to
@@ -112,7 +111,7 @@ with each other (referred to as \emph{technical pairs}):
 \textbf{RQ} How can we identify developer pairs that negatively influence build success?
  
 
- \section{Related Work}
+\section{Related Work}
 \label{sec:relwork}
 Our study aims at integrating work investigating team collaboration to produce actionable knowledge upon which developer can act.
 Several studies bear relevance with respect to different dimensions of our work:
@@ -144,7 +143,6 @@ Furthermore, when combining these social networks with information of organizati
 \input{significant-pairs}
 
 \section{Formulating the Approach}
-%TODO rephrase to focus on approach
 The lack of communication between two developers that share a
 technical dependency is referred to in the literature as a
 socio-technical gap~\cite{valetto:msr:2007}. Because research suggests negative influence of such gaps, we are interested in analyzing pairs of developers that share a technical edge (implying coordination need) but no social edge (implying
@@ -155,9 +153,7 @@ share a socio-technical edge (there is no gap) as \emph{socio-technical pairs}.
 In our study we consider two developer exhibiting a coordination need if they for a given build modified the same file.
 Similarly, if two developer commented on the same work item that through changes attached to the work item can be linked to the build of interest, are considered to have coordinated their work.
 
-To answer our research question, we analyze the
-technical pairs in relation to build
-failure. Our analysis proceeds in four steps:
+To answer our research question, we propose the following approach to analyze the technical pairs in relation to build failure:
 
 \begin{enumerate}
 \item Identify all technical pairs from the socio-technical networks.
