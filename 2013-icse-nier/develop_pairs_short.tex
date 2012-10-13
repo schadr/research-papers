@@ -360,6 +360,7 @@ This has several practical implications for the design of collaborative systems,
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
+% TODO rephrase to motivate an approach
 We hypothesize that with the ever growing size of software teams the lack of
 effective coordination is the main source of integration failures. The
 development work that precedes integrations involves significant coordination of
@@ -393,11 +394,11 @@ We identify that there are certain pairs of developers that have a
 negative influence on the build outcome. Developers and management can
 act upon this knowledge to avoid future build failure.
 
-Maintaining proper communication and awareness of work others perform is
-important in any kind of project. Specifically in software engineering many studies found
-that factors such as geographical and organizational distance have an impact on
-communication and even effect software quality~\cite{nagappan:icse:2008}. In our
-study we uncover the existence of pairs of
+%Maintaining proper communication and awareness of work others perform is
+%important in any kind of project. Specifically in software engineering many studies found
+%that factors such as geographical and organizational distance have an impact on
+%communication and even effect software quality~\cite{nagappan:icse:2008}. 
+In our study we uncover the existence of pairs of
 developers, that, if technically dependent in a build but not discussing their
 dependencies, have a negative influence on build success. This
 actionable knowledge can be integrated in real-time recommender systems that
@@ -407,7 +408,7 @@ prevent the failure before build time.
 
 
 
-\section{Which Pairs Induce Failure?}
+\section{Identifying Build Breaking Pairs?}
 \label{sec:pattern}
 We seek to generate actionable knowledge to
 prevent a build from failing. Past research suggests that the absence of
@@ -426,7 +427,7 @@ with each other (referred to as \emph{technical pairs}):
 \ \\ \
 
 
-\textbf{RQ} Are there technical pairs that influence the build outcome?
+\textbf{RQ} How can we identify developer pairs that negatively influence build success?
  
 
  \section{Related Work}
@@ -460,13 +461,16 @@ Furthermore, when combining these social networks with information of organizati
 
 \input{significant-pairs}
 
-\section{Analysis of Socio-Technical Gaps}
+\section{Formulating the Approach}
 The lack of communication between two developers that share a
 technical dependency is referred to in the literature as a
 socio-technical gap~\cite{valetto:msr:2007}. Because research suggests negative influence of such gaps, we are interested in analyzing pairs of developers that share a technical edge (implying coordination need) but no social edge (implying
 unmet coordination need) in socio-technical networks. We refer to these pairs of
 developers as \emph{technical pairs} (there is a gap), and to those that do
 share a socio-technical edge (there is no gap) as \emph{socio-technical pairs}. 
+
+In our study we consider two developer exhibiting a coordination need if they for a given build modified the same file.
+Similarly, if two developer commented on the same work item that through changes attached to the work item can be linked to the build of interest, are considered to have coordinated their work.
 
 To answer our research question, we analyze the
 technical pairs in relation to build
@@ -479,23 +483,16 @@ failed builds.
 \item For each technical pair count occurrences in socio-technical networks of
 successful builds.
 \item Determine if the pair is statistically related to success or failure.
+\item Prioritize the pairs with respect to the likelihood of the pair to negatively influence the build outcome.
 \end{enumerate}
 
-For example, 
-the technical pair (Adam, Bart) appears in 3 successful builds and in
-13 failed builds. Thus it does not appear in 224 successful builds, which is the total number of successful builds minus the number of successful builds the pair appeared in, and it is absent in 86 failed builds.
-A Fischer Exact Value test yields significance at a confidence level of $\alpha = .05$ with a p-value of $4.273\cdot10^{-5}$.
+%For example, 
+%the technical pair (Adam, Bart) appears in 3 successful builds and in
+%13 failed builds. Thus it does not appear in 224 successful builds, which is the total number of successful builds minus the number of successful builds the pair appeared in, and it is absent in 86 failed builds.
+%A Fisher Exact Value test yields significance at a confidence level of $\alpha = .05$ with a p-value of $4.273\cdot10^{-5}$.
 
-Note that we adjust the p-values of the Fischer Exact Value test to account for multiple hypothesis testing using the Bonferroni adjustment.
-The adjustment is necessary because we deal with 961 technical pairs that need to be tested. 
 
-To enable us to discuss the findings as to whether closing socio-technical gaps
-is needed to avoid build failure, or which of these gaps are more important to
-close, we peform two additional analyses. 
-First we analyze whether the
-socio-technical pairs also appear to be build failure-related or not, by
-following the same steps as above for socio-technical pairs. 
-Secondly, we prioritize the developer pairs using the coefficient $p_x$,
+We prioritize the developer pairs using the coefficient $p_x$,
 which represents the normalized likelihood of a build
 to fail in the presence of the specific pair:
 $$
@@ -503,23 +500,25 @@ p_x\text{=}\frac{ \text{pair}_{failed} / \text{total}_{failed} }
                      { \text{pair}_{failed} / \text{total}_{failed} + \text{pair}_{success} / \text{total}_{successs}}
 $$
 The coefficient is comprised of four counts: (1) pair$_{failed}$, the number of failed builds where the pair occurred; (2) total$_{failed}$, the number of failed builds; (3) pair$_{success}$, the number of successful builds where the pair occurred; (4) total$_{success}$, the number of successful builds.
-A value closer to one means that the developer pair is strongly related to build
+A value of $p_x$ closer to one means that the developer pair is strongly related to build
 failure. 
 
-\section{Data}
+\section{Data used for Preliminary Evaluation}
 To evaluate our approach we used data provided by the IBM Jazz\texttrademark\ development team.
 The repository spans three months in which the team started 326 builds with 99 failed and 227 successful builds.
 The team consists of more than 100 developers distributed across seven major sites in Europe, Asia, and North America.
 Rational Team Concert itself is a product that integrates source code management, agile planing, and issue management into a single server/client application that the team itself uses for development.
+The Rational Team Concert product allows developers to link changes they made directly to work items they were working on, thus they established within their repository traceability links between builds and work items through the changes they made.
 
 
-\section{Results}
+
+\section{Preliminary Results}
 We found a total of 2872 developer pairs in all the constructed
 socio-technical networks, out of which 961 were technical pairs.
 Of these 961 technical pairs we found 120 to be statistically related to build failure. 
-We choose to present the twenty that are most frequent that are statistically related to failed builds.
+We choose to present the twenty that are most frequent that are statistically related to failed builds in Table~\ref{tab:pairs}\ref{tab:badtechpairs}.
 
-We rank the failure related \emph{technical} pairs (see Tables~\ref{tab:badtechpairs})
+We rank the failure related \emph{technical} pairs (see Tables~\ref{tab:pairs}\ref{tab:badtechpairs})
 by the coefficient $p_{x}$. This coefficient indicates the strength of
 relationship between the developer pair and build failure. For instance, the
 developer pair (Adam, Bart), appears in 13 failed builds and in 3
@@ -531,6 +530,8 @@ Besides that we report the number of successful builds the pair was observed wit
 %The $p_x$ values are all above 0.74, implying that the likelihood
 %of failure is at least 74\% in all builds in which these developers pairs are
 %involved. 
+Note that we adjust the p-values of the Fisher Exact Value test to account for multiple hypothesis testing using the Bonferroni adjustment.
+The adjustment is necessary because we deal with 961 technical pairs that need to be tested. 
 
 We then checked for the 120 pairs whether the corresponding \emph{socio-technical} pairs are related to failure.
 Only 23 of the 120 technical pairs had an existing corresponding socio-technical pair of which none were statistically related to build failure. 
@@ -540,7 +541,7 @@ Note that we use fictitious names for confidentiality reasons.
 
 
 \section{Discussion}
-These results show that there is a strong relationship between certain technical
+These preliminary results show that there is a strong relationship between certain technical
 developer pairs and increased likelihood of a build failure.
 Out of the total of 120 technical pairs that increase the likelihood of a
 build to fail, only 23 had an existing
@@ -613,8 +614,7 @@ Our case study of coordination in the Jazz project indicates that
 historical project information about socio-technical coordination and software
 builds can be used in a model that predicts the quality of upcoming builds. We also found
 that the influence of developer pairs with a socio-technical gap on the build
-failure was very high. This means that if any one of these pairs was present in a
-social network of a build, the build had at least an 74\% chance to fail.
+failure was very high. This means that if any one of the twenty most frequent failure related pairs was present in a social network of a build, the build had at least an 74\% chance to fail.
 
 
 
