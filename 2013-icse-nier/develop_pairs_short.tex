@@ -12,6 +12,8 @@
 
 \usepackage{booktabs}
 
+\begin{document}
+
 \title{On Socio-Technical Coordination and its Relation to Build Failure}
 
 
@@ -34,7 +36,7 @@ linked to losses in developer productivity and defects. In a case study of
 coordination in the IBM Jazz\texttrademark\ project, we investigate the
 communication and technical dependencies between developers involved in
 software builds and relate their misalignment to the build failure.  
-We identify a number of developer pairs that did not communicate about their dependencies and thus increased the likelihood of build failure. 
+Through our proposed approach we identifed a number of developer pairs that did not communicate about their dependencies and thus increased the likelihood of build failure. 
 Upon this actionable knowledge developers and mangers can act to prevent build failure. 
 If any one of these pairs is present in a build's social network, the build had at least an 74\% chance to fail. 
 This has several practical implications for the design of collaborative systems, such as the integration of recommendations about inter-personal relationships.
@@ -44,7 +46,6 @@ This has several practical implications for the design of collaborative systems,
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-% TODO rephrase to motivate an approach
 We hypothesize that with the ever growing size of software teams the lack of
 effective coordination is the main source of integration failures. The
 development work that precedes integrations involves significant coordination of
@@ -68,7 +69,7 @@ the build from failing.
 The goal of this research is to find a way to create actionable knowledge to avoid
 integration failure.
 
-In this paper we describe a case study of IBM's Jazz project where we leverage
+In this paper we describe an approach evaluated using data from the IBM's Jazz project where we leverage
 information about socio-technical developer coordination and software builds to
 identify pairs of developers that negatively influence the outcome of the
 upcoming build. Using historical project information we construct socio-technical
@@ -82,7 +83,7 @@ act upon this knowledge to avoid future build failure.
 %important in any kind of project. Specifically in software engineering many studies found
 %that factors such as geographical and organizational distance have an impact on
 %communication and even effect software quality~\cite{nagappan:icse:2008}. 
-In our study we uncover the existence of pairs of
+In our study through the application of our proposed approach we uncover the existence of pairs of
 developers, that, if technically dependent in a build but not discussing their
 dependencies, have a negative influence on build success. This
 actionable knowledge can be integrated in real-time recommender systems that
