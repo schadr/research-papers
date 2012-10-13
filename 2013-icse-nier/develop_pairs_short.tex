@@ -79,10 +79,6 @@ We identify that there are certain pairs of developers that have a
 negative influence on the build outcome. Developers and management can
 act upon this knowledge to avoid future build failure.
 
-%Maintaining proper communication and awareness of work others perform is
-%important in any kind of project. Specifically in software engineering many studies found
-%that factors such as geographical and organizational distance have an impact on
-%communication and even effect software quality~\cite{nagappan:icse:2008}. 
 In our study through the application of our proposed approach we uncover the existence of pairs of
 developers, that, if technically dependent in a build but not discussing their
 dependencies, have a negative influence on build success. This
@@ -95,7 +91,7 @@ prevent the failure before build time.
 
 \section{Identifying Build Breaking Pairs?}
 \label{sec:pattern}
-%TODO rephrase to focus on approac
+%TODO rephrase to focus on approach
 We seek to generate actionable knowledge to
 prevent a build from failing. Past research suggests that the absence of
 communication between developers that are technically dependent leads to
@@ -148,7 +144,7 @@ Furthermore, when combining these social networks with information of organizati
 \input{significant-pairs}
 
 \section{Formulating the Approach}
-%TODO rephrase to focus on approac
+%TODO rephrase to focus on approach
 The lack of communication between two developers that share a
 technical dependency is referred to in the literature as a
 socio-technical gap~\cite{valetto:msr:2007}. Because research suggests negative influence of such gaps, we are interested in analyzing pairs of developers that share a technical edge (implying coordination need) but no social edge (implying
@@ -173,12 +169,6 @@ successful builds.
 \item Prioritize the pairs with respect to the likelihood of the pair to negatively influence the build outcome.
 \end{enumerate}
 
-%For example, 
-%the technical pair (Adam, Bart) appears in 3 successful builds and in
-%13 failed builds. Thus it does not appear in 224 successful builds, which is the total number of successful builds minus the number of successful builds the pair appeared in, and it is absent in 86 failed builds.
-%A Fisher Exact Value test yields significance at a confidence level of $\alpha = .05$ with a p-value of $4.273\cdot10^{-5}$.
-
-
 We prioritize the developer pairs using the coefficient $p_x$,
 which represents the normalized likelihood of a build
 to fail in the presence of the specific pair:
@@ -200,7 +190,7 @@ The Rational Team Concert product allows developers to link changes they made di
 
 
 \section{Preliminary Results}
-%TODO rephrase to focus on approac
+%TODO rephrase to focus on approach
 We found a total of 2872 developer pairs in all the constructed
 socio-technical networks, out of which 961 were technical pairs.
 Of these 961 technical pairs we found 120 to be statistically related to build failure. 
@@ -215,9 +205,6 @@ with total$_{failed}$= 99 and total$_{success}$= 227 result in $p_x$= 0.9016.
 Besides that we report the number of successful builds the pair was observed with
 (\#successful) as well as the number of failed builds the pairs was observed with
 (\#failed). 
-%The $p_x$ values are all above 0.74, implying that the likelihood
-%of failure is at least 74\% in all builds in which these developers pairs are
-%involved. 
 Note that we adjust the p-values of the Fisher Exact Value test to account for multiple hypothesis testing using the Bonferroni adjustment.
 The adjustment is necessary because we deal with 961 technical pairs that need to be tested. 
 
@@ -229,7 +216,7 @@ Note that we use fictitious names for confidentiality reasons.
 
 
 \section{Discussion}
-%TODO rephrase to focus on approac
+%TODO rephrase to focus on approach
 These preliminary results show that there is a strong relationship between certain technical
 developer pairs and increased likelihood of a build failure.
 Out of the total of 120 technical pairs that increase the likelihood of a
@@ -258,7 +245,6 @@ an influence on its communication behaviour.
 
 \section{Threats To Validity}
 \label{sec:threats}
-%\todo{rework}
 During our study we identified two main threats. 
 One threat covers issues that arise from the underlying data we used.
 The other threat deals with possible problems from the conceptualization of
@@ -290,7 +276,7 @@ Since the changes we used are directly linked to work item discussion we are con
 
 
 \section{Conclusion and Future Work}
-%TODO rephrase to focus on approac
+%TODO rephrase to focus on approach
 Our study investigated the relationship between pairs of developers that share
 a technical dependency but do not communicate and build failures. We were
 motivated by findings in the literature that suggested that high alignment between technical dependencies and actual coordination in a project has a positive effect on task
