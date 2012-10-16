@@ -169,7 +169,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage[cmex10]{amsmath}
+\usepackage[cmex10]{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics. If using
 % it, be sure to load this package with the cmex10 option to ensure that
@@ -361,7 +361,44 @@
 % page by themselves.
 
 
+\usepackage{xspace}
+\usepackage{textcase}
 
+% Graphics
+\usepackage{wasysym}
+\usepackage{graphics}
+\usepackage{graphicx}   % A package to allow insertion of
+                        % external image files
+
+\usepackage{comment}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{capt-of}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfig}
+\usepackage{pifont}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage{url}
+\usepackage{boxedminipage}
+\usepackage{xspace}
+\usepackage{sepnum}
+\usepackage{cite}
+\usepackage{fancyhdr}
+
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{calc}
+
+
+\usepackage{rotating}
+
+
+\usepackage{tikz}
 
 
 % *** PDF, URL AND HYPERLINK PACKAGES ***
@@ -375,7 +412,7 @@
 % \url{my_url_here}.
 
 
-
+\usepackage{url}
 
 
 % *** Do not adjust lengths that control margins, column widths, etc. ***
@@ -383,6 +420,13 @@
 % There should be no need to do such things with IEEEtran.cls V1.6 and later.
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
+
+\floatstyle{ruled}
+\newfloat{placeholder}{thp}{lop}
+\floatname{placeholder}{Box}
+
+\newcommand\error{\texttt{ERROR}}
+\newcommand\ok{\texttt{OK}}
 
 
 % correct bad hyphenation here
@@ -462,8 +506,17 @@
 
 
 \begin{abstract}
-%\boldmath
-The abstract goes here.
+Efficient coordination among software developers is one key aspect in producing high quality software on time and on budget.
+Many factors such as team distribution or the structure of the organization developing the software can increase the level of difficulty in coordination.
+However, the problem runs deeper, it is often unclear which developers should coordinate their work.
+
+In this thesis we propose to leverage the concept of socio-technical congruence (which contrasts coordination needs with actual coordination) to improve the social interactions among developers 
+by developing an approach and its implementation into a recommender system that identifies relevant coordinators.
+Our unit of analysis is the integration build whose outcome represents the quality of coordination.
+We developed and applied an approach in a number of case studies of the IBM Rational Team Concert development team as well as a large student project at the University of Victoria, Canada, and Aalto University, Finland.
+
+As each software product is just the latest integration build ensuring a failure free build is of utmost importance to industry.
+While developing an approach to improve coordination among software developers, we uncovered that unmet coordination needs as well as the communication structure in a team significantly influence build outcome.
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -494,24 +547,23 @@ IEEEtran, journal, \LaTeX, paper, template.
 
 
 
-\section{Introduction}
+\input{introduction}
 
-\section{Related Work}
+\input{bg}
 
-\section{Research Questions}
+\input{const-meth}
 
-\section{}
+\input{comm-fail}
 
-\section{Conclusion}
-The conclusion goes here.
+\input{stcf}
 
+\input{approach}
 
+\input{stc-fse}
 
+\input{talk}
 
-
-
-
-
+\input{discussion}
 
 
 % Can use something like this to put references on a page
@@ -537,9 +589,9 @@ The conclusion goes here.
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
+\bibliography{thesis-journal}
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
