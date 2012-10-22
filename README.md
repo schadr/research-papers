@@ -11,3 +11,7 @@ The folders in this repository represent the papers which are ordered by year, m
 ICSE NIER - pre-submission
 > A study of whether the absence of communication between to developers while they touched
 > the same file for a build has an influence on build success.
+
+MSR DATA - pre-subimission
+> A summary of how we collected call graphs using the Java Depdency Extractor
+> https://github.com/schadr/java-dependency-extractor
