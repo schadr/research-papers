@@ -15,3 +15,6 @@ ICSE NIER - pre-submission
 MSR DATA - pre-subimission
 > A summary of how we collected call graphs using the Java Depdency Extractor
 > https://github.com/schadr/java-dependency-extractor
+
+TSE thesis - pre-submission
+> A jounral version of my thesis that can be found at https://github.com/schadr/ChatToSucceed
