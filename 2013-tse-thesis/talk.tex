@@ -15,10 +15,10 @@ For instance, it is unlikely that every build is of equal importance.
 Furthermore, we also think that developers opinion of each other play a role, such as trust and respect.
 Therefore, it is important to explore those less technical aspects of developer relationship to gain a better understanding on when to deliver a recommendation.
 
-% give chapter overview
-In this chapter, we start by detailing the study design that is relevant to exploring our research question (Section~\ref{sec:studydesign}).
-Then, we present the findings we obtained in Section~\ref{sec:findings}.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:actionable} (Section~\ref{sec:conclusions}).
+%% give chapter overview
+%In this chapter, we start by detailing the study design that is relevant to exploring our research question (Section~\ref{sec:studydesign}).
+%Then, we present the findings we obtained in Section~\ref{sec:findings}.
+%We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:actionable} (Section~\ref{sec:conclusions}).
 
 
 \subsection{Study Design}
@@ -284,23 +284,23 @@ Developers request information more frequently about change-sets that touch on c
 The ranking of items in Table \ref{tab:sub-technical} provides additional insights into the kinds of change-sets that carry a risk for developers. A \emph{changed API} comes at the top of the list, code that \emph{affects frequently used features} comes third, immediately followed by changes to \emph{complex code}, changes that \emph{introduced new functionality}, and changes to code that \emph{is used by many other methods}.
 
 
-\subsubsection{Work Allocation and Peer Reviews}
-In the later stages of the development cycle, developers have two process-based constraints that prompt them to interact with their peers. First, they need their peers to review their change-sets before they are included in the product. Second, they need an approval to start working on a task (a triaging process needs to take place so that developers are allocated to the most important work items).
-
-In the change-set review process, there are two ways the change-set author and the reviewers interact.
-Either the change-set author submits his change-set for review, or the change-set author discusses the change-set with the reviewer before submitting it for review. The main discriminant between meeting with the reviewer to discuss the change-set before submitting it or submitting without prior discussion seems to be whether the reviewer and the author are co-located.
-
-Adrian's mentor during his time with the RTC team explained: \emph{``It is very demotivating to get a change-set rejected, that's why we usually try to discuss things before and then the reviewing just becomes all about quickly testing and accepting the change-set.''} Of course, this does not prevent an already discussed change-set from being rejected, but it signals that the process-based constraint is not as strict as to forbid discussions about a change-set between authors and reviewers in the interest of an unbiased code review.
-
-In the case of developers seeking approval to start working on a task, the process is similarly flexible. The approval is supposed to be issued before the developer begins work on the task. However, we observed several times that developers performed quick fixes, and later went to their team leads to acquire approval for the fixes they had already performed.
-
-Several items in our survey point to the importance of information-seeking around the processes of approval and peer review. In Table \ref{tab:sub-process}, the second- and third-highest items were information needed because the respondent needed \emph{to review the change} or \emph{to approve the change}. The need to  \emph{obtain a review for the change} or to \emph{obtain an approval for the change} were of moderate importance. \emph{Verifying a fix} was not judged as important by our respondents.
-
-\subsubsection{Type of Change}
-The three main reasons for a developer to commit a change-set are to (1) do feature development, (2) fix bugs, and (3) re-factor. Among them, feature development seems to be the one that prompts developers to seek information the most.
-In our survey (Table \ref{tab:sub-process}), code that \emph{introduced new functionality} is ranked fifth among the code-change related factors, while changes that consist of \emph{a bug fix} and \emph{a refactoring} ranked far lower on the same list.
-
-This may be due to the fact that feature development has less tool support than bug fixing (which is supported by debugging tools and automated test frameworks) and refactoring (which is essentially an automatic process today). The limited tool support and the inherently difficult nature of the task itself makes change-sets that introduce new functionality more difficult to understand or assess. Hence, developers are more likely to request information about them.
+%\subsubsection{Work Allocation and Peer Reviews}
+%In the later stages of the development cycle, developers have two process-based constraints that prompt them to interact with their peers. First, they need their peers to review their change-sets before they are included in the product. Second, they need an approval to start working on a task (a triaging process needs to take place so that developers are allocated to the most important work items).
+%
+%In the change-set review process, there are two ways the change-set author and the reviewers interact.
+%Either the change-set author submits his change-set for review, or the change-set author discusses the change-set with the reviewer before submitting it for review. The main discriminant between meeting with the reviewer to discuss the change-set before submitting it or submitting without prior discussion seems to be whether the reviewer and the author are co-located.
+%
+%Adrian's mentor during his time with the RTC team explained: \emph{``It is very demotivating to get a change-set rejected, that's why we usually try to discuss things before and then the reviewing just becomes all about quickly testing and accepting the change-set.''} Of course, this does not prevent an already discussed change-set from being rejected, but it signals that the process-based constraint is not as strict as to forbid discussions about a change-set between authors and reviewers in the interest of an unbiased code review.
+%
+%In the case of developers seeking approval to start working on a task, the process is similarly flexible. The approval is supposed to be issued before the developer begins work on the task. However, we observed several times that developers performed quick fixes, and later went to their team leads to acquire approval for the fixes they had already performed.
+%
+%Several items in our survey point to the importance of information-seeking around the processes of approval and peer review. In Table \ref{tab:sub-process}, the second- and third-highest items were information needed because the respondent needed \emph{to review the change} or \emph{to approve the change}. The need to  \emph{obtain a review for the change} or to \emph{obtain an approval for the change} were of moderate importance. \emph{Verifying a fix} was not judged as important by our respondents.
+%
+%\subsubsection{Type of Change}
+%The three main reasons for a developer to commit a change-set are to (1) do feature development, (2) fix bugs, and (3) re-factor. Among them, feature development seems to be the one that prompts developers to seek information the most.
+%In our survey (Table \ref{tab:sub-process}), code that \emph{introduced new functionality} is ranked fifth among the code-change related factors, while changes that consist of \emph{a bug fix} and \emph{a refactoring} ranked far lower on the same list.
+%
+%This may be due to the fact that feature development has less tool support than bug fixing (which is supported by debugging tools and automated test frameworks) and refactoring (which is essentially an automatic process today). The limited tool support and the inherently difficult nature of the task itself makes change-sets that introduce new functionality more difficult to understand or assess. Hence, developers are more likely to request information about them.
 
 
 \subsubsection{Business Goals vs Developers' Pride}

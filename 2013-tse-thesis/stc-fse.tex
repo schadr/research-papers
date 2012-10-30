@@ -11,9 +11,9 @@ Thus we focus on the following research question:
 Intuitively, the idea is that two developers that share a technical dependency should talk, but in some cases when the technical relationship is trivial instead of preventing failures such a recommendation might only create additional communication overhead.
 Thus we explore to what extend the history of a project can be used to highlight those cases where developers that shared an unmet coordination need can be brought more often into relation with failed builds than with successful builds.
 
-In this chapter, we start by briefly presenting the methodology that is relevant to exploring our research question (Section~\ref{sec:data} and~\ref{ch8:gaps}).
-Then, we present the analysis and results we obtained in Section~\ref{ch:fse:result2} followed by a discussion of the results Sections~\ref{ch8:dis}.
-We conclude this chapter with offering an answer to our research question and leading into the subsequent chapter (Section~\ref{sec:8:conclusions}).
+%In this chapter, we start by briefly presenting the methodology that is relevant to exploring our research question (Section~\ref{sec:data} and~\ref{ch8:gaps}).
+%Then, we present the analysis and results we obtained in Section~\ref{ch:fse:result2} followed by a discussion of the results Sections~\ref{ch8:dis}.
+%We conclude this chapter with offering an answer to our research question and leading into the subsequent chapter (Section~\ref{sec:8:conclusions}).
 
 
 \subsection{Socio-technical coordination}
@@ -31,21 +31,21 @@ As our scope we select the software build and as outcome metric whether a build 
 We construct the social and technical networks from the Rational Team Concert development team repository as outline in Chapter~\ref{chap:bg}.
 
 
-\begin{table}[t]
-\centering
-\begin{tabular}{rcc}
-\toprule
- & successful & failed  \\
- \midrule
-(Adam, Bart) & 3 & 13 \\
-$\neg$ (Adam, Bart) & 224 & 86\\
-\midrule
-total&227&99\\\bottomrule
-\end{tabular}
-\caption{Contingency table for technical pair (Adam, Bart) in relation to build
-success or failure}
-\label{tab:contingencytable}
-\end{table}
+%\begin{table}[t]
+%\centering
+%\begin{tabular}{rcc}
+%\toprule
+% & successful & failed  \\
+% \midrule
+%(Adam, Bart) & 3 & 13 \\
+%$\neg$ (Adam, Bart) & 224 & 86\\
+%\midrule
+%total&227&99\\\bottomrule
+%\end{tabular}
+%\caption{Contingency table for technical pair (Adam, Bart) in relation to build
+%success or failure}
+%\label{tab:contingencytable}
+%\end{table}
 
 
 
@@ -187,8 +187,7 @@ successful builds.
 \item Determine if the pair is significantly related to success or failure.
 \end{enumerate}
 
-For example, in Table~\ref{tab:contingencytable} we illustrate the analysis of
-the technical pair (Adam, Bart). This pair appears in 3 successful builds and in
+For example, the technical pair (Adam, Bart) appears in 3 successful builds and in
 13 failed builds. Thus it does not appear in 224 successful builds, which is the total number of successful builds minus the number of successful builds the pair appeared in, and it is absent in 86 failed builds.
 A Fischer Exact Value test yields significance at a confidence level of $\alpha = .05$ with a p-value of $4.273\cdot10^{-5}$.
 
@@ -478,76 +477,76 @@ Only 23 of the 120 technical pairs had an existing corresponding socio-technical
 In Table~\ref{tab:stechpairs} we show the socio-technical pairs that match the 20 technical pairs shown in Table~\ref{tab:badtechpairs} as well as the same information as in Table~\ref{tab:badtechpairs}.
 If the corresponding socio-technical pair existed we computed the same statistics as for the technical pairs, but for those that existed we could not find statistical significance.
 Note that we use fictitious names for confidentiality reasons.
-
-The failure-related technical pairs span 48 out of the total 99 failed builds in
-the project. Figure~\ref{fig:builddistribution} shows their distribution
- across the 48 failed builds. The histogram
-illustrates that there are few builds that have a large number of failure related
-builds, e.g. 4 with 18 or more pairs, but most builds only show a small number of
-pairs (15 out of 48 failed builds have 4 or less). 
-%Not only does 
-This distribution of technical pairs indicate that the developer
-pairs we found  did not concentrate in a small number of builds. 
-In addition, it validates the assumption that it is
-worthwhile seeking insights about developer coordination in failed builds.
+We found that, the failure-related technical pairs span 48 out of the total 99 failed builds in
+the project. 
+%Figure~\ref{fig:builddistribution} shows their distribution
+% across the 48 failed builds. The histogram
+%illustrates that there are few builds that have a large number of failure related
+%builds, e.g. 4 with 18 or more pairs, but most builds only show a small number of
+%pairs (15 out of 48 failed builds have 4 or less). 
+%%Not only does 
+%This distribution of technical pairs indicate that the developer
+%pairs we found  did not concentrate in a small number of builds. 
+%In addition, it validates the assumption that it is
+%worthwhile seeking insights about developer coordination in failed builds.
 %Moreover, this enables us to explain why two thirds of the builds failed.
 
 
-\begin{figure}[t]
-\centering
-\vspace{-1cm}
-\includegraphics[width=\columnwidth]{figures/builddistribution}
-\vspace{-.75cm}
-\caption{Histogram of how many builds have a certain number of failure-reated technical pairs.}
-\label{fig:builddistribution}
-\end{figure}
+%\begin{figure}[t]
+%\centering
+%\vspace{-1cm}
+%\includegraphics[width=\columnwidth]{figures/builddistribution}
+%\vspace{-.75cm}
+%\caption{Histogram of how many builds have a certain number of failure-reated technical pairs.}
+%\label{fig:builddistribution}
+%\end{figure}
 
-\subsection{Discussion}
-\label{ch8:dis}
-These results show that there is a strong relationship between certain technical
-developer pairs and increased likelihood of a build failure.
-Out of the total of 120 technical pairs that increase the likelihood of a
-build to fail, only 23 had an existing
-corresponding socio-technical pair. Of these, none were statistically
-related to build failure. This means that 97 pairs of developers that had a
-technical dependency did not communicate with each other and
-consequently increased the likelihood of a build failure. Our results not only
-corroborate past findings~\cite{cataldo:cscw:2006,cataldo:esem:2008} that socio-technical gaps
-have a negative effect in software development. More importantly, they indicate
-that the analysis presented in this paper is able to identify the specific
-socio-technical gaps, namely the actual developer pairs where the gaps occur
-and that increase the likelihood of build failure. 
-
-A preliminary analysis of developers membership to teams shows that most
-of the technical pairs related to build failure consist of developer belonging to
-different teams. Naggappan et al~\cite{nagappan:icse:2008} found that using the
-organizational distance between people predicts failures. They reasoned that this
-is due to the lack of awareness what people separated by organizational distance
-work on. Although the Rational Team Concert team strongly emphasizes communication
-regardless of team boundaries, it still seems that organizational distance has
-an influence on its communication behaviour.
-
-
-Although the analysis of technical pairs in relation to build failures
-showed that they have a negative influence on the build result, it does not take
-into account possible confounding variables. The question is if there developer pairs still effect the build outcome in the presence of confounding variables, such as number of developers involved in a build, number of work items
-related to a build, number of change sets per build, and number of files changed.
-We tested this using a logistical regression model including both developer pairs and confounding variables.
-
-Overall the logistic regression confirms the effect of the developer pairs
-even in the presence of confounding variables, such as number of files changed
-and numbers of developers (AIC of 706). 
-Table~\ref{tab:regression} shows an excerpt from the complete logistical
-regression which shows that the twenty pairs previously identified are still
-significant under the influence of the four confounding variables. Because we have 2872 developer pairs, space constraints prevent us from reporting the entire regression model. We chose to report on the coefficients for the twenty pairs that we reported in Table~\ref{tab:regression} as well as the coefficients for the four control features.
-
-All features shown in Table~\ref{tab:regression} are significant at the $\alpha=.001$ level (indicated by the p-value and ***).
-We checked for all the other technical pairs that were reported significant using the approach described in the previous section and found that they are all significant in the regression model as well.
-Moreover, the four control variables of number of developers per build, number
-of work items per build, number of change sets per build, and number of files changed per build are also significant.
-
-Since we model failed builds with 0 and successful builds with 1, a negative coefficient means that the feature increases the chances of a failure.
-All pairs reported in Table~\ref{tab:regression} and the technical pairs that we identified to be related to build failure have a negative coefficient.
+%\subsection{Discussion}
+%\label{ch8:dis}
+%These results show that there is a strong relationship between certain technical
+%developer pairs and increased likelihood of a build failure.
+%Out of the total of 120 technical pairs that increase the likelihood of a
+%build to fail, only 23 had an existing
+%corresponding socio-technical pair. Of these, none were statistically
+%related to build failure. This means that 97 pairs of developers that had a
+%technical dependency did not communicate with each other and
+%consequently increased the likelihood of a build failure. Our results not only
+%corroborate past findings~\cite{cataldo:cscw:2006,cataldo:esem:2008} that socio-technical gaps
+%have a negative effect in software development. More importantly, they indicate
+%that the analysis presented in this paper is able to identify the specific
+%socio-technical gaps, namely the actual developer pairs where the gaps occur
+%and that increase the likelihood of build failure. 
+%
+%A preliminary analysis of developers membership to teams shows that most
+%of the technical pairs related to build failure consist of developer belonging to
+%different teams. Naggappan et al~\cite{nagappan:icse:2008} found that using the
+%organizational distance between people predicts failures. They reasoned that this
+%is due to the lack of awareness what people separated by organizational distance
+%work on. Although the Rational Team Concert team strongly emphasizes communication
+%regardless of team boundaries, it still seems that organizational distance has
+%an influence on its communication behaviour.
+%
+%
+%Although the analysis of technical pairs in relation to build failures
+%showed that they have a negative influence on the build result, it does not take
+%into account possible confounding variables. The question is if there developer pairs still effect the build outcome in the presence of confounding variables, such as number of developers involved in a build, number of work items
+%related to a build, number of change sets per build, and number of files changed.
+%We tested this using a logistical regression model including both developer pairs and confounding variables.
+%
+%Overall the logistic regression confirms the effect of the developer pairs
+%even in the presence of confounding variables, such as number of files changed
+%and numbers of developers (AIC of 706). 
+%Table~\ref{tab:regression} shows an excerpt from the complete logistical
+%regression which shows that the twenty pairs previously identified are still
+%significant under the influence of the four confounding variables. Because we have 2872 developer pairs, space constraints prevent us from reporting the entire regression model. We chose to report on the coefficients for the twenty pairs that we reported in Table~\ref{tab:regression} as well as the coefficients for the four control features.
+%
+%All features shown in Table~\ref{tab:regression} are significant at the $\alpha=.001$ level (indicated by the p-value and ***).
+%We checked for all the other technical pairs that were reported significant using the approach described in the previous section and found that they are all significant in the regression model as well.
+%Moreover, the four control variables of number of developers per build, number
+%of work items per build, number of change sets per build, and number of files changed per build are also significant.
+%
+%Since we model failed builds with 0 and successful builds with 1, a negative coefficient means that the feature increases the chances of a failure.
+%All pairs reported in Table~\ref{tab:regression} and the technical pairs that we identified to be related to build failure have a negative coefficient.
  
 
 

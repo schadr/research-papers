@@ -38,46 +38,18 @@ To complement the research that studied the relationship between socio-technical
 Although build outcome is rarely considered when studying software quality, as it a course measure that often indicates multiple issues rather than a single specific one, studying build outcome is important as build success is fundamental in creating a product that can be shipped to a customer.
 Often a successful build indicates that not only all test cases deemed important passed, a successful build towards the end of the release cycle often is the only indicator of customer acceptance with respect to requested features and their stability.
 Hence, build success is of utmost importance to a business as it forms the very product the business hopes to sell.
-Therefore the two guiding research questions we address in this thesis to investigate whether socio-technical congruence can be used to generate actionable knowledge that can increase build success are:
-\begin{description}
-\item[RQ 1:] Does Socio-Technical Congruence influence build success?
-\item[RQ 2:] Can Socio-Technical Networks be leverage to generate recommendations to improve build success?
-\end{description}
+%Therefore the two guiding research questions we address in this thesis to investigate whether socio-technical congruence can be used to generate actionable knowledge that can increase build success are:
+%\begin{description}
+%\item[RQ 1:] Does Socio-Technical Congruence influence build success?
+%\item[RQ 2:] Can Socio-Technical Networks be leverage to generate recommendations to improve build success?
+%\end{description}
+%
+%% methodology overview
+%We are using a mixed methods approach to explore these two research questions.
+%For \textbf{RQ~1} we employ data mining techniques by studying the artifacts such as task discussions and source code changes of a large industrial software project.
+%The second research question (\textbf{RQ~2}) requires both quantitative and qualitative analysis methods.
+%To find statistically relevant recommendations we employ data mining techniques, but to explore the usefulness and acceptance of such recommendations we make use of questionnaires, interviews, and observational studies.
 
-% methodology overview
-We are using a mixed methods approach to explore these two research questions.
-For \textbf{RQ~1} we employ data mining techniques by studying the artifacts such as task discussions and source code changes of a large industrial software project.
-The second research question (\textbf{RQ~2}) requires both quantitative and qualitative analysis methods.
-To find statistically relevant recommendations we employ data mining techniques, but to explore the usefulness and acceptance of such recommendations we make use of questionnaires, interviews, and observational studies.
-
-\section{Problem Statement}
-Socio-technical congruence as defined by Catalto et al~\cite{cataldo:cscw:2006}, describes a measure that outlines how much the technical dependencies in the product are matched by social interactions among developers affected by these technical dependencies.
-This directly follows from Conway's observations~\cite{conway:datamination:1968} that the communication structure of any given organization dictate the underlying technical dependencies.
-In software engineering that roughly translates into the idea that the communication flow within software teams need to match the module dependencies described by the software architecture. 
- 
-This idea shows great promise when applying it to software repositories such as versioning archives and issue trackers or other recorded communication.
-Cataldo et al~\cite{cataldo:cscw:2006,cataldo:esem:2008} as well as other researchers~\cite{valetto:msr:2007,ehrlich:stc:2008} found that the better the satisfaction of the technical dependencies with social interaction is, the higher productivity and to some extend software quality~\cite{kwan:tse:2011,bird:issre:2009,kwan:stc:2009} becomes.
-The ability to extract useful socio-technical measures from archives in an automated fashion enables the application to any software project that captures development data electronically.
-
-However, we see three major issues with the concept of socio-technical congruence as it is currently used:
-\begin{itemize}
-\item The socio-technical congruence measure itself does not give much indication with respect to how to improve the over all situation other than to suggest people to talk to each other in case they share a technical dependency. 
-\item The idea of achieving high congruence is based on the notion that it is important to communicate along all technical dependencies, which is not necessarily true.
-\item The analysis of socio-technical congruence can only be done post-mortem, which although valuable in a retrospective does not help in improving productivity or quality in an ongoing project.
-\end{itemize}
-
-% item 2
-The issue of imbalance between technical and social relationships between developers is related to the problem of not knowing how to improve the socio-technical congruence other than by pointing out the technical relationships between developers that did not communicate with each other.
-Given enough resources and time every technical dependency can be satisfied but this might run the risk of decreasing the productivity by introducing to many interruptions.
-
-% item 3
-Over-communication of technical dependencies might arise from the underlying assumption that every technical dependency warrants the dependent developers to communicate with each other.
-We are not solely referring to the ability of  developers to read environment traces~\cite{bolici:stc:2009} but also to the fact that some changes are either not meant to be communicated or that the system architecture was designed to accommodate certain changes (think of optimizations) that should not affect other developers.
-
-% item 4
-To fully leverage the concept of socio-technical congruence it is important to act on it.
-The current concept is only shown to relate to performance and quality post-mortem.
-To truly unlock the potential of the socio-technical congruence concept it needs to be extended such that it can make on demand recommendations to improve congruence.
 
 
 

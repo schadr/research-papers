@@ -1,9 +1,5 @@
 % !TEX root = thesis-journal.tex
-\section{Discussion}
-\label{chap:disc}
-In this chapter we discuss the approach and how the research we presented in the last three chapters support it (Section~\ref{ch:dis:app}).
-Followed by our second contribution which takes the form of the individual insights gained by the five studies we presented (Section~\ref{sec:cont:emp}).
-Before we end this thesis with concluding remarks as well as some future work (Section~\ref{ch:dis:con}) we discuss the threats to validity (Section~\ref{sec:threat}).
+
 
 \section{An Approach For Improving Social Interactions}
 \label{ch:dis:app}
@@ -40,10 +36,6 @@ We decided to focus on generating recommendation enticing developer to communica
 In Chapter~\ref{chap:talk} we explored the developer view with respect to recommendation systems and if and when recommendation on a change-set level would be appropriate.
 The feedback we received generally welcomed such recommendations as long as they are not seen as irrelevant, thus, corroborating Murphy and Murphy-Hill's~\cite{murphy:rsse:2010} point.
 Developers, in fact, discuss change-sets in general, but specifically towards the end of a release cycle, as each change becomes more important with respect to the stability of the overall project.
-
-Through an in-class study with several students in Canada and Finland we investigated whether we can collect the necessary data to compute recommendations at the appropriate time as well as if those recommendation actually could prevent builds from failing (Chapter~\ref{chap:actionable}).
-We recognize that a student project is substantially smaller in size and complexity than an industrial project such as Rational Team Concert, nevertheless, the student project was to work on an existing open source project that is used by several companies.
-Furthermore, the in class study gave us the chance to see the possible effect of our recommendations more clearly as the smaller complexity allowed build to fail for less reasons and therefore making the impact of the recommendations clearer.
 
 Overall, we gave evidence to the usefulness of our approach by selecting a specific scope and outcome metric, builds and build success respectively, and defined the construction of the social and technical networks in detail (see Chapter~\ref{chap:bg}).
 Furthermore, we showed that the approach can generate actionable insights that are acceptable to developers.
@@ -121,50 +113,44 @@ In our first qualitative study (Chapter~\ref{chap:talk}) we explored whether dev
 It turns out, that developers are generally open to recommendations on a low level, such as on a change-set basis, but it depends on external factors such as the development process.
 For instance, we found depending on how close a development team to a software release is the more they focus on the implications of individual changes, whereas developers focus more high level reusability issues at the beginning of a release cycle.
 
-Nakakoji et al~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems that support seeking information in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji et al guidelines:
+%Nakakoji et al~\cite{nakakoji2010:rdc} formulated nine design guidelines for systems that support seeking information in software teams. Some of them deal with minimizing the interruptions experienced by the developers who are asked for information, while others refer to enabling the information-seeker to contact the right people. Our findings help us refine Nakakoji et al guidelines:
 
 \paragraph{Guideline \#1} \emph{Recommender systems should adjust to the development mode.}
 Our first finding strongly suggests that a developer's information needs can dramatically change between development modes. 
 %
 When in normal iteration mode, developers act upon planned work and can therefore anticipate the information they need, but in endgame mode, developers react to unplanned incoming work, such as bug reports or requests for code reviews. 
 
-Many tools, such as Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008} provide information and recommendations in a fixed way. 
-Codebook enables developers to discover other developers whose code is related.
-In contrast,  Ensemble provides a constant stream of potentially relevant events for each developer.
-In the Codebook case, this might lead to extra overhead in endgame mode when developers frequently need to search for information instead being automatically provided, whereas Ensemble might overload developers during the feature development mode by providing a constant stream of information.
-
-To avoid overwhelming or reducing overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
+%Many tools, such as Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008} provide information and recommendations in a fixed way. 
+%Codebook enables developers to discover other developers whose code is related.
+%In contrast,  Ensemble provides a constant stream of potentially relevant events for each developer.
+%In the Codebook case, this might lead to extra overhead in endgame mode when developers frequently need to search for information instead being automatically provided, whereas Ensemble might overload developers during the feature development mode by providing a constant stream of information.
+%
+%To avoid overwhelming or reducing overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
 
 \paragraph{Guideline \#2} \emph{Recommender systems should account for perceived knowledge of other developers.}
 Our second and third findings unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
 Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the change-set owner.
-
-Traditional recommender systems in software engineering focus on the source code to determine useful recommendations, e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}.
-This might lead to providing developers with information about changes that are of little interest due to the trust placed in more experienced developer. 
-
-But because developers often look beyond source code and perform an additional step, namely considering the change-set owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
-Recommender systems might report issues that are of less importance due to the substantial experience of the change-set owner.
-
+%
+%Traditional recommender systems in software engineering focus on the source code to determine useful recommendations, e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}.
+%This might lead to providing developers with information about changes that are of little interest due to the trust placed in more experienced developer. 
+%
+%But because developers often look beyond source code and perform an additional step, namely considering the change-set owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
+%Recommender systems might report issues that are of less importance due to the substantial experience of the change-set owner.
+%
 Implementing filtering mechanisms based on author characteristics such as experience and quality of previously delivered work can help developers focus on the information that is important to them.
 
 
 \paragraph{Guideline \#3} \emph{Recommender systems should assist in non-implementation tasks such as code reviews and risk assessment.} 
 We observed, as described in the fourth, fifth, and sixth findings, that developers are highly engaged in discussions when performing risk assessments or reviews of change-sets. 
 
-In software engineering, most recommendations are focused on providing information to support concrete tasks such as bug fixes or re-factorings, but not for tasks such as reviews. To provide information for non coding tasks, recommender systems should be configurable to display relevant information beyond the tasks that they are intended to support, so that developer can easily access the information provided by recommender systems when performing code reviews or risk assessments.
+%In software engineering, most recommendations are focused on providing information to support concrete tasks such as bug fixes or re-factorings, but not for tasks such as reviews. To provide information for non coding tasks, recommender systems should be configurable to display relevant information beyond the tasks that they are intended to support, so that developer can easily access the information provided by recommender systems when performing code reviews or risk assessments.
 
 \paragraph{Guideline \#4} \emph{Recommender systems should account for business goals.}
 Our last finding points to internal conflicts within teams and among developers caused by the desire to create a flawless product under the restriction of a set of business goals such as shipping the product on time.
-Thus, developers often need to be reminded that they must focus their efforts on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
-
+%Thus, developers often need to be reminded that they must focus their efforts on fulfilling business goals rather than on polishing the product as they see fit. Existing recommenders that use code-related metrics such as quality or productivity may shift attention away from fulfilling business goals.
+%
 To support developers to focus on business goals, systems supporting the information-seeking behaviour of developers should be able to prioritize information related to tasks that are mission-critical to the organization, helping the team focus its attention on the most relevant problems for the upcoming release.
 
-
-\subsection{STC in real time}
-% leveraging stc in real time
-Knowing that socio-technical congruence lends itself to produce actionable knowledge that has an acceptable form to support developers in the wild, leads us to our last study (Chapter~\ref{chap:actionable}).
-In this study we showed the feasibility of generating recommendations at the right time, by gathering data to generate socio-technical congruence in real time.
-Thus, we showed that socio-technical congruence can be used in real time to create actionable knowledge that might be of use to developers.
 
 
 \section{Threats to Validity}
@@ -209,7 +195,7 @@ Another threat to the approach, which is related to the previously mentioned lac
 We presented in Chapter~\ref{chap:talk} a study that explored if the recommendations are made at an appropriate level of granularity as well as feedback to the usefulness of such recommendations.
 Furthermore, the study conducted in a class room setting also suggests that there is value in generating such recommendations.
 
-The surveys we deployed in our qualitative studies (Chapter~\ref{chap:talk} and~\ref{chap:actionable}) survey asked developers to answer closed questions with a pre-defined list of answers which might introduce a bias.
+The surveys we deployed in our qualitative studies (Chapter~\ref{chap:talk}) survey asked developers to answer closed questions with a pre-defined list of answers which might introduce a bias.
 This bias poses a threat to our findings due to the possibility that we were missing important items.
 We mitigated it by developing the survey iteratively by piloting and discussing it with one of the development teams to identify the most important items, and by relying on our other two sources of data to triangulate our findings.
 
