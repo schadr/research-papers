@@ -1,7 +1,7 @@
 % !TEX root = thesis-journal.tex
 \section{Background}
 \label{chap:bg}
-In this chapter we provide an overview of five areas that are relevant to the research conducted with this thesis: (1) the research on software builds, (2) the research on coordination in software development teams (3) the research around the concept of socio-technical congruence, (4) failure prediction using social networks, and (5) recommender systems in software engineering.
+In this chapter we provide an overview of five areas that are relevant to the research conducted with this thesis: (1) the research on software builds, (2) the research on coordination in software development teams, (3) failure prediction using social networks, and (4) recommender systems in software engineering.
 
 \subsection{Coordination in Software Engineering Teams}
 Software is extremely complex because of the sheer number of dependencies~\cite{sawyer2004:teams}.
@@ -17,13 +17,13 @@ A build result thus serves as an indicator of the health of the software project
 
 Thus, a developer should coordinate closely with individuals whose technical dependencies affect his work in order to effectively build software. This brings forth the idea of aligning the technical structure and the social interactions \cite{herbsleb2007:fose}, leading us to the foundation of socio-technical congruence.
 
-Research in software-engineering coordination has examined interactions among
-software developers \cite{carter2004,marczak:re:2008}, how they acquire
-knowledge \cite{ehrlich:icgse:2006,nakakoji2010:rdc}, and
-how they cope with issues including geographical
-separation~\cite{espinosa2007:team_knowledge,herbsleb2003:speed}.
-The ability to coordinate has
-been shown as an influential factor in customer satisfaction \cite{kraut:1995coordination} and  improves the capability to produce quality work~\cite{faraj2000}.
+%Research in software-engineering coordination has examined interactions among
+%software developers \cite{carter2004,marczak:re:2008}, how they acquire
+%knowledge \cite{ehrlich:icgse:2006,nakakoji2010:rdc}, and
+%how they cope with issues including geographical
+%separation~\cite{espinosa2007:team_knowledge,herbsleb2003:speed}.
+%The ability to coordinate has
+%been shown as an influential factor in customer satisfaction \cite{kraut:1995coordination} and  improves the capability to produce quality work~\cite{faraj2000}.
 
 
 Software developers spend much of their time
@@ -114,16 +114,13 @@ In this thesis we want to extend the body of knowledge surrounding prediction mo
 
 
 
-\subsection{Socio-Technical Congruence}
-Social-technical congruence as originally observed by Conway~\cite{conway:datamination:1968} states that any product developed by an organization will inevitably mirror the organization's communication structure.
-From this starting point Cataldo et al~\cite{cataldo:cscw:2006} as well as other researchers~\cite{valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008} investigated whether the lack of this reflection relates to changes in productivity by investigating the overlap of communication among developers and their technical dependencies.
-The communication among developers represents the organizational communication structure whereas the technical dependencies between the work each developer represents the products organization.
-If the communication structure completely contains the work dependencies among developers, then developers accomplish their tasks faster for reasons that are mainly due to knowledge seeking and sharing~\cite{desouza2006:knowledge}.
-For example, a developer can better accomplish her task if she is talking directly to co-workers that need to modify related code to avoid failures or because someone can help her understand the impact the code she is about to modify better.
+%\subsection{Socio-Technical Congruence}
+%Social-technical congruence as originally observed by Conway~\cite{conway:datamination:1968} states that any product developed by an organization will inevitably mirror the organization's communication structure.
+%From this starting point Cataldo et al~\cite{cataldo:cscw:2006} as well as other researchers~\cite{valetto:msr:2007,ducheneaut:cscw:2005,ehrlich:stc:2008} investigated whether the lack of this reflection relates to changes in productivity by investigating the overlap of communication among developers and their technical dependencies.
+%The communication among developers represents the organizational communication structure whereas the technical dependencies between the work each developer represents the products organization.
+%If the communication structure completely contains the work dependencies among developers, then developers accomplish their tasks faster for reasons that are mainly due to knowledge seeking and sharing~\cite{desouza2006:knowledge}.
+%For example, a developer can better accomplish her task if she is talking directly to co-workers that need to modify related code to avoid failures or because someone can help her understand the impact the code she is about to modify better.
 
-%The main performance criteria research investigated to measure the effect of socio-technical congruence is task completion time.
-%For this purpose Cataldo et al~\cite{cataldo:cscw:2006} measures the congruence on a task basis and test for the correlation between congruence the metric with the time it took to resolve the task.
-%Overall Cataldo et al~\cite{cataldo:cscw:2006} found that there is a statistically significant relation between the amount of congruence and a tasks resolution time, which was confirmed by other studies~\cite{valetto:msr:2007,ehrlich:stc:2008}.
 
 
 
@@ -132,14 +129,6 @@ For example, a developer can better accomplish her task if she is talking direct
 In the software engineering community knowledge extracted from software repositories is usually brought to developers in the form or recommender systems.
 Several recommender systems derived from the implication of socio-technical congruence described by Conway's Law~\cite{conway:datamination:1968} provide additional awareness to improve coordination among software development especially in a distributed setting where coordination is most difficult~\cite{olson:hci:2000}.
 In the following we describe three exemplary awareness systems.
-
-% ariadne
-%\emph{Ariadne}~\cite{trainer2005:ariadne} provides awareness to developers by showing call dependencies between code a developer is working on and the code that she is potentially affecting.
-%This allows a developer to see which other developer she might need to coordinate her work with to not negatively impact that developer's code.
-
-% palantir
-%\emph{Palantir}~\cite{sarma:cscw:2002} complements the dependencies among developers by providing the reverse awareness  showing a developer what source code she is currently accessing in their workspace is affected by code changes submitted by co-workers.
-%For example, Palantir indicates which source code files have been changed in the mean time by other developers that are present in the developer's current work space and thus might hint at possible merge conflicts.
 
 % tesseract
 \emph{Tesseract}~\cite{sarma:icse:2009} leverages code dependencies among developers to foster awareness through visualizing task and developer centric socio-technical networks.
@@ -171,8 +160,7 @@ The concept of socio-technical congruence lends itself to improve software devel
 Because of the concept being based on networks it is possible to manipulate the networks.
 
 Any socio-technical network can be manipulated in two ways: (1) changing the technical dependencies among developer by refactoring or architectural changes to make them unnecessary and (2) by engaging developer in discussions about their recent work and therefore creating a coordination edge in the socio-technical network.
-Since many products are not developed from scratch and because architectural changes once development has been going on for a number of months are costly and time consuming~\cite{vangurp:jss:2002}, we aim at generating recommendations to change the actual coordination to improve the socio-technical network where it matters.
-Therefore, as a first step we need to assess if the actual communication structure among software developers has an influence on build success to lay the basis for manipulating the actual coordination to increase build success.
+As a first step we need to assess if the actual communication structure among software developers has an influence on build success to lay the basis for manipulating the actual coordination to increase build success.
 As a follow up step, we need to explore the relationship between socio-technical networks and build success.
 Especially we are interested in whether missing actual coordination in the face of a coordination needs is related to build failure.
 
