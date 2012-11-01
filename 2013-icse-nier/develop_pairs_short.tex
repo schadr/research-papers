@@ -145,16 +145,20 @@ In this paper, we refer to these pairs of developers as \emph{technical pairs} (
 share a socio-technical dependency (there is no gap) as \emph{socio-technical pairs}.
 
 \section{Formulating the Approach}
-DEFINE WHAT CORRESPONDING MEANS
-
+Although a technical pair can be observed in multiple builds it can never be present in the same build as its \emph{corresponding} socio-technical pair.
+The corresponding socio-technical pair to a technical pair is the socio-technical pair comprised of the same developer as the technical pair but instead of only sharing a technical relationship the two developers share a socio-technical dependency.
 To answer our research question, we propose the following approach to analyze the technical pairs in relation to build failure:
 
 \begin{enumerate}
 \item Identify all technical pairs across all builds in your project.
-\item Determine if the pair is statistically related to success or failure using a Fisher exact value test comparing the frequency of occurring in failed vs successful builds. To apply the Fisher exact value test we need to determine for each technical pair in how many failed and successful builds it occurs.
 
-\item Remove technical pairs that have a socio-technical pair statistically related to build failure.
-\item Split technical pairs into two groups distinguished by whether the equivalent socio-technical pair increases build success.
+\item We remove all technical pairs from the set of identified pairs if their are not statistically related to build failure. To determine the statistical relationship we employ a Fisher exact value test comparing the frequency of occurring in failed vs successful builds by counting for each technical pair in how many failed and successful builds it occurs.
+
+\item From the set of statistically to failure related technical pairs we remove those that have a \emph{corresponding} socio-technical pair that is statistically related to build failure (using a Fisher exact value test as mentioned above).
+
+\item Split the set of remaining technical pairs into two sets.
+The first set contains those technical pairs which have a corresponding socio-technical pair that is statistically related to build success (using a Fisher exact value test as mentioned earlier) whereas the second set contains the remaining technical pairs.
+
 \item We rank the developer pairs using the coefficient $p_x$,
 which represents the normalized likelihood of a build
 to fail in the presence of the specific pair:
@@ -170,7 +174,7 @@ Note that we need to adjust the p-values of the Fisher Exact Value test to accou
 
 The approach produces two sets of technical dependencies that are related to build failure.
 The first set consists of technical pairs that have an equivalent socio-technical pair that are related to build success.
-The second set consists of technical that do not have an equivalent socio-technical pair that is either related to build outcome.
+The second set consists of technical that do not have an equivalent socio-technical pair that is related to either build outcome.
 Both sets of technical pairs represent recommendations of pairs of developers that should communicate in order to increase the chance of a build to succeed with the technical pairs contained in the first set having a larger potential influence due to converting a build failure related pair into a build success related pair.
 
 
@@ -251,27 +255,22 @@ By manual inspection of a selected number of work items, however, we found that 
 
 
 \section{Conclusion and Next Steps}
-In this paper we investigated the relationship between pairs of developers as identified by our proposed approach that share
-a technical dependency but do not communicate and build failures. We were
-motivated by findings in the literature that suggested that high alignment between technical dependencies and actual coordination in a project has a positive effect on task
-performance.
-We hypothesized that a similar relationship may be found in relation to a broader
-coordination outcome, i.e. integration outcome, because developers not
-coordinating about dependencies in their work might lead to errors remaining in
-the code that break the build.
+Motivated by findings in the literature suggesting that socio-technical gaps increase build failure~\cite{kwan:tse:2011}
+we hypothesized that these findings can be made actionable.
+In this paper we preposed an approach that is capable of generating actionable knowledge that helps developers to prevent builds from failing.
 
-The result obtained from our preliminary validation using data from the Jazz project indicate that 
-historical project information about socio-technical coordination and software
-builds can be used in a model that predicts the quality of upcoming builds. We also found
-that the influence of developer pairs with a socio-technical gap on the build
+The result obtained from our preliminary evaluation using data from the Jazz project indicate that 
+the influence of developer pairs with a socio-technical gap on the build
 failure was very high. 
+ We also found
+that historical project information about technical pairs and software
+builds can be used in a model that predicts the quality of upcoming builds.
 %This means that if any one of the twenty most frequent failure related pairs was present in a social network of a build, the build had at least an 74\% chance to fail.
 
 As a next step to complement these preliminary results presented in this paper, we plan three follow up studies:
-(1) We strive to establish for each of the technical pairs a link between the build failure and the changes made by the developers that create the coordinative need and to further validate our approach.
-(2) Create a tool that can be evaluated with developers in the field gathering insights to the usefulness of the approach.
-(3) Refine the definition of coordination needs and coordination, by both extracting more precise code relationships and coordination activities.
-
+(1) We want to examine the extend to which the technical pairs identifies by our approach cause builds to fail.
+(2) Create a tool, providing recommendation based on the technical pairs to developer, that can be evaluated with developers in the field gathering insights to the usefulness of the approach.
+(3) Refine the definition of coordination needs and coordination, by both leveraging alternative conceptualizations of technical and social dependencies.
 \bibliographystyle{IEEEtran}
 \bibliography{bib}
 
