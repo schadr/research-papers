@@ -14,7 +14,9 @@
 
 \begin{document}
 
-\title{On Socio-Technical Coordination and its Relation to Build Failure}
+\title{Generating Actionable Knowledge leveraging the Concept of Socio-Technical Congruence}
+
+%On Socio-Technical Coordination and its Relation to Build Failure}
 
 
 \author{\IEEEauthorblockN{Adrian Schr{\"o}ter}
@@ -51,16 +53,23 @@ effective coordination is the main source of integration failures. The
 development work that precedes integrations involves significant coordination of
 developers that work in teams and need to rely on the code of others. 
 But often code is everything but stable, further contributing to
-developers' need to coordinate to keep up with code changes that impact their work. This problem is
-amplified in software builds where an entire team needs to integrate their work
-and on which the development of new features depends. Not only do
+developers' needing to coordinate to keep up with code changes that impact their work. This problem is
+amplified in software builds that integrate an entire team's work
+and on which the delivery of new features depends. Not only do
 failed builds destabilize the product~\cite{cusumano1997} but they also demotivate
 software developers~\cite{holck2004}.
 
-Keeping integrations builds error-free can be a very time consuming
-process. 
-Thus a lightweight approach that can determine whether the build contains
-failures before invoking the build process holds value. Previous
+%Keeping integrations builds error-free can be a very time consuming
+%process. 
+One major challenge with integrating work across teams is tied to coordination~\cite{cataldo:esem:2008}.
+Coordination problems can arise from many factors including organizational,
+social or technical reasons~\cite{herbsleb:icse:1999}. Being able to pinpoint
+mismatches between technical dependencies and required communication that
+relate to build failure is even more important for a team's
+ability to devise strategies to avoid build failure.
+Thus an approach to support developers to identify co-workers they need to coordinate with in order to avoid the up coming build from breaking is called for.
+
+Previous
 research~\cite{wolf:icse:2009,hassan:ase:2006} trained predictive models to assess the quality of software builds without the need of invoking large test
 suits. Although this research
 reaches a high degree of accuracy in their predictions, knowing that a
@@ -71,10 +80,8 @@ integration failure.
 
 In this paper we describe an approach evaluated using data from the IBM's Jazz project where we leverage
 information about socio-technical developer coordination and software builds to
-identify pairs of developers that negatively influence the outcome of the
-upcoming build. Using historical project information we construct socio-technical
-networks that capture information about developers with technical dependencies
-as well as their ongoing communication as conceptualization of their coordination.
+identify pairs of developers that increase the likelihood of a build failing. From historical project information we extract information about developers with technical dependencies
+as well as their ongoing cooridnation.
 We identify that there are certain pairs of developers that have a
 negative influence on the build outcome. Developers and management can
 act upon this knowledge to avoid future build failure.
@@ -88,32 +95,18 @@ failure related. Developers and management can then devise strategies to
 prevent the failure before build time. 
 
 
-
-\section{Identifying Build Breaking Pairs}
-\label{sec:pattern}
-We seek to generate actionable knowledge to
-prevent a build from failing. Past research suggests that the absence of
-communication between developers that are technically dependent leads to
-problems, such lack of productivity~\cite{cataldo:esem:2008}.
-
-
 We hypothesize that due to the high coordination needs the absence of this
-important communication also has a negative influence on build outcome. Communication problems can arise from many factors including organizational,
-social or technical reasons~\cite{herbsleb:icse:1999}. Being able to pinpoint
-mismatches between technical dependencies and required communication that
-relate to build failure is even more important for a team's
-ability to devise strategies to avoid build failure. Thus, we
+important coordination increases the likelihood of build failure. 
+Thus, we
 investigate pairs of developers that share a technical dependency without talking
 with each other (referred to as \emph{technical pairs}):
-\ \\ \
-
 
 \textbf{RQ} How can we identify developer pairs that negatively influence build success?
  
 
 \section{Related Work}
 \label{sec:relwork}
-We aim to integrate work investigating team collaboration to produce actionable knowledge upon which developer can act.
+We aim to integrate work investigating team collaboration to produce actionable knowledge upon which developers can act.
 Several studies bear relevance with respect to different dimensions of our work:
 
 \paragraph{Factors that affect software builds}
