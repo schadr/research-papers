@@ -1,5 +1,5 @@
 % !TEX root = thesis-journal.tex
-\section{Methodology and Constructs}
+\section{Constructs and Data Collection Methods}
 \label{chap:meth}
 Before we dive into our actual studies of the effect of socio-technical congruence and its use to form recommendations, we present the overall roadmap for this thesis (Section~\ref{c5:sec:roadmap}) and some common definitions (Section~\ref{c5:sec:definitions}) and constructs (Section~\ref{c5:sec:constructs}) that we use for the remainder of the thesis.
 Furthermore, we also will discuss the general approach to the data collection methods employed (Section~\ref{c5:sec:datacollection}).
@@ -110,16 +110,12 @@ In our approach, the nodes represent people and edges represent task-related com
 
 The approach is repository and tool independent and can be applied to any repositories that provide information about people, tasks, technical artifacts, and communication, this includes work, issue, or change management repositories, such as Bugzilla or IBM Rational Team Concert; or source code management systems, such as CVS or IBM Rational Team Concert; or even communication repositories such as email archives.
 
-There are three critical elements that are necessary to construct task-based social networks for a collaboration scope and that need to be mined from software development repositories:
-
-\begin{itemize}
-\item\textbf{Project Members}  can be developers, testers, project managers, requirements analysts,
+There are three critical elements that are necessary to construct task-based social networks for a collaboration scope and that need to be mined from software development repositories.
+\emph{Project Members}  can be developers, testers, project managers, requirements analysts,
 or clients. 
+\emph{Work Items} are units of work within the project that may create a need to collaborate and communicate such as a bug report or feature request.
+\emph{Work Item Communication} is the information exchanged while completing a work item and is the unique information that allows us to build task-based social networks.
 
-\item\textbf{Work Items} are units of work within the project that may create a need to collaborate and communicate such as a bug report or feature request.
-
-\item\textbf{Work Item Communication} is the information exchanged while completing a work item and is the unique information that allows us to build task-based social networks.
-\end{itemize}
 
 %The data underlying the social network used throughout this thesis are based on work items and their associated discussions.
 %In IBM Rational Team Concert each work item has an attached discussion thread were developers can discuss the work item or simply note down their thoughts while working on the work item.
@@ -138,17 +134,17 @@ or clients.
 Building technical networks follows a very similar approach as we described for building social networks.
 In fact, the technical network is a social network whose main distinction from the social network described earlier lies in the way edges between nodes are created.
 We derive the name of technical network from the way we link developer with each other, namely if they are modifying related source code artifacts.
-As in the previous network construction, the construction of the technical network is based on three components:
-
-\begin{itemize}
-\item\textbf{Project Members}  can be developers, testers, project managers, requirements analysts,
+As in the previous network construction, the construction of the technical network is based on three components.
+%
+%\begin{itemize}
+\emph{Project Members}  can be developers, testers, project managers, requirements analysts,
 or clients or in general anyone that modifies software artifacts through change-sets. 
-
-\item\textbf{Change-Sets} consist of a number of artifacts that have been modified as well as the modifications themselves.
-
-\item\textbf{Software Artifact Relation}  can be defined in several different ways.
+%
+\emph{Change-Sets} consist of a number of artifacts that have been modified as well as the modifications themselves.
+%
+\emph{Software Artifact Relation}  can be defined in several different ways.
 For example, in Figure~\ref{fig:construct-tn} Alfred and Bob are related through a technical relationship because they modified the same file.
-\end{itemize}
+%\end{itemize}
 
 % Example as shown in the picture
 Constructing technical networks therefore follows three steps: (1) we gather all change-sets of interest, (2) identify the relations between artifacts, (3) infer from the change-sets and the relations between the source code artifacts the relation between the artifact owners.
@@ -161,24 +157,23 @@ And as Figure~\ref{fig:construct-tn} shows this means in the case for Alfred and
 %	
   \centering
   \subfloat[Inferring to the build focus relevant change-sets and work items.]{
-    \includegraphics[width=.23\textwidth]{figures/buildworkitem}
+    \includegraphics[width=.22\textwidth]{figures/buildworkitem}
     \label{fig:construct-focus}
   }
 % 
-%  \hspace{8pt}
+\hspace{5pt}
   \subfloat[Constructing an social networks from work item communication.]{
-	\includegraphics[width=.23\textwidth]{figures/buildsn}
+	\includegraphics[width=.22\textwidth]{figures/buildsn}
      \label{fig:construct-sn}
   }
-%  
+\hspace{5pt} 
     \subfloat[Linking developers in a technical networks via change-set overlaps.]{
-  	\includegraphics[width=.23\textwidth]{figures/cochangedfiles}
+  	\includegraphics[width=.22\textwidth]{figures/cochangedfiles}
     \label{fig:construct-tn}
   }
-%  %
-%    \hspace{8pt}
+\hspace{5pt}
   \subfloat[Combine social and technical networks into a socio-technical network.]{
-  	\includegraphics[width=.23\textwidth]{figures/stc-net}
+  	\includegraphics[width=.22\textwidth]{figures/stc-net}
 	\label{fig:construct-combine}
   }
   \caption{Constructing socio-technical networks from the repository provided by the IBM Rational Team Concert development team.}
@@ -213,13 +208,13 @@ In contrast to gain a more in-depth understanding on how developers actually wor
 
 \subsubsection{Repository Mining}
 Software development usually uses a number of tools to manage information electronically such as version archives and issue trackers.
-Additionally to storing source code and tasks/issues, those software repositories can also contain digital communication such as forum and email discussions or logs of IRC\footnote{\url{http://en.wikipedia.org/wiki/Internet_Relay_Chat} last visited June 8th, 2012} or instant messenger chats.
+Additionally to storing source code and tasks/issues, those software repositories can also contain digital communication such as forum and email discussions.
 
-Repositories can grow to considerable sizes depending on the projects live span and intensity. 
-Therefore, it is often infeasible to manually review the history of a project and it is necessary to employ data-mining techniques to be able to analyze trends.
-Data mining approaches leveraging this wealth of data are one way to easily give back value to the development team without burdening any individual developer with diverting time to other non-automatic data collection instruments.
-technical congruence to generate actionable recommendations.
-In case a developer needs to personally provide a large amount of information manually the overhead generated by a system might outweigh the benefit of recommendations and therefore make the system useless.
+%Repositories can grow to considerable sizes depending on the projects live span and intensity. 
+%Therefore, it is often infeasible to manually review the history of a project and it is necessary to employ data-mining techniques to be able to analyze trends.
+%Data mining approaches leveraging this wealth of data are one way to easily give back value to the development team without burdening any individual developer with diverting time to other non-automatic data collection instruments.
+%technical congruence to generate actionable recommendations.
+%In case a developer needs to personally provide a large amount of information manually the overhead generated by a system might outweigh the benefit of recommendations and therefore make the system useless.
 
 We extract information from three different types of repositories: (1) version control, (2) task management, and (3) build engine systems.
 The version control supplies us with the knowledge on how developers are connected through their technical work.
@@ -260,7 +255,7 @@ Because of this closeness of our observation period to a major release we observ
 %Being part of the development effort allowed us to better understand how developers react to the change in process and better understand their struggles.
 
 \item\textbf{Asking more Meaningful Questions.} A better understanding of the project and how it affects the individual developer as well as understand the vocabulary helps with phrasing better questions.
-Better in the sense of both more meaningful to the developer and in the sense of understandability because they can be phrased using the project vocabulary.
+%Better in the sense of both more meaningful to the developer and in the sense of understandability because they can be phrased using the project vocabulary.
 \end{itemize}
 
 Besides gaining a better understanding of some easily missed or miss-understood intricacies, working together with the developer establishes a trust relationship~\cite{letherbridge:ese2005}.

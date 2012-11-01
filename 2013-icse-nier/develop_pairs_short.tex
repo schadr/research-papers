@@ -79,7 +79,7 @@ We identify that there are certain pairs of developers that have a
 negative influence on the build outcome. Developers and management can
 act upon this knowledge to avoid future build failure.
 
-In our study through the application of our proposed approach we uncover the existence of pairs of
+Through the application of our proposed approach we uncover the existence of pairs of
 developers, that, if technically dependent in a build but not discussing their
 dependencies, have a negative influence on build success. This
 actionable knowledge can be integrated in real-time recommender systems that
@@ -145,34 +145,34 @@ Furthermore, when combining these social networks with information of organizati
 Herbselb and Grinter~\cite{herbsleb:icse:1999} found that coordination impacts integration efforts.
 We take the findings showing the influence of coordination on software quality and combine them with technical dependencies among developers to generate actionable knowledge.
 
-\input{significant-pairs}
-
 \section{Formulating the Approach}
 The lack of communication between two developers that share a
-technical dependency is referred to in the literature as a
+technical dependency, such as changing the same file, is referred to in the literature as a
 socio-technical gap~\cite{valetto:msr:2007}. Because research suggests negative influence of such gaps, we are interested in analyzing pairs of developers that share a technical dependency (implying coordination need) but had no social interaction (implying
-unmet coordination need) in socio-technical networks. We refer to these pairs of
+unmet coordination need) in a build. We refer to these pairs of
 developers as \emph{technical pairs} (there is a gap), and to those that do
 share a socio-technical dependency (there is no gap) as \emph{socio-technical pairs}. 
 
-We consider two developers exhibiting a coordination need if they for a given build modified the same file.
-Similarly, if two developer commented on the same work item that through changes attached to the work item can be linked to the build of interest, are considered to have coordinated their work.
-
-To answer our research question, we propose the following approach to analyze the technical pairs in relation to build failure:
+To answer our research question, we propose the following approach to analyse the technical pairs in relation to build failure:
 
 \begin{enumerate}
-\item Identify all technical pairs from the socio-technical networks.
-\item For each technical pair count occurrences in socio-technical networks of
+\item Identify all technical pairs across all builds.
+\item For each technical pair count occurrences in
 failed builds.
-\item For each technical pair count occurrences in socio-technical networks of
+\item For each technical pair count occurrences in
 successful builds.
-\item Determine if the pair is statistically related to success or failure.
-\item Remove technical pairs with a corresponding harmful socio-technical pair.
-\item Split technical pairs into two groups distinguished by whether the corresponding socio-technical pair induces build success.
-\item Prioritize the pairs with respect to the likelihood of the pair to negatively influence the build outcome.
+\item Determine if the pair is statistically related to success or failure using a Fisher exact value test comparing the frequency of occurring in failed vs successful builds.
+\item Remove technical pairs that have a socio-technical pair statistically related to build failure.
+\item Split technical pairs into two groups distinguished by whether the equivalent socio-technical pair increases build success.
+\item Rank the pairs with respect to the likelihood of the pair to negatively influence the build outcome.
 \end{enumerate}
 
-We prioritize the developer pairs using the coefficient $p_x$,
+The approach produces two sets of technical dependencies that are related to build failure.
+The first set consists of technical pairs that have an equivalent socio-technical pair that are related to build success.
+The second set consists of technical that do not have an equivalent socio-technical pair that is either related to build outcome.
+Both sets of technical pairs represent recommendations of pairs of developers that should communicate in order to increase the chance of a build to succeed with the technical pairs contained in the first set having a larger potential influence due to converting a build failure related pair into a build success related pair.
+
+We rank the developer pairs using the coefficient $p_x$,
 which represents the normalized likelihood of a build
 to fail in the presence of the specific pair:
 $$
@@ -184,19 +184,24 @@ A value of $p_x$ closer to one means that the developer pair is strongly related
 failure. 
 
 \section{Preliminary Case Study}
+\setcounter{paragraph}{0}
+\paragraph{IBM Rational Team Concert Data}
 To evaluate our approach we used data provided by the IBM Jazz\texttrademark\ development team.
 The repository spans three months in which the team started 326 builds with 99 failed and 227 successful builds.
 The team consists of more than 100 developers distributed across seven major sites in Europe, Asia, and North America.
 Rational Team Concert itself is a product that integrates source code management, agile planing, and issue management into a single server/client application that the team itself uses for development.
 The Rational Team Concert product allows developers to link changes they made directly to work items they were working on, thus they established within their repository traceability links between builds and work items through the changes they made.
 
+In Rational Team Concert we consider two developers exhibiting a coordination need if they for a given build modified the same file.
+Similarly, if two developer commented on the same work item that through changes attached to the work item can be linked to the build of interest, are considered to have coordinated their work.
 
+\input{significant-pairs}
 
-\section{Preliminary Results}
+\paragraph{Preliminary Results}
 Through applying our proposed approach we found a total of 2872 developer pairs in all the constructed
 socio-technical networks, out of which 961 were technical pairs.
 Of these 961 technical pairs we found 120 to be statistically related to build failure. 
-We choose to present the twenty that are most frequent that are statistically related to failed builds in Table~\ref{tab:pairs}.
+We choose to present twenty technical pairs that are statistically related to failed builds in Table~\ref{tab:pairs}.
 
 We then checked for the 120 pairs whether the corresponding \emph{socio-technical} pairs are related to failure (step 4) or success (step 5).
 Only 23 of the 120 technical pairs had an existing corresponding socio-technical pair of which none were statistically related to build success or failure. 
@@ -217,6 +222,7 @@ Note that we adjust the p-values of the Fisher Exact Value test to account for m
 The adjustment is necessary because we deal with 961 technical pairs that need to be tested. 
 
 \begin{figure}[t]
+\vspace{-29pt}
 \centering
 %\subfigure[Evaluation results from the Support Vector Machine.] {
 %\includegraphics[width=\columnwidth]{precission-recall}
@@ -226,31 +232,16 @@ The adjustment is necessary because we deal with 961 technical pairs that need t
 \includegraphics[width=\columnwidth]{precision-recall-logreg}
 %\label{fig:prediction-logreg}
 %}
-\caption{Plotting the precision (green downward pointing triangles) and recall (black hollow circles) of the support vector machine (left) and the logistic regression (right).}
+\vspace{-25pt}
+\caption{Precision (green) and recall (black) of the logistic regression.}
 \label{fig:prediction}
-\vspace{-20pt}
+%\vspace{-20pt}
 \end{figure}
 
-Additionally to check the statistical relationship between technical pairs and build failure we used for each build the statistically harmful technical pairs that could be inferred from all previous builds to predict the likelihood of a build to fail or succeed.
-Figure~\ref{fig:prediction} shows the recall and precision values for the
-a logistical regression model. The green downward
-pointing triangles represent the precision of the model for each iteration, note that we started training each model with at least three data points. The black circles represent the recall of a model for each
-iteration.
-The support vector machine ended with a precision and recall value of $.43$ (median: $.45$) and $.67$ (median: $.67$) respectively.
-
-\section{Discussion}
-These preliminary results show that our approach identifies technical pairs the exhibit a statistical relationship to an increased in likelihood of a build failure.
-Out of the total of 120 technical pairs that increase the likelihood of a
-build to fail, only 23 had an existing
-corresponding socio-technical pair. Of these, none were statistically
-related to build failure. This means that 97 pairs of developers that had a
-technical dependency did not communicate with each other and
-consequently increased the likelihood of a build failure. Our results not only
-corroborate past findings~\cite{cataldo:cscw:2006,cataldo:esem:2008} that socio-technical gaps
-have a negative effect in software development, more importantly, they indicate
-that the analysis presented in this paper is able to identify the specific
-socio-technical gaps, namely the actual developer pairs where the gaps occur
-and that increase the likelihood of build failure. 
+To check the statistical relationship between technical pairs and build failure we used for each build the statistically harmful technical pairs that could be inferred from all previous builds to predict the likelihood of a build to fail or succeed.
+Figure~\ref{fig:prediction} shows the recall (black) and precision (green) values for the
+a logistical regression model. 
+The logistical regression ended with a precision and recall value of $.43$ (median: $.45$) and $.67$ (median: $.67$) respectively.
 
 Although not a goal of this paper, we sought possible explanations for the
 socio-technical gaps in this project. A preliminary analysis of developers
@@ -263,18 +254,12 @@ work on. Although the Jazz team strongly emphasizes communication
 regardless of team boundaries, it still seems that organizational distance has
 an influence on its communication behaviour.
 
-
 \section{Threats To Validity}
 \label{sec:threats}
-During our study we identified two main threats. 
-One threat covers issues that arise from the underlying data we used.
-The other threat deals with possible problems from the conceptualization of
-constructs in our study.
-
 \emph{Data.}
 We performed all our analysis on one set of data, the Jazz\texttrademark\
 repository. 
-Although limiting ourselves to studying three months one project limits the generalizability of our findings, the  
+Although limiting ourselves of using three months one project limits the generalizability of our findings, the  
 project size and practises make us believe that our findings still hold value.
 Furthermore, since the three months  we studied are directly before a major release of the project, this dataset contains the most viable data for our analysis. In those three months a lack of necessary coordination is the most harmful to the project.
 %Furthermore, the Jazz\texttrademark\ team's development process demands that the developers
@@ -282,16 +267,11 @@ Furthermore, since the three months  we studied are directly before a major rele
 %Thus we believe due to the nature of the three months we studied, most communication data is recorded.
 
 \emph{Conceptualization.}
-Our conceptualization of the three dependencies we use to construct the socio-technical networks might introduce inaccuracy in our findings.
-First, social dependency are extracted from work item discussions. 
+Social dependency are extracted from work item discussions. 
 We assumed that every developer commenting on or subscribed to a work item reads all comments of that work item. 
 By manual inspection of a selected number of work items, however, we found that developers who commented on a work item are aware of the other comments, confirming our assumption.
 
-Second, technical dependencies only represent a limited number of technical dependencies that exists between code artifacts. 
-For example, two developers can be connected if one developer changes someone else's code. 
-This does not invalidate our findings, it suggests room for improvement, which we will address in future work.
-
-Third, socio-technical dependencies may suffer from the combination of social and technical dependencies. 
+Socio-technical dependencies may suffer from the combination of social and technical dependencies. 
 Social dependencies might not be related to the code changes the technical depnendecy was inferred from.
 Since the changes we used are directly linked to work item discussion we are confident that the vast majority of matches are appropriate.
 
