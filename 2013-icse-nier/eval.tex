@@ -1,0 +1,74 @@
+% !TEX root = develop_pairs_short.tex
+\section{Preliminary Evaluation}
+To evaluate our approach we analyzed collaboration and build data in the IBM Rational Team Concert\texttrademark\ (RTC) development team.
+RTC is a product that integrates source code management, agile planning, and issue management into a single server/client application that the team itself uses for development.
+RTC allows developers to link changes they made directly to work items, thus establishing within their repository traceable links between builds and work items through the changes they made.
+The repository spans three months in which the team started 326 builds, 99 of which failed and 227 that were successful. 
+The team consists of more than 100 developers distributed across seven major sites in Europe, Asia, and North America. Due to the team's geographical distribution and agile development process the team's  communication is largely found in the online repository in the form of comments related to work items. 
+
+
+In RTC we conceptualize a \emph{technical pair} as two developers that modified the same file in a build.
+Similarly, two developers are in a \emph{socio-technical pair} if they modified the same file in a build \emph{and} commented on a work item that was linked to the build in which they changed the same file.
+
+\input{significant-pairs}
+
+\emph{Preliminary Results.}
+Using our approach we analyzed all existing builds in the project and were able to identify a ranked list of 120 developer pairs that should communicate in order to increase the likelihood of the upcoming build to succeed. 
+
+We used the approach as follows: From the total of 2872 developer pairs, we found 961 technical pairs (set $T$) (step 1).
+Of these 961 technical pairs we found 120 harmful pairs (set $H$) that were statistically related to build failure (step 2). See Table~\ref{tab:pairs} for the top twenty  pairs.
+
+Next, for all pairs in set $H$, we examined their corresponding \emph{socio-technical pairs} (step 3). Because this set ($H_f$) was empty in our data we did not have to remove any pairs from $H$. 
+In step 4 we identified that none of the 120 technical pairs in $R$ had an existing corresponding socio-technical pair related to build success nor failure. Thus $R_1$ was empty and $R=R_2$. 
+
+%Thus, step 4 yields $R_1$ containing no recommendations and $R_2$ containing 120 recommendations in the form of technical pairs.
+
+In step 5 we ranked the recommendations in $R$
+by the coefficient $p_{x}$ as shown in Table~\ref{tab:pairs}. This coefficient indicates the strength of
+relationship between the developer pair and build failure. For instance, the
+developer pair (Adam, Bart), appears in 13 failed builds and in 3
+successful builds. This means that pair$_{failed}$ = 13 and pair$_{success}$ = 3
+with total$_{failed}$= 99 and total$_{success}$= 227 result in $p_x$= 0.9016.
+
+
+\begin{figure}[t]
+\vspace{-29pt}
+\centering
+%\subfigure[Evaluation results from the Support Vector Machine.] {
+%\includegraphics[width=\columnwidth]{precission-recall}
+%\label{fig:prediction-svm}
+%}
+%\subfigure[Evaluation results from the Logistic Regression.] {
+\includegraphics[width=\columnwidth]{precision-recall-logreg}
+%\label{fig:prediction-logreg}
+%}
+\vspace{-25pt}
+\caption{Precision (green) and recall (black) of the logistic regression.}
+\label{fig:prediction}
+\vspace{-10pt}
+\end{figure}
+
+To further validate our recommendations, we used the approach to generate a list of technical pairs for each of the 326 builds in our data. For any given build N we used the technical pairs as recommended by our approach from all the previous builds to build a logistical regression model predicting the outcome of build N. 
+Applying this method to all builds yields Figure~\ref{fig:prediction} which shows the recall (black) and precision (green) values for the a logistical regression model used for prediction.
+The recall and precision are cumulative at each point, including the prediction results obtained for the previous builds.
+The logistical regression ended with a precision and recall value of $.43$ (median: $.45$) and $.67$ (median: $.67$) respectively, thus outperforming a random guess based on the ratio between failed and successful builds.
+This further suggests that the recommendations that our approach identifies might prevent build failure. 
+
+%WHAT DO THOSE NUMBERS FOR THE PREDICTION MEAN
+
+In seeking explanations for the lack of communication in the RTC technical pairs found by our analysis, we were able to identify that most of these technical pairs consisted of developers belonging to
+different teams. This confirms Naggappan et al.~\cite{nagappan:icse:2008}'s result that organizational distance predicts failures. Although the RTC team strongly emphasizes communication
+regardless of team boundaries, it still seems that organizational distance had
+an influence on its communication behaviour.
+
+\emph{Threats to Validity.}
+\label{sec:threats}
+First, we performed our preliminary evaluation on one set of data, the Rational Team Concert\texttrademark\
+repository, limiting the generalizability of our findings.
+However, since the three months  we studied were directly before a major release of the project, 
+we believe that this dataset is representative of a period in which lack of coordination (gaps) have the biggest impact on builds. Secondly, we assumed that every developer commenting on, or subscribed to, a work item reads all comments of that work item. 
+By manual inspection of a selected number of work items, we found that developers who commented on a work item were aware of the other comments, confirming our assumption.
+
+%Thirdly, Socio-technical dependencies may suffer from the combination of social and technical dependencies. 
+%Social dependencies might not be related to the code changes the technical dependency was inferred from.
+%Since the changes we used are directly linked to work item discussion we are confident that the vast majority of matches are appropriate.
