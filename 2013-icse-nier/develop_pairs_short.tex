@@ -148,10 +148,10 @@ These recommendations aim at initiating coordination between two developers that
 This approach can support projects that use electronic repositories such as automated build engines, version control and task management.
 
 For our approach we define a socio-technical gap as the relationship between two developers that share a technical dependency (implying coordination need) without any social interaction (implying unmet coordination need).
-A technical dependency can be inferred by two developers changing the same file, or a developer changing method another developer's code is calling.
+A technical dependency can be inferred by two developers changing the same file, or a developer changing a method that another developer's code is calling.
 %In this paper, two developers that share a technical dependency are referred to as a \emph{technical pair} (or socio-technical gap).
 In contrast two developers that share a technical dependency and that also coordinate their work are referred to as being in a \emph{socio-technical pair}.
-For example, two developers that discuss their work through email are said to coordinate, and if they additionally share a technical dependency then they form a socio-technical pair.
+For example, two developers that discuss their work through email are said to coordinate; if they additionally share a technical dependency then they form a socio-technical pair.
 %
 When analyzing the developer pairs in a project's set of builds, in our approach we recognize that each \emph{technical} pair can have a \emph{corresponding socio-technical} if the same two developers have a technical dependency matched by actual coordination in a different build. 
 
@@ -179,12 +179,12 @@ Therefore $R = H - H_f$.
 
 Therefore, $R = R_1 \cup R_2$.
 
-In our recommendation set $R_1$ has highest priority because it contains developer pairs that contributed to a successful build when matched by actual coordination.  
+In our recommendation the $R_1$ set has highest priority because it contains developer pairs that contributed to a successful build when matched by actual coordination.  
 
 %We split the set of recommendations into two sets of recommendations.
 %The first set contains those which have a corresponding socio-technical pair that is statistically related to build success (using a Fisher exact value test as mentioned earlier) whereas the second set contains the remaining technical pairs.
 
-\item Finally, for each set in our recommendation $R$ ($R_1$ and $R_2$) rank the developer pairs using the coefficient $p_x$, which represents the normalized likelihood of a build
+\item Finally, for each set in our recommendation $R$ ($R_1$ and $R_2$) we rank the developer pairs using the coefficient $p_x$, which represents the normalized likelihood of a build
 to fail in the presence of the specific pair:
 $$
 p_x\text{=}\frac{ \text{pair}_{failed} / \text{total}_{failed} }
