@@ -20,124 +20,10 @@ Thus, we hypothesize that the concept of socio-technical congruence relates to s
 %We conclude this chapter with offering an answer to our research question and leading into the subsequent chapter (Section~\ref{sec:conclusion}).
 
 
-\subsection{Calculating Congruence}
-\label{sec:congruence}
-In Chapter~\ref{chap:meth} we described socio-technical networks and how we conceptualize them in this thesis.
-If we reformulate this network into the terms originally used by Cataldo et al~\cite{cataldo:cscw:2006} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
-Thus we calcite the socio-technical congruence index as follows:
-
-\[ \text{congruence} = \frac{\text{Diff}(CN, AC)}  {|CN|} \]
-
-The main difference to the original formula lies solely in our more direct approach of deriving the coordination needs matrix instead of deriving them from task relationships, that are themselves derived from source code dependencies as we used to directly relate software developers with each othery.
-
-%\begin{placeholder}[t]
-%\begin{itemize}
-%\item Communication---A communicates with B~\cite{cataldo:cscw:2006, ehrlich:stc:2008, cataldo:esem:2008,damian2007:collaboration}.
-%\item Location---A is in the same location as B~\cite{cataldo:cscw:2006, ehrlich:stc:2008}.
-%\item Team structure---A is in the same team as B~\cite{cataldo:cscw:2006}.
-%\end{itemize}
-%\caption{Examples of actual coordination}
-%\label{ph:relationships}
-%\end{placeholder}
-
-
-\subsection{Analysis Methods}
-\label{sec:methodology}
-Logistic regression is ideal to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
-The two main variables we are interested in are as aforementioned the socio-techincal congruence index as well as the ratio between gaps and coordination needs, that is technical dependencies among developers that are not accompanies by a corresponding social dependency.
-
-We show the relationship between a variable and the build success probability by plotting the y-axis as the probability. We use probability because we feel that it is more intuitive than odds ratios or logistic functions. If there is a relationship between a variable and the probability of build success, then we should see that as the variable's value increases, the probability also increases. In the probability figures, the solid line is the expected value, and the dashed lines indicate the 95\% confidence intervals.
-
-We run a logistic regression models for congruence. We include the following variables: number of files per build, number of authors contributing to the build, number of files in the build, number of work items per build, the congruence, the build type, and the date of the build. We centre and scale each numeric variable.
-Because we were concerned about possible interactions affecting our results, we included first-order interaction effects and used backward stepwise elimination to remove variables to keep AIC (Akaike's Information Criterion) low.
-
-\subsection{Results}
-\label{sec:results}
-In the RTC repository, we analyzed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
-Figure \ref{fig:hist_unweighted_congruence} displays histograms for congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only.
-
-The congruence values are low on average with a mean value of 0.331 meaning that about one-third of the coordination needs are satisfied by actual coordination.
-\begin{figure}[t]
-  \centering
-  \subfloat[All builds]{
-    \includegraphics[width=.3\columnwidth]{figures/hist_unweighted}
-    \label{subfig:hist_nonweighted}
-  }
-    \subfloat[OK builds]{
-    \includegraphics[width=.3\columnwidth]{figures/hist_unweighted_ok}
-    \label{subfig:hist_nonweighted_ok}
-  }
-  \subfloat[Error builds]{
-	\includegraphics[width=.3\columnwidth]{figures/hist_unweighted_err}
-     \label{subfig:hist_weighted_err}
-  }
-	\caption{Distribution of Congruence Values}
-	\label{fig:hist_unweighted_congruence}
-\end{figure}
-
-\begin{table}[t]
-\centering
-\begin{tabular}{lrrrr}
-\toprule
- & Min & Median & Max & Mean\\\midrule
-Authors & 2 & 17 & 44 & 18.62\\
-Files & 5 & 131 & 3101 & 342.3 \\
-change-sets & 4  & 34  & 226 & 54.2\\
-Work items & 4 & 34  & 182 & 48.3 \\
-Build date range (days) & 0  & 345  & 361 & 319.2 \\
-Congruence & 0  & 0.21  & 1 & 0.331 \\
-%Gap size & -0.083 & 0.190 & 1.00 & 0.317 \\
-\bottomrule
-\end{tabular}
-\caption{Summary statistics}
-\label{tab:summary}
-\end{table}
-
-%\begin{table}[t]
-%\begin{center}
-%\begin{tabular}{lrrrrr}
-%\toprule
-% & 2. & 3. & 4. & 5. & 6. \\ 
-%  \midrule
-%   1. Congruence  & -0.27 & -0.22 & -0.33 & 0.08 & 0.19 \\ 
-%   2. Authors & --& 0.41 & 0.76 & 0.10 & -0.30 \\ 
-%   3. Files &  & --& 0.37 & 0.08 & -0.20 \\ 
-%   4. change-sets &  &  &  --& 0.02 & -0.38 \\ 
-%   5. Work items  &  &  &  &  --& 0.04 \\ 
-%   6. Build date &  &  &  &  & -- \\ 
-%\bottomrule
-%
-%\end{tabular}
-%\end{center}
-%\caption{Pairwise Correlation of Variables per Build}
-%\label{tab:pairwise}
-%\end{table}
-
-%We calculated pairwise correlations between the variables congruence, number of authors, number of files, number of change-sets, number of work items, and build date using a Spearman Rank Correlation Coefficient~\cite{Sheskin2000} (Table \ref{tab:pairwise}). To avoid multicollinearity problems in our data, we choose to remove change-sets from our logistic regression analysis because, due to the enforced processes in RTC, we know that there is exactly one author per change-set, and thus there is at least as many change-sets as authors per build.
-
-To assess the fit of the logistic regression models, we use the Nagelkerke pseudo-$R^2$ and AIC. $R^2$ shows the proportion of variability explained by the model, and AIC is a measure of how well the model fits the data. Ideally, $R^2$ is high and AIC is low. Our current model contains 19 variables and has an $R^2$ of 0.581. We present our model in Table \ref{tab:models} to a model containing every first-order interaction effect with 27 variables and a model that contains the 7 main effects only (in Table \ref{tab:logr_maineffects}). We found that 19 variables is optimal and that removing further variables lowered the $R^2$ value while raising the AIC.
 
 \begin{table}[t]
 \begin{center}
-\begin{tabular}{l@{\hspace{30pt}}r@{\hspace{30pt}}rr}
-\toprule
-Model                  & Variables    & AIC & $R^2$                                  \\ \midrule
-Every interaction  & 27  & 188.6 & 0.595  \\
-Main effects only & 7   & 213.2 & 0.269 \\
-\textbf{Our model}         & \textbf{19}  & \textbf{175.8} & \textbf{0.581} \\
-\bottomrule
-\end{tabular}
-\end{center}
-\caption{Model comparison}
-\label{tab:models}
-\end{table}
-
-\subsubsection{Effects of Congruence on Build Result}
-\label{sec:congruence_effect_build_result}
-
-\begin{table}[t]
-\begin{center}
-\small
+%\small
 \begin{tabular}{l@{\hspace{0pt}}r@{\hspace{10pt}}r@{\hspace{5pt}}r}
 \toprule
 Variable & Coef. & S.E. & \emph{p} \\
@@ -164,40 +50,157 @@ Files * Build type=N              & -37.9274 & 199.2314 & 0.8490  \\
 Build type=N * Build date          &  84.7252 & 344.8129 & 0.8059  \\
 	\bottomrule
 Model likelihood ratio & 101.92 &  & $R^2=0.581$  \\
-& \multicolumn{3}{c}{\hspace{-5pt}191 observations}  \\
-\multicolumn{1}{l}{ } & \multicolumn{3}{l}{\tiny{Build type is set to continuous}} \\
-\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{3}{l}{\tiny{Nagelkerke is used as the pseudo-$R^2$ measure}}
+\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}}& \multicolumn{3}{c}{\hspace{-5pt}191 observations}  \\
+%\multicolumn{1}{l}{ } & \multicolumn{3}{l}{\tiny{Build type is set to continuous}} \\
+%\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{3}{l}{\tiny{Nagelkerke is used as the pseudo-$R^2$ measure}}
 \end{tabular}
 \end{center}
 \caption{Logistic Regression models predicting build success probability with main and interaction effects}
 \label{tab:logr}
 \end{table}
 
+\subsection{Calculating Congruence}
+\label{sec:congruence}
+In Chapter~\ref{chap:meth} we described socio-technical networks and how we conceptualize them in this thesis.
+If we reformulate this network into the terms originally used by Cataldo et al~\cite{cataldo:cscw:2006} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
+Thus we calculate the socio-technical congruence index as follows:
 
-\begin{table}[t]
-\begin{center}
-\begin{tabular}{l@{\hspace{15pt}}rr r}
-\toprule
-Variable & Coef. & S.E. & \emph{p} \\
-	\midrule                                                                
-	Intercept                &  0.5265 & 0.3040 & 0.0833 \\
-	Congruence               &  0.9371 & 0.6807 & 0.1686 \\
-	\textbf{Authors}         & \textbf{-0.5702} & \textbf{0.2003} & \textbf{**0.0044}  \\
-	\textbf{Files}           & \textbf{-0.6398} & \textbf{0.2477} & \textbf{**0.0098} \\
-	Work~items                & -0.1755 & 0.1713 & 0.3055  \\
-	Build type=I                   &  0.1693 & 0.4269 & 0.6917  \\
-	Build type=N                   &  0.2133 & 0.7791 & 0.7842  \\
-	Build date               & -0.1331 & 0.1821 & 0.4649  \\
-	\bottomrule
-Model likelihood ratio & 40.59 &  & $R^2=0.269$  \\
-& \multicolumn{3}{c}{191 observations}  \\
-\multicolumn{1}{l}{ } & \multicolumn{3}{l}{\scriptsize{Build type is set to continuous}} \\
-\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{3}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
-\end{tabular}
-\end{center}
-\caption{Logistic Regression models predicting build success probability with main effects only}
-\label{tab:logr_maineffects}
-\end{table}
+\[ \text{congruence} = \frac{\text{Diff}(CN, AC)}  {|CN|} \]
+
+The main difference to the original formula lies solely in our more direct approach of deriving the coordination needs matrix instead of deriving them from task relationships, that are themselves derived from source code dependencies as we used to directly relate software developers with each othery.
+
+%\begin{placeholder}[t]
+%\begin{itemize}
+%\item Communication---A communicates with B~\cite{cataldo:cscw:2006, ehrlich:stc:2008, cataldo:esem:2008,damian2007:collaboration}.
+%\item Location---A is in the same location as B~\cite{cataldo:cscw:2006, ehrlich:stc:2008}.
+%\item Team structure---A is in the same team as B~\cite{cataldo:cscw:2006}.
+%\end{itemize}
+%\caption{Examples of actual coordination}
+%\label{ph:relationships}
+%\end{placeholder}
+
+
+\subsection{Analysis Methods}
+\label{sec:methodology}
+Logistic regression is ideal to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
+The two main variables we are interested in are as aforementioned the socio-techincal congruence index as well as the ratio between gaps and coordination needs, that is technical dependencies among developers that are not accompanies by a corresponding social dependency.
+
+%We show the relationship between a variable and the build success probability by plotting the y-axis as the probability. We use probability because we feel that it is more intuitive than odds ratios or logistic functions. If there is a relationship between a variable and the probability of build success, then we should see that as the variable's value increases, the probability also increases. In the probability figures, the solid line is the expected value, and the dashed lines indicate the 95\% confidence intervals.
+%
+%We run a logistic regression models for congruence. We include the following variables: number of files per build, number of authors contributing to the build, number of files in the build, number of work items per build, the congruence, the build type, and the date of the build. We centre and scale each numeric variable.
+%Because we were concerned about possible interactions affecting our results, we included first-order interaction effects and used backward stepwise elimination to remove variables to keep AIC (Akaike's Information Criterion) low.
+
+\subsection{Results}
+\label{sec:results}
+In the RTC repository, we analyzed 191 builds; of these builds, 60 were error builds, and 131 were OK builds. Table \ref{tab:summary} displays summary statistics per build.
+Figure \ref{fig:hist_unweighted_congruence} displays histograms for congruence. The histograms compare the frequencies for each type of congruence for all builds, the OK builds, and the error builds only.
+
+The congruence values are low on average with a mean value of 0.331 meaning that about one-third of the coordination needs are satisfied by actual coordination.
+%\begin{figure}[t]
+%  \centering
+%  \subfloat[All builds]{
+%    \includegraphics[width=.3\columnwidth]{figures/hist_unweighted}
+%    \label{subfig:hist_nonweighted}
+%  }
+%    \subfloat[OK builds]{
+%    \includegraphics[width=.3\columnwidth]{figures/hist_unweighted_ok}
+%    \label{subfig:hist_nonweighted_ok}
+%  }
+%  \subfloat[Error builds]{
+%	\includegraphics[width=.3\columnwidth]{figures/hist_unweighted_err}
+%     \label{subfig:hist_weighted_err}
+%  }
+%	\caption{Distribution of Congruence Values}
+%	\label{fig:hist_unweighted_congruence}
+%\end{figure}
+
+%\begin{table}[t]
+%\centering
+%\begin{tabular}{lrrrr}
+%\toprule
+% & Min & Median & Max & Mean\\\midrule
+%Authors & 2 & 17 & 44 & 18.62\\
+%Files & 5 & 131 & 3101 & 342.3 \\
+%change-sets & 4  & 34  & 226 & 54.2\\
+%Work items & 4 & 34  & 182 & 48.3 \\
+%Build date range (days) & 0  & 345  & 361 & 319.2 \\
+%Congruence & 0  & 0.21  & 1 & 0.331 \\
+%%Gap size & -0.083 & 0.190 & 1.00 & 0.317 \\
+%\bottomrule
+%\end{tabular}
+%\caption{Summary statistics}
+%\label{tab:summary}
+%\end{table}
+
+%\begin{table}[t]
+%\begin{center}
+%\begin{tabular}{lrrrrr}
+%\toprule
+% & 2. & 3. & 4. & 5. & 6. \\ 
+%  \midrule
+%   1. Congruence  & -0.27 & -0.22 & -0.33 & 0.08 & 0.19 \\ 
+%   2. Authors & --& 0.41 & 0.76 & 0.10 & -0.30 \\ 
+%   3. Files &  & --& 0.37 & 0.08 & -0.20 \\ 
+%   4. change-sets &  &  &  --& 0.02 & -0.38 \\ 
+%   5. Work items  &  &  &  &  --& 0.04 \\ 
+%   6. Build date &  &  &  &  & -- \\ 
+%\bottomrule
+%
+%\end{tabular}
+%\end{center}
+%\caption{Pairwise Correlation of Variables per Build}
+%\label{tab:pairwise}
+%\end{table}
+
+%We calculated pairwise correlations between the variables congruence, number of authors, number of files, number of change-sets, number of work items, and build date using a Spearman Rank Correlation Coefficient~\cite{Sheskin2000} (Table \ref{tab:pairwise}). To avoid multicollinearity problems in our data, we choose to remove change-sets from our logistic regression analysis because, due to the enforced processes in RTC, we know that there is exactly one author per change-set, and thus there is at least as many change-sets as authors per build.
+
+To assess the fit of the logistic regression models, we use the Nagelkerke pseudo-$R^2$ and AIC. $R^2$ shows the proportion of variability explained by the model, and AIC is a measure of how well the model fits the data. Ideally, $R^2$ is high and AIC is low. Our current model contains 19 variables and has an $R^2$ of 0.581. We present our model in Table \ref{tab:models} to a model containing every first-order interaction effect with 27 variables and a model that contains the 7 main effects only (in Table \ref{tab:logr_maineffects}). We found that 19 variables is optimal and that removing further variables lowered the $R^2$ value while raising the AIC.
+
+%\begin{table}[t]
+%\begin{center}
+%\begin{tabular}{l@{\hspace{30pt}}r@{\hspace{30pt}}rr}
+%\toprule
+%Model                  & Variables    & AIC & $R^2$                                  \\ \midrule
+%Every interaction  & 27  & 188.6 & 0.595  \\
+%Main effects only & 7   & 213.2 & 0.269 \\
+%\textbf{Our model}         & \textbf{19}  & \textbf{175.8} & \textbf{0.581} \\
+%\bottomrule
+%\end{tabular}
+%\end{center}
+%\caption{Model comparison}
+%\label{tab:models}
+%\end{table}
+
+\subsubsection{Effects of Congruence on Build Result}
+\label{sec:congruence_effect_build_result}
+
+
+
+
+%\begin{table}[t]
+%\begin{center}
+%\begin{tabular}{l@{\hspace{15pt}}rr r}
+%\toprule
+%Variable & Coef. & S.E. & \emph{p} \\
+%	\midrule                                                                
+%	Intercept                &  0.5265 & 0.3040 & 0.0833 \\
+%	Congruence               &  0.9371 & 0.6807 & 0.1686 \\
+%	\textbf{Authors}         & \textbf{-0.5702} & \textbf{0.2003} & \textbf{**0.0044}  \\
+%	\textbf{Files}           & \textbf{-0.6398} & \textbf{0.2477} & \textbf{**0.0098} \\
+%	Work~items                & -0.1755 & 0.1713 & 0.3055  \\
+%	Build type=I                   &  0.1693 & 0.4269 & 0.6917  \\
+%	Build type=N                   &  0.2133 & 0.7791 & 0.7842  \\
+%	Build date               & -0.1331 & 0.1821 & 0.4649  \\
+%	\bottomrule
+%Model likelihood ratio & 40.59 &  & $R^2=0.269$  \\
+%& \multicolumn{3}{c}{191 observations}  \\
+%\multicolumn{1}{l}{ } & \multicolumn{3}{l}{\scriptsize{Build type is set to continuous}} \\
+%\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{3}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
+%\end{tabular}
+%\end{center}
+%\caption{Logistic Regression models predicting build success probability with main effects only}
+%\label{tab:logr_maineffects}
+%\end{table}
 
 The result of logistic regression indicates that the following effects are significant: The congruence~$\times$~build type effect, the congruence~$\times$~build date interaction effect, the number of work~items~$\times$~build date interaction effect, and the build date~$\times$~build type effect. In addition, the number of authors and the number of files are significant main effects, although their coefficients are lower than the interaction effects involving congruence.
 
@@ -208,30 +211,30 @@ In the next section we discuss the main effects and interactions effects that in
 The type~$\times$~congruence interaction effect, the date~$\times$~congruence interaction, and the type $\times$ date effect are each significant in our model (Table \ref{tab:logr}). We plot in Figure~\ref{fig:unweighted_congruence_typeci_age} the effects of congruence vs. probability of build success at the 10\% date quantile (2008-01-25), at the 25\% date quantile (2008-05-14), the 50\% date quantile (2008-06-07), and the latest build (2008-06-26).
 
 
-\begin{figure}[t!]
-\centering
-  \subfloat[ \small{2008-01-25} ]{
-    \includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q010}
-    \label{subfig:prob_unweighted_age_typeci_q010}
-  }
-  \subfloat[ \small{2008-05-14} ]{
-	\includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q025}
-    % \label{subfig:prob_unweighted_age_typeci_q025}
-    \label{subfig:prob_unweighted_age_typeci_q100}
-  }
-  %
-%  \subfloat[ \small{2008-06-07} ]{
-%	\includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q050}
-%     \label{subfig:prob_unweighted_age_typeci_q050}
+%\begin{figure}[t!]
+%\centering
+%  \subfloat[ \small{2008-01-25} ]{
+%    \includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q010}
+%    \label{subfig:prob_unweighted_age_typeci_q010}
 %  }
-%  \subfloat[ \small{2008-06-26} ]{
-%	\includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q100}
-%     \label{subfig:prob_unweighted_age_typeci_q100}
-  %}
-  
-	\caption{Estimated probability of build success for \emph{congruence} and \emph{continuous builds C} or \emph{integration builds I}  over time, adjusted to authors $\approx$ -0.156 (17 authors), files $\approx$ -0.352 (131 files), work~items $\approx$ -0.399 (34 work items)}
-	\label{fig:unweighted_congruence_typeci_age}
-\end{figure}
+%  \subfloat[ \small{2008-05-14} ]{
+%	\includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q025}
+%    % \label{subfig:prob_unweighted_age_typeci_q025}
+%    \label{subfig:prob_unweighted_age_typeci_q100}
+%  }
+%  %
+%%  \subfloat[ \small{2008-06-07} ]{
+%%	\includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q050}
+%%     \label{subfig:prob_unweighted_age_typeci_q050}
+%%  }
+%%  \subfloat[ \small{2008-06-26} ]{
+%%	\includegraphics[width=.4\columnwidth]{figures/prob_unweighted_age_typeci_q100}
+%%     \label{subfig:prob_unweighted_age_typeci_q100}
+%  %}
+%  
+%	\caption{Estimated probability of build success for \emph{congruence} and \emph{continuous builds C} or \emph{integration builds I}  over time, adjusted to authors $\approx$ -0.156 (17 authors), files $\approx$ -0.352 (131 files), work~items $\approx$ -0.399 (34 work items)}
+%	\label{fig:unweighted_congruence_typeci_age}
+%\end{figure}
 
 The congruence model (Table \ref{tab:logr}) the effect of congruence on continuous builds is significant, and that increasing congruence also increases the probability that a continuous build will succeed. 
 For integration builds (Figures \ref{fig:unweighted_congruence_typeci_age}, in black), an increase in congruence decreases build success, with the exception of the 2008-01-25 build (Figure \ref{subfig:prob_unweighted_age_typeci_q010}). In in our 2008-01-25 build, we see that low congruence leads to low build probability, but high congruence has high build probability. As the project ages, this trend reverses and congruence is clearly inversely related with build success probability (Figure \ref{subfig:prob_unweighted_age_typeci_q100}).
@@ -244,31 +247,31 @@ We build a logistic regression model based on the model in Table \ref{tab:logr} 
 
 The effect of gap ratio on build result is significant (Table \ref{tab:oddsratio_gapsize}). This indicates that increasing the gaps ratio significantly increases the odds that an OK build will occur, which is the opposite of what we hypothesized (Figure \ref{fig:prob_gapsize_a}). This means that if the gap is large, the build success probability increases.
 
-\begin{table}[t]
-\begin{center}
-\begin{tabular}{lrr}
-  \toprule
- & Model\\ 
-  \midrule
-Intercept & 1.32 \\ 
-  Authors &  0.60 \\ 
-  Files &  0.63 \\ 
-  Work~items  & 0.85 \\ 
-  Build type=I  & 1.31 \\ 
-%  Weighted cong & 8.41 & - \\ 
-  Gap ratio  & 8.71 \\ 
-  Build date  & 0.59 \\ 
-  Authors * Build date & 0.74 \\ 
-  Work~items * Build date  & 1.83 \\ 
-  Build type=I * Build date  & 2.52 \\ 
-%  Build type=I * Weighted cong & 0.01 & - \\ 
-%  Weighted cong * Build date & 0.00 & - \\ 
-   \bottomrule
-\end{tabular}
-\caption{Odds Ratio for Gap Ratio Models}
-\label{tab:oddsratio_gapsize}
-\end{center}
-\end{table}
+%\begin{table}[t]
+%\begin{center}
+%\begin{tabular}{lrr}
+%  \toprule
+% & Model\\ 
+%  \midrule
+%Intercept & 1.32 \\ 
+%  Authors &  0.60 \\ 
+%  Files &  0.63 \\ 
+%  Work~items  & 0.85 \\ 
+%  Build type=I  & 1.31 \\ 
+%%  Weighted cong & 8.41 & - \\ 
+%  Gap ratio  & 8.71 \\ 
+%  Build date  & 0.59 \\ 
+%  Authors * Build date & 0.74 \\ 
+%  Work~items * Build date  & 1.83 \\ 
+%  Build type=I * Build date  & 2.52 \\ 
+%%  Build type=I * Weighted cong & 0.01 & - \\ 
+%%  Weighted cong * Build date & 0.00 & - \\ 
+%   \bottomrule
+%\end{tabular}
+%\caption{Odds Ratio for Gap Ratio Models}
+%\label{tab:oddsratio_gapsize}
+%\end{center}
+%\end{table}
 
 
 %\begin{figure}[t]
@@ -278,12 +281,12 @@ Intercept & 1.32 \\
 %	\label{fig:gapsizes}
 %\end{figure}
 
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=.5\columnwidth]{figures/prob_gapsize_g1}
-	\caption{Effect of gap ratio on build success probability. }
-	\label{fig:prob_gapsize_a}
-\end{figure}
+%\begin{figure}[t]
+%	\centering
+%	\includegraphics[width=.5\columnwidth]{figures/prob_gapsize_g1}
+%	\caption{Effect of gap ratio on build success probability. }
+%	\label{fig:prob_gapsize_a}
+%\end{figure}
 
 
 
@@ -444,15 +447,15 @@ incongruent builds, and the effects of commenting behaviour on builds.
 
 
 
-\subsection{Conclusions}
-\label{sec:conclusion}
-We end this chapter by bringing it back to the initial research question we set out to answer:
-\begin{itemize}
-  \item\textbf{RQ 1.2:} Does Socio-Technical Networks influence build success?
-\end{itemize}
-
-We conducted two investigations: (1) the investigation of the influence of the socio-technical congruence index on build success and (2) the investigation of gaps uncovered by socio-technical networks and their influence on build success.
-Both avenues of investigations showed that they expose an influence on build success.
-
-These findings, especially that gaps within socio-technical networks influence build success opens the door to formulating an approach on how to leverage the concept of socio-technical congruence to improve the communication among software developers.
-Thus in the next chapter we will detail an approach that we propose to improve developer communication using the concept of socio-technical congruence.
+%\subsection{Conclusions}
+%\label{sec:conclusion}
+%We end this chapter by bringing it back to the initial research question we set out to answer:
+%\begin{itemize}
+%  \item\textbf{RQ 1.2:} Does Socio-Technical Networks influence build success?
+%\end{itemize}
+%
+%We conducted two investigations: (1) the investigation of the influence of the socio-technical congruence index on build success and (2) the investigation of gaps uncovered by socio-technical networks and their influence on build success.
+%Both avenues of investigations showed that they expose an influence on build success.
+%
+%These findings, especially that gaps within socio-technical networks influence build success opens the door to formulating an approach on how to leverage the concept of socio-technical congruence to improve the communication among software developers.
+%Thus in the next chapter we will detail an approach that we propose to improve developer communication using the concept of socio-technical congruence.
