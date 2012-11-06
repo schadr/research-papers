@@ -1,63 +1,131 @@
 % !TEX root = thesis-journal.tex
 \section{The Approach}
 \label{chap:approach}
-In this chapter we propose an approach to leverage the concept of socio-technical congruence to improve communication (social interactions) among developers to improve build success.
-We base this approach on the findings presented in the previous two chapters that team communication (Chapter~\ref{chap:soc-net}) and socio-technical gaps (Chapter~\ref{chap:stc-net2})  influence build success.
+%\section{Formulating the Approach}
+Motivated by research showing that socio-technical gaps increases the chance of a build to fail we formulate an approach that generates actionable knowledge to alleviate socio-technical gaps.
+Our approach takes into account the past history of a project analyzing socio-technical gaps with respect to their individual relation to build failure.
+These recommendations aim at initiating coordination between two developers that form a gap in the current build, thus increasing the chance of a build to succeed.
+This approach can support projects that use electronic repositories such as automated build engines, version control and task management.
 
-\subsection{Approach to Leveraging Socio-Technical Congruence}
-The main contribution of this thesis lies with the approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
-Thus, we derived the following approach from the first two research questions:
+For our approach we define a socio-technical gap as the relationship between two developers that share a technical dependency (implying coordination need) without any social interaction (implying unmet coordination need).
+A technical dependency can be inferred by two developers changing the same file, or a developer changing a method that another developer's code is calling.
+%In this paper, two developers that share a technical dependency are referred to as a \emph{technical pair} (or socio-technical gap).
+In contrast two developers that share a technical dependency and that also coordinate their work are referred to as being in a \emph{socio-technical pair}.
+For example, two developers that discuss their work through email are said to coordinate; if they additionally share a technical dependency then they form a socio-technical pair.
+%
+When analyzing the developer pairs in a project's set of builds, in our approach we recognize that each \emph{technical} pair can have a \emph{corresponding socio-technical} if the same two developers have a technical dependency matched by actual coordination in a different build. 
 
-Our approach encompasses five steps:
+%two developers that are in a technical pair in some builds can also have a \emph{corresponding socio-technical} relationship in a different build (i.e. where their technical dependency is met by actual coordination). 
+
+%We further define a technical and a socio-technical pair to be \emph{corresponding} if both pairs consist of the same pair of developers.
+
+Our approach analyzes the technical pairs in relation to build failure in the following steps:
+
 \begin{enumerate}
-\item Define scope of interest.
-\item Define outcome metric.
-\item Build social networks.
-\item Build technical networks.
-\item Generate actionable insights.
+\item Identify the set of all technical pairs $T$ across all builds in the project.
+
+\item From set $T$, select the set of \emph{harmful} pairs $H$ by identifying those technical pairs that are statistically related to build failure. To determine the statistical relationship we employ a Fisher exact value test that comparing the frequency of each technical pair's occurrence in failed vs successful builds. The p-values of the Fisher Exact Value test should be adjusted to account for multiple hypothesis testing.
+
+%by counting for each technical pair in how many failed and successful builds it occurs.
+
+\item To form our set of recommendations $R$  we remove from $H$ those pairs where the corresponding socio-technical pair is statistically related to failure ($H_f$) (which would indicate that even matching the technical dependency with actual coordination would not prevent the build from failing). 
+
+Therefore $R = H - H_f$.
+
+
+%From the set of harmful pairs  (S) we then remove those pairs that have a \emph{corresponding} socio-technical pair that is statistically related to build failure (using a Fisher exact value test as above) forming the set of recommendations.
+
+\item Having identified $R$, we further refine our recommendation by identifying two sets of technical pairs: $R_1$ contains the pairs that have a corresponding socio-technical pair that relates statistically to success and $R_2$ contains the pairs that either (1) have a corresponding socio-technical pair that does not relate to success or failure, or (2) do not have a corresponding socio-technical pair.
+
+Therefore, $R = R_1 \cup R_2$.
+
+In our recommendation the $R_1$ set has highest priority because it contains developer pairs that contributed to a successful build when matched by actual coordination.  
+
+%We split the set of recommendations into two sets of recommendations.
+%The first set contains those which have a corresponding socio-technical pair that is statistically related to build success (using a Fisher exact value test as mentioned earlier) whereas the second set contains the remaining technical pairs.
+
+\item Finally, for each set in our recommendation $R$ ($R_1$ and $R_2$) we rank the developer pairs using the coefficient $p_x$, which represents the normalized likelihood of a build
+to fail in the presence of the specific pair:
+$$
+p_x\text{=}\frac{ \text{pair}_{failed} / \text{total}_{failed} }
+                     { \text{pair}_{failed} / \text{total}_{failed} + \text{pair}_{success} / \text{total}_{successs}}
+$$
+where: pair$_{failed}$ is the number of failed builds in which the pair occurred; total$_{failed}$ is the number of failed builds; pair$_{success}$ is the number of successful builds in which the pair occurred, and total$_{success}$ is the number of successful builds.
+A value of $p_x$ closer to one means that the developer pair is strongly related to build
+failure. 
 \end{enumerate}
 
-\subsection{Define Scope} 
-Each network, social, technical and thus socio-technical, needs to be built with a specific scope in mind.
-For example, throughout this thesis we focus on software builds.
-This focus defines the source and communication artifacts that are used to construct the social and technical networks.
-In Chapter~\ref{chap:meth} Figure~\ref{fig:network} we showed how we conceptualized social networks and how defining software builds let us select communication artifacts for the construction of a social network for a specific build.
+In summary, our approach analyzes the technical dependencies, actual coordination and build quality in all existing builds in the project, and recommends a ranked list of developer pairs that, if present in the current build, will increase the current build's chance of failure. This list is prioritized by the probability of this chance. This recommendation essentially represents the pairs of developers that should communicate in order to increase the chance of a build to succeed. In a busy manager's workday, the ranking of each developer pair is useful in prioritizing which socio-technical gaps should be closed first. 
 
-\subsection{Define Outcome}
-In order to derive useful insights from the constructed networks the scope used to construct them needs to be complimented with an outcome metric.
-For example, in this thesis we are interested in build success, a binary variable that states whether a build is of acceptable quality.
-With an outcome measure at hand we can contrast networks to gain insights.
-Note, that the outcome and scope are closely related as we need to attach the outcome to the social and technical network whose construction depend on the scope.
+%produces two sets of recommendations ($S_1$ and $S_2$) both containing technical pairs that are related to build failure.
+%$S_1$ consists of technical pairs that have an equivalent socio-technical pair that is related to build success.
+%$S_2$ consists of technical pairs that do not have an equivalent socio-technical pair that is related to either build outcome.
+%Both sets of technical pairs represent recommendations of pairs of developers that should communicate in order to increase the chance of a build to succeed. 
+%The technical pairs contained in $S_1$ have a potentially larger influence on increase build success due to converting a build failure related pair into a build success related pair.
 
-\subsection{Construct Social Networks}
-After  defining the scope and outcome, the next step is to construct the social networks.
-This involves identifying all communication channels that are programatically accessible in real time.
-Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
-Gathering all to the selected scope relevant communication artifacts than yields a social network.
-In Chapter~\ref{chap:meth} Figure~\ref{fig:network} shows a detailed  example on how we construct a social network given a build as the scope of interest using data from the Rational Team Concert development team.
 
-\subsection{Construct Technical Networks}
-To complement the social networks and thus create socio-technical networks we need to produce technical networks.
-The main issues is not to rely on information that is only available after the work has been completed and been submitted to a version repository, but to gather information to construct networks in real time.
-For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{\url{http://tasktop.com/mylyn/}} events to accomplish the extraction of interactions with source code in real time.
-With respect to software quality it suffices to analyze complete changes and give feedback once the implementation work has been submitted to a central code repository.
-
-\subsection{Generate Insights}
-In Chapter~\ref{chap:stc-net2} we showed that gaps in socio-technical networks influence build success.
-We take this as starting point for generating insights by breaking down socio-technical networks into triples that consist of a developer pair together with how they are connected, which can be either through a technical dependencies, a social dependency, both, or none.
-
-Since we are focusing on improving the social interactions we focus on identifying those gaps (unmet coordination needs) that are most likely to increase build success.
-For this purpose we split the triples derived from all socio-technical networks into two groups, those triples that originate from a socio-technical network of a failed build and those that originate from a socio-technical network of a successful build.
-
-For each triple we can now apply statistical tests to see if a given triple is more often observed with failed or successful builds.
-Those that are statistically significant for failed builds should be broken by suggesting to developers to communicate.
-To ensure not to worsen the odds of a successful build we contrast the developer pair forming the gap with the same pair being connected both technically and socially.
-
-\subsection{Conclusion}
-The approach we described builds on our work on software builds and the influence of communication and unmet coordination needs as shown in the previous two chapters.
-Note that this approach can also be applied to identify those met coordination needs that warrant further examination, by applying the same insight generation to pairs of developer that are connected both through a technical and social dependency.
-
-The following three chapters aim at identifying the usefulness of the approach we detailed in this chapter.
-We start by first investigating whether we can using this approach generate recommendation that are statistically significant (Chapter~\ref{chap:stc-net}).
-Following, we diverge from the path of exploring the validity of the recommendations and focus on whether developers are open to such recommendations (Chapter~\ref{chap:talk}).
-Finally, in a large student project in a course offered at the University of Victoria, Canada, and Aalto University, Finland, we explore whether we could generate recommendations that might have prevented builds from failing (Chapter~\ref{chap:actionable}).
+%
+%
+%
+%
+%\label{chap:approach}
+%In this chapter we propose an approach to leverage the concept of socio-technical congruence to improve communication (social interactions) among developers to improve build success.
+%We base this approach on the findings presented in the previous two chapters that team communication (Chapter~\ref{chap:soc-net}) and socio-technical gaps (Chapter~\ref{chap:stc-net2})  influence build success.
+%
+%\subsection{Approach to Leveraging Socio-Technical Congruence}
+%The main contribution of this thesis lies with the approach to creating actionable knowledge from the socio-technical congruence concept as Cataldo et al~\cite{cataldo:cscw:2006} described it in their seminal paper.
+%Thus, we derived the following approach from the first two research questions:
+%
+%Our approach encompasses five steps:
+%\begin{enumerate}
+%\item Define scope of interest.
+%\item Define outcome metric.
+%\item Build social networks.
+%\item Build technical networks.
+%\item Generate actionable insights.
+%\end{enumerate}
+%
+%\subsection{Define Scope} 
+%Each network, social, technical and thus socio-technical, needs to be built with a specific scope in mind.
+%For example, throughout this thesis we focus on software builds.
+%This focus defines the source and communication artifacts that are used to construct the social and technical networks.
+%In Chapter~\ref{chap:meth} Figure~\ref{fig:network} we showed how we conceptualized social networks and how defining software builds let us select communication artifacts for the construction of a social network for a specific build.
+%
+%\subsection{Define Outcome}
+%In order to derive useful insights from the constructed networks the scope used to construct them needs to be complimented with an outcome metric.
+%For example, in this thesis we are interested in build success, a binary variable that states whether a build is of acceptable quality.
+%With an outcome measure at hand we can contrast networks to gain insights.
+%Note, that the outcome and scope are closely related as we need to attach the outcome to the social and technical network whose construction depend on the scope.
+%
+%\subsection{Construct Social Networks}
+%After  defining the scope and outcome, the next step is to construct the social networks.
+%This involves identifying all communication channels that are programatically accessible in real time.
+%Some examples of communication channels that can be tapped into in real time are emails, forum style discussions, or text chats.
+%Gathering all to the selected scope relevant communication artifacts than yields a social network.
+%In Chapter~\ref{chap:meth} Figure~\ref{fig:network} shows a detailed  example on how we construct a social network given a build as the scope of interest using data from the Rational Team Concert development team.
+%
+%\subsection{Construct Technical Networks}
+%To complement the social networks and thus create socio-technical networks we need to produce technical networks.
+%The main issues is not to rely on information that is only available after the work has been completed and been submitted to a version repository, but to gather information to construct networks in real time.
+%For instance, Blincoe et al~\cite{blincoe:cscw:2012} proposed to use Mylyn\footnote{\url{http://tasktop.com/mylyn/}} events to accomplish the extraction of interactions with source code in real time.
+%With respect to software quality it suffices to analyze complete changes and give feedback once the implementation work has been submitted to a central code repository.
+%
+%\subsection{Generate Insights}
+%In Chapter~\ref{chap:stc-net2} we showed that gaps in socio-technical networks influence build success.
+%We take this as starting point for generating insights by breaking down socio-technical networks into triples that consist of a developer pair together with how they are connected, which can be either through a technical dependencies, a social dependency, both, or none.
+%
+%Since we are focusing on improving the social interactions we focus on identifying those gaps (unmet coordination needs) that are most likely to increase build success.
+%For this purpose we split the triples derived from all socio-technical networks into two groups, those triples that originate from a socio-technical network of a failed build and those that originate from a socio-technical network of a successful build.
+%
+%For each triple we can now apply statistical tests to see if a given triple is more often observed with failed or successful builds.
+%Those that are statistically significant for failed builds should be broken by suggesting to developers to communicate.
+%To ensure not to worsen the odds of a successful build we contrast the developer pair forming the gap with the same pair being connected both technically and socially.
+%
+%\subsection{Conclusion}
+%The approach we described builds on our work on software builds and the influence of communication and unmet coordination needs as shown in the previous two chapters.
+%Note that this approach can also be applied to identify those met coordination needs that warrant further examination, by applying the same insight generation to pairs of developer that are connected both through a technical and social dependency.
+%
+%The following three chapters aim at identifying the usefulness of the approach we detailed in this chapter.
+%We start by first investigating whether we can using this approach generate recommendation that are statistically significant (Chapter~\ref{chap:stc-net}).
+%Following, we diverge from the path of exploring the validity of the recommendations and focus on whether developers are open to such recommendations (Chapter~\ref{chap:talk}).
+%Finally, in a large student project in a course offered at the University of Victoria, Canada, and Aalto University, Finland, we explore whether we could generate recommendations that might have prevented builds from failing (Chapter~\ref{chap:actionable}).

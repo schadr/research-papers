@@ -1,4 +1,5 @@
 % !TEX root = thesis-journal.tex
+%\newpage
 \section{Acceptability of Recommendations}
 \label{chap:talk}
 Knowing that our approach can generate statistically significant recommendations is only one necessary step towards showing its usefulness.
@@ -34,12 +35,19 @@ Third, we conducted interviews with the developers from one component team to ob
 \subsubsection{Data Collection}
 We used a mixed methods approach to answer our research question. We obtained data from three sources: participant observation, a survey, and a set of interviews with RTC team members.
 
-\paragraph{Participant-Observation}
-The  author of this thesis joined one of the RTC development sites in Europe for a four-month period in the Fall of 2010. He was involved as an intern with this development team helping with minor bug fixes, feature development, and testing, and thus was in a position to directly participate in the project development and communication activities. Our data collection opportunities were thus much richer than in typical observations conducted over shorter periods of time, or that do not involve active participation in the project.  During his period as a participant-observer, Adrian kept a daily activity log, recording any information of relevance to the communication behaviour of his team.
+\begin{itemize}
+\item \emph{Participant Observations:} The three month observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. As such, the majority of our observations are concerned with activities around testing the integration of RTC with other IBM Rational products, and it offered the experience of collaborating with many developers from different teams and across the remote sites. Finally, in the one month following the release, Adrian also participated in the development of a feature for the upcoming version of the product.
+\item \emph{Interviews:} In the war story style interviews, we requested developers to provide details into their communication dynamics through a narration of ``war stories'' that directly related to communication among developers. ``\emph{War stories}'' are events that left an impression on the respondent. War stories emphasize specific events that they witnessed or took part in~\cite{lutters:ist:2007}; their narrative is particularly powerful at uncovering the elements of the stories that are relevant to the respondents. The interviews lasted between thirty minutes and one hour, and they were conducted at the end of the observation period. 
+\item \emph{Survey:} We deployed the survey (see Table~\ref{tab:surveyfactors}) through a web form, and invited the entire distributed RTC development team to participate. We sent a reminder one month later to increase the response rate. We obtained 36 responses to the survey; approximately a 25\% response rate.
+Of the 36 respondents, 26 are located in North America, 5 are located in Europe, and 5 are located in Asia. Furthermore, 22 of the respondents are developers, 5 team leads, 5 component leads and project management committee, and 4 respondents withheld their information.
+\end{itemize}
 
-The observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. As such, the majority of our observations are concerned with activities around testing the integration of RTC with other IBM Rational products, and it offered the experience of collaborating with many developers from different teams and across the remote sites. Finally, in the one month following the release, Adrian also participated in the development of a feature for the upcoming version of the product.
-
-The team in which he was embedded had the responsibility to develop the task management and the planning components of RTC. There were ten developers at the site, including two novices that had recently joined the team and eight experienced developers. The team includes RTC's three senior project management members, who play a major role in planning the entire product's architecture and development.
+%\paragraph{Participant-Observation}
+%The  author of this thesis joined one of the RTC development sites in Europe for a four-month period in the Fall of 2010. He was involved as an intern with this development team helping with minor bug fixes, feature development, and testing, and thus was in a position to directly participate in the project development and communication activities. Our data collection opportunities were thus much richer than in typical observations conducted over shorter periods of time, or that do not involve active participation in the project.  During his period as a participant-observer, Adrian kept a daily activity log, recording any information of relevance to the communication behaviour of his team.
+%
+%The observation period coincided with the months prior to a major release and during which the team focused on extensive testing rather than new feature development. As such, the majority of our observations are concerned with activities around testing the integration of RTC with other IBM Rational products, and it offered the experience of collaborating with many developers from different teams and across the remote sites. Finally, in the one month following the release, Adrian also participated in the development of a feature for the upcoming version of the product.
+%
+%The team in which he was embedded had the responsibility to develop the task management and the planning components of RTC. There were ten developers at the site, including two novices that had recently joined the team and eight experienced developers. The team includes RTC's three senior project management members, who play a major role in planning the entire product's architecture and development.
 
 
 \begin{table*}[th!]
@@ -127,106 +135,106 @@ Simple code was changed\phantom{abcdefgheabcdefghe} &--- & 12.57\\%58\\   %23 ch
 \label{tab:surveyfactors}
 \end{table*}
 
-\paragraph{Interviews}
-We conducted interviews with ten developers of the RTC team to inform our observational findings. The setting for the interviews was slightly unusual, and beneficial from a research perspective, since the first author's participant-observation allowed him to develop working relationships during his stay at the team, and to delve into a discussion of complex communication issues without needing to spend time understanding the basic context of the team.
+%\paragraph{Interviews}
+%We conducted interviews with ten developers of the RTC team to inform our observational findings. The setting for the interviews was slightly unusual, and beneficial from a research perspective, since the first author's participant-observation allowed him to develop working relationships during his stay at the team, and to delve into a discussion of complex communication issues without needing to spend time understanding the basic context of the team.
+%
+%In the interviews, we requested developers to provide details into their communication dynamics through a narration of ``war stories'' that directly related to communication among developers. ``\emph{War stories}'' are events that left an impression on the respondent. War stories emphasize specific events that they witnessed or took part in~\cite{lutters:ist:2007}; their narrative is particularly powerful at uncovering the elements of the stories that are relevant to the respondents. The interviews lasted between thirty minutes and one hour, and they were conducted at the end of the observation period. 
 
-In the interviews, we requested developers to provide details into their communication dynamics through a narration of ``war stories'' that directly related to communication among developers. ``\emph{War stories}'' are events that left an impression on the respondent. War stories emphasize specific events that they witnessed or took part in~\cite{lutters:ist:2007}; their narrative is particularly powerful at uncovering the elements of the stories that are relevant to the respondents. The interviews lasted between thirty minutes and one hour, and they were conducted at the end of the observation period. 
 
+%\paragraph{Survey}
+%To complement the insights we obtained from the observations and interviews, we deployed a survey with the entire RTC team at the end of our observation period. The survey was designed iteratively and piloted with a European team, and intended to collect input about which factors increase the likelihood of a developer requesting information about a change-set from the change-set author. The items we included in the survey were in the categories of code-related, developer-related and process-related items. Each category included 14 items, as shown in Table~\ref{tab:surveyfactors}. \emph{Code-change related} items describe the change-set delivered or the code that the change-set modifies or affects. \emph{Developer-related} items relate to
+%the developers that delivered a change-set, the developer requesting the
+%information, and their relation to each other. Finally, \emph{process-related} items relate to the development phase in effect when the change-set was delivered, and to items relating to process requirements or practices. For each of the three categories, the survey asked the developers to rank each item in the category according to how strongly it increases their likelihood of requesting information about a change-set. 
+%
+%We initially formulated our list of items from an analysis of the current literature on coordination and communication, as well as from our own previous research. We then refined the list of items through piloting and discussions with the development team. An initial version of the survey included fifty-nine items; the refined list had forty-two. Besides reducing the number of items in our list, the pilot survey led us to add several process-related items, as well as to change the format of the question (the initial survey had a battery of questions with Likert-scale answers; the final survey asked respondents to rank each item in comparison to the rest in its own category).
+%
+%We deployed the survey through a web form, and invited the entire distributed RTC development team to participate. We sent a reminder one month later to increase the response rate. We obtained 36 responses to the survey; approximately a 25\% response rate.
+%Of the 36 respondents, 26 are located in North America, 5 are located in Europe, and 5 are located in Asia. Furthermore, 22 of the respondents are developers, 5 team leads, 5 component leads and project management committee, and 4 respondents withheld their information.
 
-\paragraph{Survey}
-To complement the insights we obtained from the observations and interviews, we deployed a survey with the entire RTC team at the end of our observation period. The survey was designed iteratively and piloted with a European team, and intended to collect input about which factors increase the likelihood of a developer requesting information about a change-set from the change-set author. The items we included in the survey were in the categories of code-related, developer-related and process-related items. Each category included 14 items, as shown in Table~\ref{tab:surveyfactors}. \emph{Code-change related} items describe the change-set delivered or the code that the change-set modifies or affects. \emph{Developer-related} items relate to
-the developers that delivered a change-set, the developer requesting the
-information, and their relation to each other. Finally, \emph{process-related} items relate to the development phase in effect when the change-set was delivered, and to items relating to process requirements or practices. For each of the three categories, the survey asked the developers to rank each item in the category according to how strongly it increases their likelihood of requesting information about a change-set. 
-
-We initially formulated our list of items from an analysis of the current literature on coordination and communication, as well as from our own previous research. We then refined the list of items through piloting and discussions with the development team. An initial version of the survey included fifty-nine items; the refined list had forty-two. Besides reducing the number of items in our list, the pilot survey led us to add several process-related items, as well as to change the format of the question (the initial survey had a battery of questions with Likert-scale answers; the final survey asked respondents to rank each item in comparison to the rest in its own category).
-
-We deployed the survey through a web form, and invited the entire distributed RTC development team to participate. We sent a reminder one month later to increase the response rate. We obtained 36 responses to the survey; approximately a 25\% response rate.
-Of the 36 respondents, 26 are located in North America, 5 are located in Europe, and 5 are located in Asia. Furthermore, 22 of the respondents are developers, 5 team leads, 5 component leads and project management committee, and 4 respondents withheld their information.
-
-\subsubsection{Analysis} 
-For our data analysis, we transcribed the interviews, and then coded both the interviews and the participant-observation notes. From the codes we created categories, which we cross-referenced to the survey rankings. We used an open coding approach, during which we assigned codes to summarize incidents in sentences and paragraphs of the transcribed interviews that relate to our research question.
-
-We calculated the ranking of the survey items for each category by calculating the mean over all ranks given by developers to a survey item (see Table~\ref{tab:surveyfactors}).
-Table~\ref{tab:sparkle} shows the distribution of the rankings for each survey item.
-
-During our analysis, we derived a set of factors affecting communication behaviour based on our list of survey items and qualitative data from our interviews and observations. Whenever possible, we triangulated our findings using all our data sources. We tried to ensure that all of our findings were supported by at least two data sources; none of the findings we report were challenged by any of our data sources. 
+%\subsubsection{Analysis} 
+%For our data analysis, we transcribed the interviews, and then coded both the interviews and the participant-observation notes. From the codes we created categories, which we cross-referenced to the survey rankings. We used an open coding approach, during which we assigned codes to summarize incidents in sentences and paragraphs of the transcribed interviews that relate to our research question.
+%
+%We calculated the ranking of the survey items for each category by calculating the mean over all ranks given by developers to a survey item (see Table~\ref{tab:surveyfactors}).
+%Table~\ref{tab:sparkle} shows the distribution of the rankings for each survey item.
+%
+%During our analysis, we derived a set of factors affecting communication behaviour based on our list of survey items and qualitative data from our interviews and observations. Whenever possible, we triangulated our findings using all our data sources. We tried to ensure that all of our findings were supported by at least two data sources; none of the findings we report were challenged by any of our data sources. 
 
 
 \subsection{Findings}
 \label{sec:findings}
 The evidence collected from our survey, interviews, and participant observation allowed us to derive seven factors that affect communication behaviour in software organizations, which we outline below. In the remainder of this section, text in italics refers to survey items that can be found in Table \ref{tab:surveyfactors}. Text in italics and around quotation marks denotes interview fragments.
 
-\begin{figure*}[tb]
-\centering
-\includegraphics[width=\textwidth]{figures/findingProcess2}
-\vspace{-20pt}\caption{The pattern of information-seeking interactions throughout several iterations of a release cycle. Every release cycle consists of a number of iterations; each iteration includes an endgame phase. change-set-based interactions are more frequent during endgame phases and during the last iteration of the release cycle.}
-\label{IterationsFig}
-\end{figure*}
+%\begin{figure*}[tb]
+%\centering
+%\includegraphics[width=\textwidth]{figures/findingProcess2}
+%\vspace{-20pt}\caption{The pattern of information-seeking interactions throughout several iterations of a release cycle. Every release cycle consists of a number of iterations; each iteration includes an endgame phase. change-set-based interactions are more frequent during endgame phases and during the last iteration of the release cycle.}
+%\label{IterationsFig}
+%\end{figure*}
 
 
 
-\addtocounter{table}{1}
-\begin{table}[t!]
-\centering
-\begin{tabular}{ll}
-\toprule
-\vspace{-2pt}& Process-related items\\
-\midrule
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/during-release-endgame.pdf} & Release endgame\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-to-review-a-change.pdf} & To review the change\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-to-approve-a-change.pdf} & To approve the change\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/late-milestone.pdf} & Late milestone\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/during-iteration-endgame.pdf} & During iteration endgame\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-a-review-for-a-change.pdf} & Obtain a review for the change\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-an-approval-for-a-change.pdf} & Obtain an approval for the change\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/related-work-item-has-high-severity.pdf} & Related work item has high severity\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-to-verify-a-fix.pdf} & Verify a fix\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/topic-of-work-item-the-change-is-attached-to.pdf} & Topic of work item the change is attached to\\ 
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/priority-of-related-work-item-was-set-from-your-team-lead.pdf} & Priority set by your team lead\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/role-of-committer--e-g--developer--team-lead--intern.pdf} & Role of the committer (e.g. developer)\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/early-in-an-iteration.pdf} & Early in an iteration\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/early-milestone.pdf} & Early milestone\\
-\midrule
-\vspace{-2pt}& Developer-related items\\
-\midrule
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-author-is-inexperienced.pdf} & Author is inexperienced\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/recent-work-of-low-quality.pdf} & Author recently delivered sub-standard work\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-author-is-not-up-to-date-with-recent-events.pdf} & Author is not up to date with recent events\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/don-t-know-the-change-author.pdf} & You do not know the change-set author \\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/currently-working-with-the-change-author.pdf} & Author is currently working with you\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-author-part-of-the-same-feature-team.pdf} & Author part of same feature team\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/team-of-change-author.pdf} & Author part of your team\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/worked-with-change-author-in-the-past.pdf} & Worked with author before\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/busyness-of-yourself} & Busyness of yourself\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/busyness-of-the-change-author} & Busyness of the author\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/met-change-author-in-person.pdf} & Met in person\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/physical-location-of-the-change-author.pdf} & Physical location\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-author-is-experienced.pdf} & Author is experienced\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/recent-work-of-high-quality.pdf} & Author recently delivered high-quality work\\
-\midrule
-\vspace{-2pt}& Code-change related items \\
-\midrule
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-modified-API.pdf} & Changed API\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/don-t-know-why-code-was-changed.pdf} & Don't know why code was changed\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/code-affects-frequently-used-features.pdf} & Affects frequently used features\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/complex-code-was-changed.pdf} & Complex code\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-introduced-new-functionality.pdf} & Introduced new functionality\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/code-is-used-by-many-other-methods.pdf} & Is used by many other methods\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/your-code-was-changed.pdf} & Your code was changed \\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/stable-code-was-changed.pdf} & Stable code was changed\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-unlocks-previously-unused-code.pdf} & Change unlocks previously unused code\\\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-was-a-bug-fix.pdf} & A bug fix\\	
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-was-a-re-factoring.pdf} & A re-factoring\\ 
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/frequently-modified-code-was-changed.pdf} & Frequently modified code was changed \\
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/code-is-used-by-a-few-other-methods.pdf} & Code is used by few other methods\\ 
-\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/simple-code-was-changed.pdf} & Simple code was changed\\
-\bottomrule
-\end{tabular}
-\vspace{-5pt}
-\caption{This table contains the distribution of ranks for each survey item. The leftmost point of each sparkline represents the amount of respondents that ranked the item first; the rightmost point represents the amount that ranked it last (14th). No survey item received the same rank from more than ten respondents.}
-\label{tab:sparkle}
-%\vspace{-20pt}
-\end{table}
+%\addtocounter{table}{1}
+%\begin{table}[t!]
+%\centering
+%\begin{tabular}{ll}
+%\toprule
+%\vspace{-2pt}& Process-related items\\
+%\midrule
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/during-release-endgame.pdf} & Release endgame\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-to-review-a-change.pdf} & To review the change\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-to-approve-a-change.pdf} & To approve the change\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/late-milestone.pdf} & Late milestone\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/during-iteration-endgame.pdf} & During iteration endgame\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-a-review-for-a-change.pdf} & Obtain a review for the change\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-an-approval-for-a-change.pdf} & Obtain an approval for the change\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/related-work-item-has-high-severity.pdf} & Related work item has high severity\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/you-need-to-verify-a-fix.pdf} & Verify a fix\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/topic-of-work-item-the-change-is-attached-to.pdf} & Topic of work item the change is attached to\\ 
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/priority-of-related-work-item-was-set-from-your-team-lead.pdf} & Priority set by your team lead\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/role-of-committer--e-g--developer--team-lead--intern.pdf} & Role of the committer (e.g. developer)\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/early-in-an-iteration.pdf} & Early in an iteration\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/early-milestone.pdf} & Early milestone\\
+%\midrule
+%\vspace{-2pt}& Developer-related items\\
+%\midrule
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-author-is-inexperienced.pdf} & Author is inexperienced\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/recent-work-of-low-quality.pdf} & Author recently delivered sub-standard work\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-author-is-not-up-to-date-with-recent-events.pdf} & Author is not up to date with recent events\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/don-t-know-the-change-author.pdf} & You do not know the change-set author \\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/currently-working-with-the-change-author.pdf} & Author is currently working with you\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-author-part-of-the-same-feature-team.pdf} & Author part of same feature team\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/team-of-change-author.pdf} & Author part of your team\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/worked-with-change-author-in-the-past.pdf} & Worked with author before\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/busyness-of-yourself} & Busyness of yourself\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/busyness-of-the-change-author} & Busyness of the author\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/met-change-author-in-person.pdf} & Met in person\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/physical-location-of-the-change-author.pdf} & Physical location\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-author-is-experienced.pdf} & Author is experienced\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/recent-work-of-high-quality.pdf} & Author recently delivered high-quality work\\
+%\midrule
+%\vspace{-2pt}& Code-change related items \\
+%\midrule
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-modified-API.pdf} & Changed API\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/don-t-know-why-code-was-changed.pdf} & Don't know why code was changed\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/code-affects-frequently-used-features.pdf} & Affects frequently used features\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/complex-code-was-changed.pdf} & Complex code\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-introduced-new-functionality.pdf} & Introduced new functionality\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/code-is-used-by-many-other-methods.pdf} & Is used by many other methods\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/your-code-was-changed.pdf} & Your code was changed \\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/stable-code-was-changed.pdf} & Stable code was changed\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-unlocks-previously-unused-code.pdf} & Change unlocks previously unused code\\\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-was-a-bug-fix.pdf} & A bug fix\\	
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/change-was-a-re-factoring.pdf} & A re-factoring\\ 
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/frequently-modified-code-was-changed.pdf} & Frequently modified code was changed \\
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/code-is-used-by-a-few-other-methods.pdf} & Code is used by few other methods\\ 
+%\vspace{-2pt}\includegraphics[height=10px, width=30px]{figures/sparkles/simple-code-was-changed.pdf} & Simple code was changed\\
+%\bottomrule
+%\end{tabular}
+%\vspace{-5pt}
+%\caption{This table contains the distribution of ranks for each survey item. The leftmost point of each sparkline represents the amount of respondents that ranked the item first; the rightmost point represents the amount that ranked it last (14th). No survey item received the same rank from more than ten respondents.}
+%\label{tab:sparkle}
+%%\vspace{-20pt}
+%\end{table}
 
 
 \subsubsection{Development Mode}
@@ -235,7 +243,7 @@ One of the strongest findings from our study was the effect of the development m
 The normal iteration mode mainly consists of work that can be planned by the developer. This work tends to be new feature development, or modifications to existing features. Most of the planning for it has been laid out in advance; furthermore, each developer individually knows what features have been assigned to her, and can plan ahead to meet her obligations.
 In contrast, the endgame mode mainly consists of work that is coming uncontrollably in short intervals from others. As a result of integration and more intense testing, defects crop up more rapidly and need to be addressed more quickly. Beyond allocating time for endgame activities, there is very little in this development mode that can be planned in advance.
 
-The RTC team switches between the two modes in each iteration. Of the six weeks of a regular iteration, four weeks are assigned to normal iteration mode and two weeks to endgame. However, as deadlines approach, there are occasional special iterations that consist mostly of endgame-like work. In this manner, the same detailed pattern of alternation between normal iteration and endgame within an iteration is reproduced at a higher level, as shown in Figure~\ref{IterationsFig}.
+The RTC team switches between the two modes in each iteration. Of the six weeks of a regular iteration, four weeks are assigned to normal iteration mode and two weeks to endgame. However, as deadlines approach, there are occasional special iterations that consist mostly of endgame-like work. In this manner, the same detailed pattern of alternation between normal iteration and endgame within an iteration is reproduced at a higher level.%, as shown in Figure~\ref{IterationsFig}.
 
 We identified the same pattern with respect to the amount of change-set-related interactions in the team. We found that the mode in which the team is currently in is an important factor determining whether developers will feel a need to communicate about change-sets. Being in endgame mode increases the need for developers to communicate about a change-set, whereas being in normal mode decreases the need to request information about it.
 
@@ -276,12 +284,12 @@ This last finding would seem to indicate that the RTC team has managed to overco
 
 
 
-\subsubsection{Risk Assessment}
-A central factor at the heart of the decision to seek information is a concern with the quality of the product and components developed by the team at large. Both managers and developers share this concern. Because of it, every team member is constantly evaluating whether there are significant risks involved in accepting a change-set and including it into the final product. This concern is greatest close to releases or major milestones, and less important when the team is in normal iteration mode.
-
-Developers request information more frequently about change-sets that touch on code that has a high customer impact. According to our interviews and observations, code parts with a high customer impact are those that are directly related to frequently used features or changes to the API that might be used by customers to customize the RTC product. In the case of the impact of API changes, there is an extensive knowledge exchange in the jazz.net forums between customers and developers about how to use the API to build extensions to RTC, which gives developers plenty of information about the possible impact of API changes to the customers. Consequently, change-sets that modify code that has less impact on the customer are of less concern and less likely to be discussed. For example, when scanning fixes to reported bugs, developers perform a risk assessment to determine whether the bug fix is even needed. In the words of one team member, \emph{``with every tenth bug fix you introduce another bug to the system, so unless the bug does not have a workaround and is something most customers would experience, we give it low priority.''}
-
-The ranking of items in Table \ref{tab:sub-technical} provides additional insights into the kinds of change-sets that carry a risk for developers. A \emph{changed API} comes at the top of the list, code that \emph{affects frequently used features} comes third, immediately followed by changes to \emph{complex code}, changes that \emph{introduced new functionality}, and changes to code that \emph{is used by many other methods}.
+%\subsubsection{Risk Assessment}
+%A central factor at the heart of the decision to seek information is a concern with the quality of the product and components developed by the team at large. Both managers and developers share this concern. Because of it, every team member is constantly evaluating whether there are significant risks involved in accepting a change-set and including it into the final product. This concern is greatest close to releases or major milestones, and less important when the team is in normal iteration mode.
+%
+%Developers request information more frequently about change-sets that touch on code that has a high customer impact. According to our interviews and observations, code parts with a high customer impact are those that are directly related to frequently used features or changes to the API that might be used by customers to customize the RTC product. In the case of the impact of API changes, there is an extensive knowledge exchange in the jazz.net forums between customers and developers about how to use the API to build extensions to RTC, which gives developers plenty of information about the possible impact of API changes to the customers. Consequently, change-sets that modify code that has less impact on the customer are of less concern and less likely to be discussed. For example, when scanning fixes to reported bugs, developers perform a risk assessment to determine whether the bug fix is even needed. In the words of one team member, \emph{``with every tenth bug fix you introduce another bug to the system, so unless the bug does not have a workaround and is something most customers would experience, we give it low priority.''}
+%
+%The ranking of items in Table \ref{tab:sub-technical} provides additional insights into the kinds of change-sets that carry a risk for developers. A \emph{changed API} comes at the top of the list, code that \emph{affects frequently used features} comes third, immediately followed by changes to \emph{complex code}, changes that \emph{introduced new functionality}, and changes to code that \emph{is used by many other methods}.
 
 
 %\subsubsection{Work Allocation and Peer Reviews}
@@ -311,19 +319,19 @@ Although every team member is concerned with the quality of their product, a mor
 More junior team members, however, do not have this concern. They express their pride in the actual product and want it to be as bug free as possible. A developer commented to us: \emph{``I want to be proud of what I deliver and I am fairly certain if we don't fix it now it will come back to haunt us because it might upset some customers.''} Not only does this lead the developer to try to convince her manager that including change-sets for seemingly unimportant fixes is valuable, it also makes her information-seeking behaviour different with respect to that of the more senior team members. Broadly speaking, managers will be more interested in seeking clarifications as to the business case of a work item if it is not clear in its description, while developers will not care as much about this.
 
 
-\subsection{Conclusions}
-\label{sec:conclusions}
-We end this chapter by bringing it back to the initial research question we set out to answer:
-\begin{itemize}
-  \item\textbf{RQ 2.2:} Do developers accept recommendations based on software changes to increase build success? 
-\end{itemize}
-
-The findings we presented in Section~\ref{sec:findings} show that there are different factors that influence developer to inquire about change-sets.
-Although not directly asked for, the developer with reporting on those factors answered our research question in a positive way.
-Our approach would provide developers with recommendations either on a per change-set level or while they are working on the code.
-We found that developer do talk about change-sets which represent our level of recommendations as well as they show interest in build outcome towards the end of a release cycle.
-Thus we can say that the level of our recommendation seems to be appropriate when keeping it to the change-set level.
-Examining our finding about risk assessment, which is practices by every lead and developer we are confident that developer would welcome notifications on how risky with respect to build success the changes they are currently applying are to give them a chance to either talk to the recommended person or reconsider the change altogether.
-Hence, we are confident the developer answers both validated that they would accept recommendations both in the form we present them, namely per change-set submitted, as well as lending our outcome metric more credibility as they show a keen interest in build success when the date to ship the product approaches.
-
-In the next chapter we return to our path of a more direct analysis of our recommendations by showing a proof of concept that the recommendations do not only statistically relate to build outcome but that recommendation could actually prevent build failures.
+%\subsection{Conclusions}
+%\label{sec:conclusions}
+%We end this chapter by bringing it back to the initial research question we set out to answer:
+%\begin{itemize}
+%  \item\textbf{RQ 2.2:} Do developers accept recommendations based on software changes to increase build success? 
+%\end{itemize}
+%
+%The findings we presented in Section~\ref{sec:findings} show that there are different factors that influence developer to inquire about change-sets.
+%Although not directly asked for, the developer with reporting on those factors answered our research question in a positive way.
+%Our approach would provide developers with recommendations either on a per change-set level or while they are working on the code.
+%We found that developer do talk about change-sets which represent our level of recommendations as well as they show interest in build outcome towards the end of a release cycle.
+%Thus we can say that the level of our recommendation seems to be appropriate when keeping it to the change-set level.
+%Examining our finding about risk assessment, which is practices by every lead and developer we are confident that developer would welcome notifications on how risky with respect to build success the changes they are currently applying are to give them a chance to either talk to the recommended person or reconsider the change altogether.
+%Hence, we are confident the developer answers both validated that they would accept recommendations both in the form we present them, namely per change-set submitted, as well as lending our outcome metric more credibility as they show a keen interest in build success when the date to ship the product approaches.
+%
+%In the next chapter we return to our path of a more direct analysis of our recommendations by showing a proof of concept that the recommendations do not only statistically relate to build outcome but that recommendation could actually prevent build failures.

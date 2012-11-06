@@ -2,8 +2,8 @@
 \section{Communication and Failure}
 \label{chap:soc-net}
 We open our investigation of how to modify the social relationships among software developers, represented by the communication between them, with searching for a relationship between communication and build success.
-This forms the basis and justification for an approach that we describe in a later chapter to allow us to manipulate the social interactions among developers.
-Thus this chapter explores our first research question:
+This forms the basis and justification for an approach that we describe in a later Section to allow us to manipulate the social interactions among developers.
+Thus this Section explores our first research question:
 \begin{itemize}
 \item\textbf{RQ 1.1} Do Social Networks influence build success?
 \end{itemize}
@@ -15,15 +15,15 @@ This coordination is in the most part accomplished through communication, which 
 Coupled with the fact that communication is inherently ambiguous and can often lead to misunderstandings, errors based on such misunderstandings may be introduces into the source code.
 Thus, we are confident that there exists  a connection between developer communication and build success.
 
-%In this chapter, we start with describing the methodology that is relevant to exploring our research question (Section~\ref{sec:Methodology}).
+%In this Section, we start with describing the methodology that is relevant to exploring our research question (Section~\ref{sec:Methodology}).
 %Then, we present our analysis and results we obtained in Section~\ref{sec:AnalysisResults} followed by a discussion of the results in Section~\ref{sec:discussion}.
-%We conclude this chapter with offering an answer to our research question and leading into the subsequent Chapter~\ref{chap:stc-net2} (Section~\ref{sec:conclusion}).
+%We conclude this Section with offering an answer to our research question and leading into the subsequent Section~\ref{chap:stc-net2} (Section~\ref{sec:conclusion}).
 
 
 \subsection{Methodology}
 \label{sec:Methodology}
 To address our research question we analyze data from a large software
-development project IBM Rational Team Concert which we described in created detail in Chapter~\ref{chap:rtc}.
+development project IBM Rational Team Concert.
 
 \subsubsection{Coordination outcome measure}
 In our study we conceptualize the coordination outcome by the Build Result,
@@ -43,7 +43,7 @@ build.
 
 \subsubsection{Communication network measures}
 To characterize the communication structure represented by the constructed social
-networks for each build (as described in Chapter~\ref{chap:meth}), we compute a number of social network measures. The
+networks for each build (as described in Section~\ref{chap:meth}), we compute a number of social network measures. The
 measures that we include in our analysis are: Density, Out-Degree/In-Degree/InOut-Degree Centrality, Betweeness and Structural holes~\cite{Freeman:1979rl}. Some of these measures characterize single nodes and their neighbours (ego
 networks), while others relate to complete networks. As we are interested in
 analysing the characteristics of complete communication networks associated to
@@ -285,12 +285,12 @@ of correctly and wrongly classified results.
 %\label{tab:cont}
 %\end{table}
 
-Table~\ref{tab:cont} shows the classification result for team F. The upper left
-cell represents the number of correctly classified communication networks as
-related to \ok\ builds (26 vs. 31 actual), and the lower right cell shows the
-number of correctly classified networks as leading to \error\ builds (15 vs. 24
-actual). The other two cells show the number of wrongly classified communication
-networks.
+%Table~\ref{tab:cont} shows the classification result for team F. The upper left
+%cell represents the number of correctly classified communication networks as
+%related to \ok\ builds (26 vs. 31 actual), and the lower right cell shows the
+%number of correctly classified networks as leading to \error\ builds (15 vs. 24
+%actual). The other two cells show the number of wrongly classified communication
+%networks.
 
 The classification quality is assessed via recall and precision coefficients,
 which can be calculated for \error\ and \ok\ build  predictions. 
@@ -395,7 +395,7 @@ values are equally high.
 
 %\subsection{Conclusions}
 %\label{sec:conclusion}
-%We conclude this chapter by bringing it back to the initial research question we set out to answer:
+%We conclude this Section by bringing it back to the initial research question we set out to answer:
 %\begin{itemize}
 %\item\textbf{RQ 1.1} Do Social Networks from repositories influence build success?
 %\end{itemize}
@@ -405,5 +405,5 @@ values are equally high.
 %
 %This finding opens the research avenue of investigating whether the manipulation of communication among software developers can yield positive results with respect to build success.
 %This leads us to the next research question that we want to search for places within the social networks that we should manipulate to stimulate build success.
-%For that purpose we turn in the next chapter to the concept of socio-technical congruence that might help us highlighting those developers that should have communicated.
+%For that purpose we turn in the next Section to the concept of socio-technical congruence that might help us highlighting those developers that should have communicated.
 

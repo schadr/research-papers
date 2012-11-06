@@ -1,7 +1,7 @@
 % !TEX root = thesis-journal.tex
 \section{Background}
 \label{chap:bg}
-In this chapter we provide an overview of five areas that are relevant to the research conducted with this thesis: (1) the research on software builds, (2) the research on coordination in software development teams, (3) failure prediction using social networks, and (4) recommender systems in software engineering.
+In this Section we provide an overview of related work: (1) the research on coordination in software development teams and (2) failure prediction using social networks.
 
 \subsection{Coordination in Software Engineering Teams}
 Software is extremely complex because of the sheer number of dependencies~\cite{sawyer2004:teams}.
@@ -50,7 +50,7 @@ Although distance has been identified as a challenge, advances in collaborative
 development environments are enabling people to overcome challenges of distance.
 One study of early RTC development
 shows that the task completion time is not as strongly affected by distance as in previous studies~\cite{Nguyen:2008Distance}. Technology that empowers distributed collaboration include topic recommendations~\cite{carter2004} and instant messaging~\cite{niinimaki2008}. Processes are adapting to the fast pace of software development: the Eclipse way~\cite{frost:ieeesoftware:2007} emphasizes placing milestones at fixed intervals and community involvement.
-These new processes lie the Eclipse way that focus on frequent milestones lends more importance to software builds warranting more support by research as we conduct it in this thesis.
+These new processes lie the Eclipse way that focus on frequent milestones lends more importance to software builds warranting more support by research as we conduct.
 
 \subsection{Can communication predict build failure?}
 \label{sec:ResearchQuestions}
@@ -106,7 +106,7 @@ inducing changes
 And only few studies, such as Hassan and Zhang~\cite{hassan:ase:2006}, stepped away
 from predicting component failures and used statistical classifiers to predict
 integration outcome.
-In this thesis we want to extend the body of knowledge surrounding prediction models using communication data or focusing on build outcome by investigating how to improve communication among software developers to prevent build failures.
+We want to extend the body of knowledge surrounding prediction models using communication data or focusing on build outcome by investigating how to improve communication among software developers to prevent build failures.
 
 
 
@@ -125,37 +125,37 @@ In this thesis we want to extend the body of knowledge surrounding prediction mo
 
 
 
-\subsection{Recommendations in Software Engineering}
-In the software engineering community knowledge extracted from software repositories is usually brought to developers in the form or recommender systems.
-Several recommender systems derived from the implication of socio-technical congruence described by Conway's Law~\cite{conway:datamination:1968} provide additional awareness to improve coordination among software development especially in a distributed setting where coordination is most difficult~\cite{olson:hci:2000}.
-In the following we describe three exemplary awareness systems.
-
-% tesseract
-\emph{Tesseract}~\cite{sarma:icse:2009} leverages code dependencies among developers to foster awareness through visualizing task and developer centric socio-technical networks.
-A task centric socio-technical network is build from all developers and source code changes that are related through code dependencies or task discussions.
-These task centric socio-technical networks are complemented by developer centric networks, that show for a specific developer what  socio-technical relationships she has with her colleagues.
-
-% proxi scentia
-Systems like Tesseract suffer from the issue that they cannot provide real time feedback on changes in  technical networks, as they solely rely changes committed to the source code repository. 
-\emph{Proxiscentia}~\cite{borici:chase:2012} address this issue by implementing an approach proposed by Blincoe et al~\cite{blincoe:cscw:2012} to instrument IDE's used by software developers and gather code edit events as recorded by tools such as Mylyn~\cite{kersten:aosd:2005}.
-
-% Ensemble
-\emph{Ensemble}~\cite{xiang:rsse:2008} provides a constant stream of events consisting of modifications to artifacts that are related to the stream owner.
-For example, if developer Adam posts a comment on a task owned by developer Eve, then Eve's stream would contain an event showing that Adam commented on her task.
-
-%remarks
-Overall these recommender systems provide awareness of who might be worth to interact with.
-None of those systems are aiming at a concrete goal to accomplish other than achieving awareness.
-We think that a focus is needed, such as on awareness with respect to dependencies that are relevant for build success.
-Without such a focus the information that a developer needs to survey can quickly take up to much precious development time and may lead a developer to abandon those systems as they are taking up more time than they save.
-
+%\subsection{Recommendations in Software Engineering}
+%In the software engineering community knowledge extracted from software repositories is usually brought to developers in the form or recommender systems.
+%Several recommender systems derived from the implication of socio-technical congruence described by Conway's Law~\cite{conway:datamination:1968} provide additional awareness to improve coordination among software development especially in a distributed setting where coordination is most difficult~\cite{olson:hci:2000}.
+%In the following we describe three exemplary awareness systems.
+%
+%% tesseract
+%\emph{Tesseract}~\cite{sarma:icse:2009} leverages code dependencies among developers to foster awareness through visualizing task and developer centric socio-technical networks.
+%A task centric socio-technical network is build from all developers and source code changes that are related through code dependencies or task discussions.
+%These task centric socio-technical networks are complemented by developer centric networks, that show for a specific developer what  socio-technical relationships she has with her colleagues.
+%
+%% proxi scentia
+%Systems like Tesseract suffer from the issue that they cannot provide real time feedback on changes in  technical networks, as they solely rely changes committed to the source code repository. 
+%\emph{Proxiscentia}~\cite{borici:chase:2012} address this issue by implementing an approach proposed by Blincoe et al~\cite{blincoe:cscw:2012} to instrument IDE's used by software developers and gather code edit events as recorded by tools such as Mylyn~\cite{kersten:aosd:2005}.
+%
+%% Ensemble
+%\emph{Ensemble}~\cite{xiang:rsse:2008} provides a constant stream of events consisting of modifications to artifacts that are related to the stream owner.
+%For example, if developer Adam posts a comment on a task owned by developer Eve, then Eve's stream would contain an event showing that Adam commented on her task.
+%
+%%remarks
+%Overall these recommender systems provide awareness of who might be worth to interact with.
+%None of those systems are aiming at a concrete goal to accomplish other than achieving awareness.
+%We think that a focus is needed, such as on awareness with respect to dependencies that are relevant for build success.
+%Without such a focus the information that a developer needs to survey can quickly take up to much precious development time and may lead a developer to abandon those systems as they are taking up more time than they save.
+%
 
 
 
 
 \section{Research Questions}
 The concept of socio-technical congruence shows potential to help make software development more efficient.
-Cataldo et al~\cite{cataldo:cscw:2006} demonstrated its relation to productivity, and we show among other things in this thesis the ability to use socio-technical congruence to predict build outcome.
+Cataldo et al~\cite{cataldo:cscw:2006} demonstrated its relation to productivity, and we show among the ability to use socio-technical congruence to predict build outcome.
 The concept of socio-technical congruence lends itself to improve software development as it is based on social networks connecting developer on a coordination and technical level.
 Because of the concept being based on networks it is possible to manipulate the networks.
 
@@ -164,28 +164,27 @@ As a first step we need to assess if the actual communication structure among so
 As a follow up step, we need to explore the relationship between socio-technical networks and build success.
 Especially we are interested in whether missing actual coordination in the face of a coordination needs is related to build failure.
 
-We start in the second part of this thesis with investigating the influence of communication among team members in the form of social networks on build success.
+We start with investigating the influence of communication among team members in the form of social networks on build success.
 Next, we investigate if gaps (unfilled coordination needs) between developers as highlighted by socio-technical networks and the socio-technical networks themselves can be brought into relation with build success.
-Therefore Chapter~\ref{chap:soc-net} and~\ref{chap:stc-net2} investigate the following two research questions respectively:
+Therefore Section~\ref{chap:soc-net} and~\ref{chap:stc-net2} investigate the following two research questions respectively:
 
 \begin{itemize}
-  \item\textbf{RQ 1.1:} Do Social Networks influence build success? (Chapter~\ref{chap:soc-net})
-  \item\textbf{RQ 1.2:} Does Socio-Technical Networks influence build success? (Chapter~\ref{chap:stc-net2})
+  \item\textbf{RQ 1.1:} Do Social Networks influence build success? (Section~\ref{chap:soc-net})
+  \item\textbf{RQ 1.2:} Does Socio-Technical Networks influence build success? (Section~\ref{chap:stc-net2})
 \end{itemize}
 
-Having found a relationship between socio-technical networks, especially gaps between coordination and coordination needs with build success, while knowing that communication alone has an effect on build success, we formulate an approach to leverage socio-technical networks (Chapter~\ref{chap:approach}).
-The third and final part of this thesis focuses on evaluating this approach in three ways:
-(1) gathering general statistical evidence that parts of the network can be manipulated to increase build success,
-(2) exploring the acceptance of such recommendation based on those manipulations by developers,
-and (3) a proof of concept that the recommendation could prevent failures.
-Hence, the first three chapters of the third part of this thesis are guided by the following three research questions:
+Having found a relationship between socio-technical networks, especially gaps between coordination and coordination needs with build success, while knowing that communication alone has an effect on build success, we formulate an approach to leverage socio-technical networks (Section~\ref{chap:approach}).
+Thus we focus focus on evaluating this approach in two ways:
+(1) gathering general statistical evidence that parts of the network can be manipulated to increase build success and
+(2) exploring the acceptance of such recommendation based on those manipulations by developers.
+Hence, we are guided by the following two research questions:
 
 \begin{itemize}
-  \item\textbf{RQ 2.1:} Can Socio-Technical Networks be manipulated to increase build success? (Chapter~\ref{chap:stc-net})
-  \item\textbf{RQ 2.2:} Do developers accept recommendations based on software changes to increase build success? (Chapter~\ref{chap:talk})
+  \item\textbf{RQ 2.1:} Can Socio-Technical Networks be manipulated to increase build success? (Section~\ref{chap:approach})
+  \item\textbf{RQ 2.2:} Do developers accept recommendations based on software changes to increase build success? (Section~\ref{chap:talk})
 \end{itemize}
 
-In the following discussion (Chapter~\ref{chap:disc}) we will highlight how our findings from these three research questions support the approach we detailed in Chapter~\ref{chap:approach}.
+In the following discussion (Section~\ref{chap:disc}) we will highlight how our findings from our research questions supporting the approach we detailed in Section~\ref{chap:approach}.
 
 
 
