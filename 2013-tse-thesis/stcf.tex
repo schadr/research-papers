@@ -59,7 +59,7 @@ Model likelihood ratio & 101.92 &  & $R^2=0.581$  \\
 \label{sec:congruence}
 In Section~\ref{chap:meth} we described socio-technical networks and how we conceptualize them.
 If we reformulate this network into the terms originally used by Cataldo et al~\cite{cataldo:cscw:2006} the matrix representation of the technical dependencies among software developers turns into the coordination needs matrix $CN$ and the social network in matrix representation is the actual coordination matrix $AC$.
-Thus we calculate the socio-technical congruence index by deciding the cardinality of $AC$ without $CN$ by the cardinality of  $CN$.
+Thus we calculate the socio-technical congruence index by dividing the cardinality of $AC$ without $CN$ by the cardinality of  $CN$.
 
 
 
@@ -67,39 +67,38 @@ Thus we calculate the socio-technical congruence index by deciding the cardinali
 \label{sec:methodology}
 Logistic regression is ideal to test the relationship between multiple variables and a binary outcome, which in our study is a build result being either ``OK'' or ``Error''. The presence of many data entities in this project means that we must consider confounding variables in addition to the socio-technical congruence when determining its effects on the probability of build success. Informally, logistic regression identifies the amount of ``influence'' that a variable has in the probability that a build will be successful.
 The two main variables we are interested in are as aforementioned the socio-techincal congruence index as well as the ratio between gaps and coordination needs, that is technical dependencies among developers that are not accompanies by a corresponding social dependency.
-
+To assess the fit of the logistic regression models, we use the Nagelkerke pseudo-$R^2$ and AIC. 
+%$R^2$ shows the proportion of variability explained by the model, and AIC is a measure of how well the model fits the data. Ideally, $R^2$ is high and AIC is low. Our current model contains 19 variables and has an $R^2$ of 0.581. 
+%We found that 19 variables is optimal and that removing further variables lowered the $R^2$ value while raising the AIC.
 
 \subsection{Results}
 \label{sec:results}
 In the RTC repository, we analyzed 191 builds; of these builds, 60 were error builds, and 131 were OK builds.
 The congruence values are low on average with a mean value of 0.331 meaning that about one-third of the coordination needs are satisfied by actual coordination.
 
-To assess the fit of the logistic regression models, we use the Nagelkerke pseudo-$R^2$ and AIC. $R^2$ shows the proportion of variability explained by the model, and AIC is a measure of how well the model fits the data. Ideally, $R^2$ is high and AIC is low. Our current model contains 19 variables and has an $R^2$ of 0.581. 
-We found that 19 variables is optimal and that removing further variables lowered the $R^2$ value while raising the AIC.
-
-
-\begin{table}[t]
-\begin{center}
-\begin{tabular}{lrr}
-  \toprule
- & Model\\ 
-  \midrule
-Intercept & 1.32 \\ 
-  Authors &  0.60 \\ 
-  Files &  0.63 \\ 
-  Work~items  & 0.85 \\ 
-  Build type=I  & 1.31 \\ 
-  Gap ratio  & 8.71 \\ 
-  Build date  & 0.59 \\ 
-  Authors * Build date & 0.74 \\ 
-  Work~items * Build date  & 1.83 \\ 
-  Build type=I * Build date  & 2.52 \\ 
-   \bottomrule
-\end{tabular}
-\caption{Odds Ratio for Gap Ratio Models}
-\label{tab:oddsratio_gapsize}
-\end{center}
-\end{table}
+%
+%\begin{table}[t]
+%\begin{center}
+%\begin{tabular}{lrr}
+%  \toprule
+% & Model\\ 
+%  \midrule
+%Intercept & 1.32 \\ 
+%  Authors &  0.60 \\ 
+%  Files &  0.63 \\ 
+%  Work~items  & 0.85 \\ 
+%  Build type=I  & 1.31 \\ 
+%  Gap ratio  & 8.71 \\ 
+%  Build date  & 0.59 \\ 
+%  Authors * Build date & 0.74 \\ 
+%  Work~items * Build date  & 1.83 \\ 
+%  Build type=I * Build date  & 2.52 \\ 
+%   \bottomrule
+%\end{tabular}
+%\caption{Odds Ratio for Gap Ratio Models}
+%\label{tab:oddsratio_gapsize}
+%\end{center}
+%\end{table}
 
 \subsubsection{Effects of interactions involving congruence}
 \label{sec:congruenceinteractions}

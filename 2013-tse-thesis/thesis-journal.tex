@@ -579,34 +579,71 @@ We compiled a list of findings that detail on what triggered developers to talk 
 In the three month period in which we joined the development team as an intern developer we kept a detailed logbook.
 From that log book we both inferred the foundation of the findings we present.
 Furthermore, the log book entries served as the basis for the questionnaire pilot that we run with the local team we were embedded with before  replying the questionnaire with the Rational Team Concert development team at large.
-
-While the Rational Team Concert development team was responding to the questionnaire we interviewed the local team that served as pilot group for the questionnaire
+%
+While the Rational Team Concert development team was responding to the questionnaire we interviewed the local team that served as pilot group for the questionnaire.
 
 \subsection{Findings}
-The four findings we present in this subsection are derived from the three month participant observation period as well as the XXX survey respondents as well as the 10 interviews we conducted with the local development team.
+The four findings we present in this subsection are derived from the three month participant observation period as well as the 36 survey respondents as well as the 10 interviews we conducted with the local development team.
 
 \subsubsection{Development Process}
-The Rational Team Concert follows an agile development process that defines 6 week iterations with several iterations forming a release cycle.
-Each iteration can be further subdivided into two parts: (1) development and (2) endgame.
-The development part os mainly concerned with implementing features and refactoring whereas the endgame is concerned with stabilizing the product.
-The endgame period in an iteration gets longer the closer the iteration which translate into a similar pattern on the level of release cycles where iterations close to the end of a release cycle form the release endgame.
+One of the strongest findings from our study was the effect of the development mode that the team is in on its communication behaviour. Developers and managers alike give much importance to the development mode they are in, namely (1) normal iteration, and (2) endgame.
 
-Especially during the endgame either in an iteration or towards the end of a release cycle developers show a keen interest in the outcome of the upcoming build.
-Because a successful build is important to start using the build themselves while developing developers critically assess changes made to the product to ensure that these changes are not destabilizing the product.
-To avoid destabilizing the product developers are continuously coordinating their work and try to ensure that all developers that are effected by their changes are aware of the potential influence.
+The normal iteration mode mainly consists of work that can be planned by the developer. This work tends to be new feature development, or modifications to existing features. Most of the planning for it has been laid out in advance; furthermore, each developer individually knows what features have been assigned to her, and can plan ahead to meet her obligations.
+In contrast, the endgame mode mainly consists of work that is coming uncontrollably in short intervals from others. As a result of integration and more intense testing, defects crop up more rapidly and need to be addressed more quickly. Beyond allocating time for endgame activities, there is very little in this development mode that can be planned in advance.
+
+The RTC team switches between the two modes in each iteration. Of the six weeks of a regular iteration, four weeks are assigned to normal iteration mode and two weeks to endgame. However, as deadlines approach, there are occasional special iterations that consist mostly of endgame-like work. In this manner, the same detailed pattern of alternation between normal iteration and endgame within an iteration is reproduced at a higher level.%, as shown in Figure~\ref{IterationsFig}.
+
+We identified the same pattern with respect to the amount of change-set-related interactions in the team. We found that the mode in which the team is currently in is an important factor determining whether developers will feel a need to communicate about change-sets. Being in endgame mode increases the need for developers to communicate about a change-set, whereas being in normal mode decreases the need to request information about it.
+
+The first author of this paper experienced both modes during his participant-observer time with the RTC team. He joined the team in a release endgame phase, which was characterized by fixing bugs that were reported by testers, and he helped by fixing minor bugs as well as setting up servers for testing. When the team released the project, it switched gears, and in the decompression after the endgame he had the opportunity to develop a feature for the product. The differences in the patterns of interaction between the two modes were distinctly clear, for him and for his peers. During the endgame mode, developers were essentially ``on demand,'' available to fix whatever bugs were discovered. Later, during the normal iteration mode, they experienced far more autonomy and control over their time, and began working on activities that were less demanding of an interaction back-and-forth, and especially less demanding of keeping track of the change-sets committed by their peers. In our interviews, developers almost unanimously pointed to the separation of the two types of modes, describing the differences in the type of communication in each, and identifying the autonomous \emph{vs.}~uncontrollable, inside \emph{vs.}~outside influence.
+
+This is not to say that developers do not communicate while they are in normal iteration  mode, but that the nature of their communication seems to be different. In normal iteration mode, developers communicate less about concrete change-sets, but they communicate more about high level ideas: for instance, they raise questions about how a feature fits into the existing architecture or general tactics to implement a feature, about how much of it actually needs to be implemented or can be reused from other libraries, and so forth. Generally, however, the amount of communication decreases in normal iteration mode. As a developer commented in one of our interviews, \emph{``during feature development iterations there are weeks I sometimes don't talk to my colleagues at all.''} 
+
+In contrast, the endgame mode is characterized by bug reports and last minute feature requests---that is, by work coming into every developer's desk uncontrollably. change-sets become first class concerns during this mode because each change threatens the stability of the product: developers need to evaluate whether the change-set actually improves the product instead of making things worse. Therefore, they develop a habit of reviewing each other's change-sets to assess the risk they pose to the project's stability.
+
+Our survey data provides significant support for this finding. 
+%In Table~\ref{tab:sub-process}, we can see that overall, for the RTC development team at large, 
+There is a greater likelihood to request information during product-stabilizing phases, such as 
+during the release endgame, and a lesser likelihood to request information when working towards an early milestone. The former was ranked as the most important of the process-related items in our survey; the latter was ranked as the least important. All the survey items that refer to a late stage in the iteration or in the project lifecycle were ranked highly, and all the items that refer to an early stage were ranked lowly. This finding resonates especially with the team we interviewed.
+
+
+%The Rational Team Concert development team follows an agile development process that defines 6 week iterations with several iterations forming a release cycle.
+%Each iteration can be further subdivided into two parts: (1) development and (2) endgame.
+%The development part is mainly concerned with implementing features and refactorings whereas the endgame is concerned with stabilizing the product.
+%The endgame period in an iteration gets longer the closer the iteration is to the release date.
+%Thus the last iterations before the release date consists only of an endgame part and thus form the release endgame.
+%
+%Especially during the endgame either in an iteration or towards the end of a release cycle developers show a keen interest in the outcome of the upcoming build.
+%Because a successful build is important to start using the build themselves for product development developers critically assess changes made to the product to ensure that these changes are not destabilizing it.
+%To avoid destabilizing the product developers  continuously coordinate their work and try to ensure that all developers that are effected by their changes are aware of the potential influence.
 
 \subsubsection{Perceived Knowledge of Change Author}
 Although a successful build is most important in the endgame phase developers are throughout the development interested in creating successful builds to verify the correctness of their work.
-Thus each change that is potentially interfering with the work of a developer is of interest to that developers.
+Thus each change that is potentially interfering with the work of a developer is of interest.
 
 We found that developers keep track of a certain set of developers that are characterized by the level of knowledge they are perceived to have.
-This means when a developers sees a relevant change from another developer she contacts the other developer if the knowledge of that developer is perceived to not have sufficient knowledge in the area the change was applied to.
+This means when a developers sees a relevant change from another developer she contacts the other developer if the knowledge of that developer is perceived to not be sufficient in the area the change was applied to.
 
 \subsubsection{Common Experience and Location}
+Similarly to the importance of the perceived knowledge of the change author the common experiences and location with the change author influence whether the affected developer starts to communicate with the change author.
+This, as reported in the previous reported finding, relates to the trust in the skills of change author.
+
+Developers that worked through a problem together or are co-located and thus frequently talk to each other build up trust in each others skills.
+This trust can result in neglecting required coordination.
+In most cases this neglect is justified but developers recognize that this trust based approach can cause developer to miss important implications. Thus developers would welcome a way to minimize checking every change that affects them while still being notified of those that are important to check.
+
+
 \subsubsection{Risk Assessment}
+Because the upcoming build is essentially the latest version of the product senior developers and managers are, especially towards the end of a release cycle, interested in assessing the effect a change has on the stability of the product.
+This need currently translates into a process that while in the release endgame each change that is made to the product needs to be reviewed by two developers.
 
+One major issue with the enforced review is to find an appropriate reviewer.
+Often developers turn to their collocated team members and walk them through the code change.
+Ideally developers would like to have a reviewer that is both knowledgeable in the area of the code change and has a good grasp of the potential impact on others.
+%
+Our approach can provide developers that seek appropriate reviewers with developers that are affected by the change and have proven to be important to talk to in order to avoid a broken build.
 
-\newpage\ \newpage%\ \newpage
+%\newpage%\ \newpage%\ \newpage
 \input{discussion}
 
 
