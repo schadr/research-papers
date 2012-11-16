@@ -10,7 +10,8 @@ The difficulty arises when changes must be made to the software, because a chang
 
 Coordination is defined as ``integrating or linking together different parts of an organization to accomplish a collective set of tasks''~\cite{vandeven1976}. In order to manage changes and maintain quality, developers must coordinate, and in software development, coordination is largely achieved by communicating with people who depend on the work that you do \cite{kraut:1995coordination}.
 
-A successful software build can be viewed as the outcome of good coordination because the build requires the correct compilation of multiple, dependent files of source code.
+[MOST OF THIS PARA CAN GO AWAY BECAUSE THIS IS SAID IN INTRO. I WOULD MOVE THE REFS IN INTRO]
+ A successful software build can be viewed as the outcome of good coordination because the build requires the correct compilation of multiple, dependent files of source code.
 A failed build, on the other hand, demotivates software developers \cite{holck2004,damian:icgse:2007} and destabilizes the product \cite{cusumano1997}.
 While a failed build is not necessarily a disaster, it slows down work significantly while developers scramble to repair the issues.
 A build result thus serves as an indicator of the health of the software project up until that point in time.
@@ -27,20 +28,20 @@ Thus, a developer should coordinate closely with individuals whose technical dep
 
 
 Software developers spend much of their time
-communicating~\cite{perry94}. Because developers face
+communicating~\cite{perry94} and research documents reasons for communication as well as challenges in developers' communication. Because developers face
 problems when integrating different components from heterogeneous environments~\cite{redmiles2007:continuous},
 developers engage in direct or indirect
 communication, either to coordinate their activities, or to acquire knowledge of
-a particular aspect of the software ~\cite{nakakoji2010:rdc}.
+a particular aspect of the software ~\cite{nakakoji2010:rdc}.While Ko et al~\cite{ko:icse:2007} found that developers were identified as the main source of knowledge about code issues, de Souza et al~\cite{desouza2007:awarenessnetwork} found that implicit [WHAT DO YOU MEAN BY IMPLICIT COMMUNICATION?]
+communication is important to avoid collaboration breakdowns and delays.
 Herbsleb, et al examined the influence of coordination on integrating software
 modules through interviews~\cite{herbsleb1999:architectures}, and found that
 processes, as well as the willingness to communicate directly, helped teams
-integrate software. De Souza et al~\cite{desouza2007:awarenessnetwork} found that implicit
-communication is important to avoid collaboration breakdowns and delays. Ko et al~\cite{ko:icse:2007} found that developers were identified as the main source of knowledge about code issues.
-Wolf et al~~\cite{wolf:icse:2009} used properties of social networks to predict the outcome of integrating the software parts within teams.
-This prior work establishes the fact that developers communicate heavily about technical matters.
+integrate software. While this evidence points to the role that developer communication plays in achieving successful software integrations, a first step in our investigation was to collect 
+%Wolf et al~~\cite{wolf:icse:2009} used properties of social networks to predict the outcome of integrating the software parts within teams.
+%This prior work establishes the fact that developers communicate heavily about technical matters.
 
-Coordinating software teams becomes more difficult as the distance between people increases \cite{herbsleb:icse:2001}.
+However, coordinating software teams do face challenges that are greater as the distance between people increases \cite{herbsleb:icse:2001}.
 Studies of Microsoft~\cite{bird2009:dds_quality,nagappan:icse:2008}
 show that distance between people that work together on a
 program determine the program's failure proneness.
@@ -159,18 +160,23 @@ Cataldo et al~\cite{cataldo:cscw:2006} demonstrated its relation to productivity
 The concept of socio-technical congruence lends itself to improve software development as it is based on social networks connecting developer on a coordination and technical level.
 Because of the concept being based on networks it is possible to manipulate the networks.
 
-Any socio-technical network can be manipulated in two ways: (1) changing the technical dependencies among developer by refactoring or architectural changes to make them unnecessary and (2) by engaging developer in discussions about their recent work and therefore creating a coordination edge in the socio-technical network.
-As a first step we need to assess if the actual communication structure among software developers has an influence on build success to lay the basis for manipulating the actual coordination to increase build success.
-As a follow up step, we need to explore the relationship between socio-technical networks and build success.
-Especially we are interested in whether missing actual coordination in the face of a coordination needs is related to build failure.
+Information in developer socio-technical networks can be leveraged to improve coordination in two ways: (1) changing the technical dependencies among developers by refactoring (DO YOU MEAN "CODE" HERE? SENTENCE NOT FINISHED OTHERWISE?) or the architecture itself  to make such dependencies unnecessary and (2) by engaging developers in interactions about their recent work and therefore creating a coordination edge in the socio-technical network.
+In the first phase in our methodology we assessed whether the actual communication structure among software developers has an influence on build success. 
+
+% to justify using  the basis for manipulating the actual coordination to increase build success.
+Having found a relationship between developer communication and build success, we followed up by exploring the relationship between socio-technical networks and build success. More specifically we investigated whether missing actual coordination in the face of a coordination needs is related to build failure.
+
+
+RQ subsection from here on. 
 
 We start with investigating the influence of communication among team members in the form of social networks on build success.
 Next, we investigate the amount of gaps (unfilled coordination needs) between developers as highlighted by socio-technical networks and the socio-technical networks in the form of socio-technical congruence can be brought into relation with build success.
 Therefore Section~\ref{chap:soc-net} and~\ref{chap:stc-net2} investigate the following two research questions respectively:
 
+[see if you like my suggestions below:]
 \begin{itemize}
-  \item\textbf{RQ 1.1:} Do Social Networks influence build success? (Section~\ref{chap:soc-net})
-  \item\textbf{RQ 1.2:} Does Socio-Technical Networks influence build success? (Section~\ref{chap:stc-net2})
+  \item\textbf{RQ 1.1:} Are properties of Social Networks related to integration success? (Section~\ref{chap:soc-net})
+  \item\textbf{RQ 1.2:} Do gaps in Socio-Technical Networks influence build success? (Section~\ref{chap:stc-net2}) (need to define "gap in ST networks" first..)
 \end{itemize}
 
 Having found a relationship between socio-technical networks, especially gaps between coordination and coordination needs with build success, while knowing that communication alone has an effect on build success, we formulate an approach to leverage socio-technical networks (Section~\ref{chap:approach}).
