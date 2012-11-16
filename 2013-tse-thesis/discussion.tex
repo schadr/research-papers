@@ -43,68 +43,109 @@ In a final study involving students from two countries we found evidence that we
 
 
 
-\subsection{Contributions through Empirical Studies}
-\label{sec:cont:emp}
-Each study by itself contributed to the overall body of knowledge of software development team coordination.
-We present in the order of our five research questions the contribution of each  study.
+\subsection{Implementation Implications}
+Besides investigating if developer are open to recommendation that help them prevent build failures our findings from Section~\ref{chap:talk} revealed three implications for the implementation of the approach into a recommendation system.
 
-
-\subsubsection{Using Build Success as Communication Quality Indicator}
-\label{subsec:practicalimpl}
-%With this study we gave empirical evidence of communication among software developers influencing software quality.
-%Although by itself not surprising that issues in communication can hinder productivity and introduce ambiguities that might lead to problems with respect to software quality, it is, to the best of our knowledge, the first study that instead of looking into content of individual  conversations takes a higher level approach and relates communication structures to software quality.
+\subsubsection{Adjust intrusiveness of the notifications}
+Our first finding strongly suggests that a developer's information needs can dramatically change between development modes. 
 %
-We started our investigation by exploring whether there exists a relationship between build success and communication by using prediction models (Section~\ref{chap:soc-net}).
-Our models can be used by Jazz teams to assess the quality of their current
-communication in relation to the result of their upcoming integration. If a team
-is currently working on a component and an integration build is planned in the
-near future, the measures of the current communication in the team can be
-provided as input to our prediction model and the model will predict whether the
-build will fail with a precision shown in Table~\ref{tab:PredictionResultTable}.
-For example, if team P is working towards a build and our model predicts that the
-structure of its current communication leads to a failed build, the team can have
-a 76\% (see Section~\ref{chap:soc-net} Table~\ref{tab:PredictionResultTable}) confidence that the build is
-going to fail. This information can be used by developers in monitoring their
-team communication behaviour, or by management in decisions with respect to
-adjusting collaborative tools or processes towards improving the integration.
+When in normal iteration mode, developers act upon planned work and can therefore anticipate the information they need, but in endgame mode, developers react to unplanned incoming work, such as bug reports or requests for code reviews. 
 
-\subsubsection{Unmet Coordination Needs Matter}
-% stc and build success
-The relationship between communication structure and build failures however significant has only a small effect on the overall success rate of software builds, the outcome metric we studied.
-This lead us to include information about the system by adding technical dependencies as expressed by the source code among software developers.
-Backed up by findings in the research area of socio-technical congruence we hypothesized that the technical relationships help to zero in onto the important relationships among developers that relate to build failures.
-As the relationship between socio-technical congruence and productivity suggested influence on software quality, we showed in Section~\ref{chap:stc-net2} that it actually predicts build failures with varying accuracy depending on the type of build.
-Thus not meeting coordination needs as demanded by technical dependencies among software developers has a negative effect on build success.
+Many tools, such as Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008} provide information and recommendations in a fixed way. 
+Codebook enables developers to discover other developers whose code is related.
+In contrast,  Ensemble provides a constant stream of potentially relevant events for each developer.
+In the Codebook case, this might lead to extra overhead in endgame mode when developers frequently need to search for information instead being automatically provided, whereas Ensemble might overload developers during the feature development mode by providing a constant stream of information.
 
-\subsubsection{Developers That Induce Build Failures}
-\label{sec:implications}
-% failure inducing pairs
-Being able to predict whether a build fails already helps developers to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features, but ultimately we want to be able to prevent builds from failing.
-To that purpose we need to influence the socio-technical network such that it takes a structure that is more favourable to build success.
-We found that certain constellations within a socio-technical network, to be more precise pairings of software developer and their respective relationship, seem to be correlating with build success (Section~\ref{chap:approach}).
-This evidence can be used to recommend action before the build is commenced in the sense that developers can investigate their relationship by for example discussing the code changes that created a technical relationship between them.
+To avoid overwhelming or to reduce overhead further for developers, recommendation systems should either automatically adjust to the development mode or feature customizable templates that can easily be switched. 
 
-Thus, our findings have several implications for the design of collaborative systems.
-By automating the analyses presented here we can incorporate the knowledge about
-developer pairs that tend to be failure related in a real-time recommender
-system. Not only do we provide the recommendations that matter to the upcoming
-build, we also provide incentives to motivate developers to talk about their
-technical dependencies. 
-Such a recommender system can use project historical data to
-calculate the likelihood that an upcoming build fails given a particular
-developer pair that worked on that build without communicating to each other.
+\subsubsection{Group Recommendations}
+Our second and third findings unveiled factors that trigger developers to seek information about a change-set that are not related to its code. 
+Instead, developers pay close attention to the experience level as well as the quality of previously delivered work to determine whether to talk to the change-set owner.
 
-For management, such a recommender system can provide details about the
-individual developers in, and properties of, these potentially problematic
-developer pairs. Individual developers may be an explanation for the behaviour of
-the pairs we found in Rational Team Concert. This may indicate developers that are
-harder to work with or too busy to coordinate appropriately, prompting management
-to reorganize teams and workloads. This would minimize the likelihood of a build
-to fail, by removing the underlying cause of a pair to be failure related.
-Similarly, as another example from our study, most developer pairs
-consisted of developers that were part of different teams. In such
-situations management may decide to investigate reasons for coordination
-problems that include factors such as geographical or functional distance in the project.
+Traditional recommender systems in software engineering focus on the source code to determine useful recommendations, e.g. Codebook~\cite{begel:icse:2010} and Ensemble~\cite{xiang:rsse:2008}.
+This might lead to providing developers with information about changes that are of little interest due to the trust placed in more experienced developer. 
+
+But because developers often look beyond source code and perform an additional step, namely considering the change-set owner's experience and recent work, information solely created from source code might miss interesting instances where novices to the code made inappropriate changes.
+Recommender systems might report issues that are of less importance due to the substantial experience of the change-set owner.
+
+Because inferring characteristics of developers can be difficult and asking developers to provide the system with characterizations that change over time, we suggest that implementing a grouping by developers and teams of developer is a good strategy to minimize noise.
+This will enable developer to more easily dismiss recommendations pointing to coordinating with certain developers.
+ 
+
+\subsubsection{Provide Alternative Ranking}
+Although the implementation implication we inferred from our second and third finding already yield an alternative ranking that groups together recommendation and ranks those groups, it is still passed on our proposed measure for ranking.
+The fourth finding we reported on highlights the interest of developer in the risk that is posed by a change.
+Our approach to generate recommendation currently does not consider there change other than to indicate technical dependencies among developers.
+
+To better support developers in their tasks we should provide alternative rankings that take into account other activities such as risk assessment or code-reviews.
+Thus an implementation of the approach should not only focus on providing the information that is relevant to the recommendation but also include metrics that developer relied on beforehand, such as number of files changed or which files have been changed.
+
+Providing developer with metrics that they are familiar with serves two purposes:
+(1) By providing metrics that are already used in making decision we can entice the developers to use the recommendation system and
+(2) by providing known metrics we build trust into the recommendation system, which as highlighted by Murphy et al~\cite{murphy:rsse:2010}.
+
+%\subsection{Contributions through Empirical Studies}
+%\label{sec:cont:emp}
+%Each study by itself contributed to the overall body of knowledge of software development team coordination.
+%We present in the order of our five research questions the contribution of each  study.
+%
+%
+%\subsubsection{Using Build Success as Communication Quality Indicator}
+%\label{subsec:practicalimpl}
+%%With this study we gave empirical evidence of communication among software developers influencing software quality.
+%%Although by itself not surprising that issues in communication can hinder productivity and introduce ambiguities that might lead to problems with respect to software quality, it is, to the best of our knowledge, the first study that instead of looking into content of individual  conversations takes a higher level approach and relates communication structures to software quality.
+%%
+%We started our investigation by exploring whether there exists a relationship between build success and communication by using prediction models (Section~\ref{chap:soc-net}).
+%Our models can be used by Jazz teams to assess the quality of their current
+%communication in relation to the result of their upcoming integration. If a team
+%is currently working on a component and an integration build is planned in the
+%near future, the measures of the current communication in the team can be
+%provided as input to our prediction model and the model will predict whether the
+%build will fail with a precision shown in Table~\ref{tab:PredictionResultTable}.
+%For example, if team P is working towards a build and our model predicts that the
+%structure of its current communication leads to a failed build, the team can have
+%a 76\% (see Section~\ref{chap:soc-net} Table~\ref{tab:PredictionResultTable}) confidence that the build is
+%going to fail. This information can be used by developers in monitoring their
+%team communication behaviour, or by management in decisions with respect to
+%adjusting collaborative tools or processes towards improving the integration.
+%
+%\subsubsection{Unmet Coordination Needs Matter}
+%% stc and build success
+%The relationship between communication structure and build failures however significant has only a small effect on the overall success rate of software builds, the outcome metric we studied.
+%This lead us to include information about the system by adding technical dependencies as expressed by the source code among software developers.
+%Backed up by findings in the research area of socio-technical congruence we hypothesized that the technical relationships help to zero in onto the important relationships among developers that relate to build failures.
+%As the relationship between socio-technical congruence and productivity suggested influence on software quality, we showed in Section~\ref{chap:stc-net2} that it actually predicts build failures with varying accuracy depending on the type of build.
+%Thus not meeting coordination needs as demanded by technical dependencies among software developers has a negative effect on build success.
+%
+%\subsubsection{Developers That Induce Build Failures}
+%\label{sec:implications}
+%% failure inducing pairs
+%Being able to predict whether a build fails already helps developers to plan ahead with respect to future work, such as stabilizing the system in contrast to working on new features, but ultimately we want to be able to prevent builds from failing.
+%To that purpose we need to influence the socio-technical network such that it takes a structure that is more favourable to build success.
+%We found that certain constellations within a socio-technical network, to be more precise pairings of software developer and their respective relationship, seem to be correlating with build success (Section~\ref{chap:approach}).
+%This evidence can be used to recommend action before the build is commenced in the sense that developers can investigate their relationship by for example discussing the code changes that created a technical relationship between them.
+%
+%Thus, our findings have several implications for the design of collaborative systems.
+%By automating the analyses presented here we can incorporate the knowledge about
+%developer pairs that tend to be failure related in a real-time recommender
+%system. Not only do we provide the recommendations that matter to the upcoming
+%build, we also provide incentives to motivate developers to talk about their
+%technical dependencies. 
+%Such a recommender system can use project historical data to
+%calculate the likelihood that an upcoming build fails given a particular
+%developer pair that worked on that build without communicating to each other.
+%
+%For management, such a recommender system can provide details about the
+%individual developers in, and properties of, these potentially problematic
+%developer pairs. Individual developers may be an explanation for the behaviour of
+%the pairs we found in Rational Team Concert. This may indicate developers that are
+%harder to work with or too busy to coordinate appropriately, prompting management
+%to reorganize teams and workloads. This would minimize the likelihood of a build
+%to fail, by removing the underlying cause of a pair to be failure related.
+%Similarly, as another example from our study, most developer pairs
+%consisted of developers that were part of different teams. In such
+%situations management may decide to investigate reasons for coordination
+%problems that include factors such as geographical or functional distance in the project.
 
 %\subsubsection{Recommender System Design Guidelines}
 %\label{sec:sub:tools}
