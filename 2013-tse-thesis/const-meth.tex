@@ -92,6 +92,59 @@
 %Furthermore, we expect to uncover general suggestions on when and how to supply such recommendations as developers might not always be interested in individual changes even if they pose a threat to build success.
 
 
+%\subsection{Methodology}
+The concept of socio-technical congruence shows potential to help make software development more efficient.
+Cataldo et al~\cite{cataldo:cscw:2006} demonstrated its relation to productivity, and we show the ability to use socio-technical congruence to predict build outcome.
+The concept of socio-technical congruence lends itself to improve software development as it is based on social networks connecting developer on a coordination and technical level.
+Because of the concept being based on networks it is possible to manipulate the networks.
+
+Information in developer socio-technical networks can be leveraged to improve coordination in two ways: (1) changing the technical dependencies among developers by refactoring code or the architecture itself  to make such dependencies unnecessary and (2) by engaging developers in interactions about their recent work and therefore creating a coordination edge in the socio-technical network.
+In the first phase in our methodology we assessed whether the actual communication structure among software developers has an influence on build success. 
+
+% to justify using  the basis for manipulating the actual coordination to increase build success.
+Having found a relationship between developer communication and build success, we followed up by exploring the relationship between socio-technical networks and build success. More specifically we investigated whether missing actual coordination in the face of a coordination needs is related to build failure.
+
+
+\subsection{Research Questions and Methodology}
+We start with investigating the influence of communication among team members in the form of social networks on build success.
+%
+%
+For this purpose we extract social network metrics describing the social network, such as centrality and betweenness,  and build a predictive model to predict build failure.
+%
+%
+Next, we investigate the amount of gaps (unfilled coordination needs) between developers as highlighted by socio-technical networks and the socio-technical networks in the form of socio-technical congruence can be brought into relation with build success.
+%
+%
+A gap in a socio-technical network is formed when two developer that are technically dependant on each other do not co-ordinate their work.
+The presence of gaps results in a lower match in the form of gaps to non-gaps.
+We then build a regression model that shows the influence of socio-technical congruence on build failure in the presence of other common failure related metrics.
+%
+%
+Therefore Section~\ref{chap:soc-net} and~\ref{chap:stc-net2} investigate the following two research questions respectively:
+
+%[see if you like my suggestions below:]
+\begin{itemize}
+  \item\textbf{RQ 1.1:} Are properties of Social Networks related to integration success? (Section~\ref{chap:soc-net})
+  \item\textbf{RQ 1.2:} Do gaps in Socio-Technical Networks influence build success? (Section~\ref{chap:stc-net2})
+\end{itemize}
+
+Having found a relationship between socio-technical networks, especially gaps between coordination and coordination needs with build success, while knowing that communication alone has an effect on build success, we formulate an approach to leverage socio-technical networks (Section~\ref{chap:approach}).
+Thus we focus focus on evaluating this approach in two ways:
+(1) gathering general statistical evidence that parts of the network can be manipulated to increase build success and
+(2) exploring the acceptance of such recommendation based on those manipulations by developers.
+Hence, we are guided by the following two research questions:
+
+\begin{itemize}
+  \item\textbf{RQ 2.1:} Can closing socio-technical gaps increase build success? (Section~\ref{chap:approach})
+  \item\textbf{RQ 2.2:} Do developers accept recommendations based on software changes to increase build success? (Section~\ref{chap:talk})
+\end{itemize}
+
+In the following discussion (Section~\ref{chap:disc}) we will highlight how our findings from our research questions supporting the approach we detailed in Section~\ref{chap:approach}.
+
+
+
+
+
 \subsection{Constructs}
 \label{c5:sec:constructs}
 From the definitions introduced previously we can derive the three central constructs we work with: (1) the social network connecting communicating and coordinating developers, (2) the technical network connecting developer that are dependent through code artifacts, and (3) the socio-technical network that combines the social and technical network in a meaningful way.

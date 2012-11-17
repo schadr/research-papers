@@ -2,7 +2,7 @@
 \section{Applying the Approach}
 To evaluate our approach we analyzed collaboration and build data in the IBM Rational Team Concert\texttrademark\ (RTC) development team. An thus answer our third research question:
 \begin{itemize}
-\item \textbf{RQ 2.1:} Can Socio-Technical Networks be manipulated to increase build success?
+\item \textbf{RQ 2.1:} Can closing socio-technical gaps increase build success?
 \end{itemize}
 RTC is a product that integrates source code management, agile planning, and issue management into a single server/client application that the team itself uses for development.
 RTC allows developers to link changes they made directly to work items, thus establishing within their repository traceable links between builds and work items through the changes they made.
@@ -90,11 +90,11 @@ Pair & \#successful & \#failed & $p_x$\\
 %}\hspace{1.3cm}
 \end{table}
 
-\emph{Preliminary Results.}
+\emph{Results.}
 Using our approach we analyzed all existing builds in the project and were able to identify a ranked list of 120 developer pairs that should communicate in order to increase the likelihood of the upcoming build to succeed. 
 
 We used the approach as follows: From the total of 2872 developer pairs, we found 961 technical pairs (set $T$) (step 1).
-Of these 961 technical pairs we found 120 harmful pairs (set $H$) that were statistically related to build failure (step 2). See Table~\ref{tab:pairs} for the top twenty  pairs.
+Of these 961 technical pairs we found 120 harmful pairs (set $H$) that were statistically related to build failure (step 2). See Table~\ref{tab:badtechpairs} for the top twenty  pairs.
 
 Next, for all pairs in set $H$, we examined their corresponding \emph{socio-technical pairs} (step 3). Because this set ($H_f$) was empty in our data we did not have to remove any pairs from $H$. 
 In step 4 we identified that none of the 120 technical pairs in $R$ had an existing corresponding socio-technical pair related to build success nor failure. Thus $R_1$ was empty and $R=R_2$. 
