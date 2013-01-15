@@ -1,0 +1,34 @@
+\begin{table*}
+\begin{center}
+\begin{tabular}{lrrr}
+  \hline
+Variable              & Model I   & Model II   & Model III  \\
+Intercept             & 9.6462920 & 12.4038951 & 62.9       \\
+numauthors            & ***0.9440243 & ***0.9405788 &  (***)0.859     \\
+numfiles              & ***0.9989205 & ***0.9988847 &  (***)0.996     \\
+type=I                & 1.1276000 &  1.1368159 &  0.2384248 \\
+type=N                & 1.2866761 &  1.3232092 & 0.0       \\
+weighted              &           &  0.4109574 &  1.180114  \\
+numauthors * numfiles &           &            &  **1.000106  \\
+numauthors * type=I   &           &            &  1.070362  \\
+numauthors * type=N   &           &            &  20.48829  \\
+numauthors * weighted &           &            &  1.006059  \\
+numfiles * type=I     &           &            &  1.001143  \\
+numfiles * type=N     &           &            & 0.9796394  \\
+numfiles * weighted   &           &            &  1.003417  \\
+type=I * weighted     &           &            & 0.2057550  \\
+type=N * weighted     &           &            &  1.526642  \\
+	\hline
+Null deviance             & 238  & 238  & 238 \\
+Residual deviance         & 183  & 199  & 200 \\
+Nagelkerke $R^2$          & 0.254 & 0.266 & 0.368 \\ 
+Likelihood Ratio $\chi^2$ & 37.4 & 38.4 & 55.2 \\
+L.R. Model test (previous model) & -    & 1.06 ($p = 0.303$) & 16.8 ($p = 0.0526$) \\
+
+	\hline
+\multicolumn{4}{l}{*$p < 0.1$, **$p < 0.05$, ***$p < 0.01$ }
+\end{tabular}
+\end{center}
+\label{tab:oddsratio_weighted}
+\caption{Odds Ratio from Logistic Regression on build success using Weighted Congruence}
+\end{table*}

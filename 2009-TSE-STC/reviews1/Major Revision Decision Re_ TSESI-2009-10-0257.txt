@@ -1,0 +1,217 @@
+Return-Path: <onbehalfof+tse+computer.org@manuscriptcentral.com>
+Received: from thecat.cs.uvic.ca (mta.cs.UVic.CA [142.104.100.120])
+	by topaz.cs.uvic.ca (8.13.1/8.13.1) with ESMTP id o0LGRFD0015935
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-SHA bits=256 verify=FAIL);
+	Thu, 21 Jan 2010 08:27:15 -0800
+Received: from uranus.scholarone.com (uranus.scholarone.com [170.107.181.135])
+	by thecat.cs.uvic.ca (8.12.11.20060308/8.12.11) with ESMTP id o0LGPctE008962;
+	Thu, 21 Jan 2010 08:25:38 -0800
+Received: from tss1be0006 (tss1be0006 [10.237.148.31])
+	by uranus.scholarone.com (Postfix) with ESMTP id 576FEB28760;
+	Thu, 21 Jan 2010 11:00:40 -0500 (EST)
+Date: Thu, 21 Jan 2010 11:00:40 -0500 (EST)
+From: tse@computer.org
+Sender: onbehalfof+tse+computer.org@manuscriptcentral.com
+To: irwink@cs.uvic.ca, irwink@cs.uvic.ca, schadr@uvic.ca, danielad@cs.uvic.ca
+Cc: tse@computer.org, socio@computer.org
+Message-ID: <1435987388.7621264089640352.JavaMail.wladmin@tss1be0006>
+Subject: Major Revision Decision Re: TSESI-2009-10-0257
+Errors-To: tse@computer.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Errors-To: tse@computer.org
+X-Harvest-Check: emma V1.0
+X-Harvest-Check: emma V1.0
+X-Greylist: Delayed for 00:26:29 by milter-greylist-1.2.1 (thecat.cs.uvic.ca [142.104.100.120]); Thu, 21 Jan 2010 08:25:39 -0800 (PST)
+X-CS-MailScanner-Information: Please contact the ISP for more information
+X-CS-MailScanner: Found to be clean
+X-CS-MailScanner-SpamCheck: not spam, SpamAssassin (not cached, score=-1.638,
+	required 5, BAYES_00 -2.60, NO_REAL_NAME 0.96)
+X-CS-MailScanner-From: onbehalfof+tse+computer.org@manuscriptcentral.com
+X-Spam-CS-Status: No
+Content-Transfer-Encoding: 8bit
+X-MIME-Autoconverted: from quoted-printable to 8bit by topaz.cs.uvic.ca id o0LGRFD0015935
+
+RE: TSESI-2009-10-0257, "Congruence Might Have No Effect: A Study of Coordination in a Software Project"
+Manuscript Type: Special Issue on  Socio-Technical Environments
+
+Dear Mr. Kwan,
+
+We have completed the review process of the above referenced paper for the IEEE Transactions on Software Engineering. Enclosed are your reviews.
+
+The guest editors have recommended to the Editor-in-Chief that your paper undergo a Major Revision.  If you should choose to revise your paper, please prepare a separate document describing how each of the reviewers' comments are responded to in your revision and submit by 20-Apr-2010.
+
+To revise your manuscript, log into https://mc.manuscriptcentral.com/tse-cs  and enter your Author Center, where you will find your manuscript title listed under "Manuscripts with Decisions." Under "Actions," click on "Create a Revision." Your manuscript number has been appended to denote a revision.
+
+Once the revised manuscript is prepared, you can upload it and submit it through your Author Center.
+
+When submitting your revised manuscript, you will be able to respond to the comments made by the reviewer(s) in the space provided. You can use this space to document any changes you make to the original manuscript. In order to expedite the processing of the revised manuscript, please be as specific as possible in your response to the reviewer(s)’ questions and comments. You may also upload your responses as separate files for review along with your revision. If you choose to do this, please choose “Summary of Changes” as the file designation.
+
+IMPORTANT: Your original files are available to you when you upload your revised manuscript. Please delete any redundant files before completing the submission.
+
+When the submission process is complete, you will receive an automated confirmation email immediately. If you did not receive that email, your submission is not yet complete.
+
+The journal’s publication coordinator will contact you should we have any concerns or questions regarding your revision. Otherwise, your revision will be forwarded to the assigned Associate Editor with a request to begin the second round of reviews.
+
+Our page limitation and formatting guidelines for TSE can be found on
+
+http://www2.computer.org/portal/web/peerreviewjournals/author#manuscript
+
+Please do not hesitate in contacting us should you have any questions about our process or are experiencing technical difficulties. You can reach me at tse@computer.org.
+
+Thank you for your contribution to TSE, and we look forward to receiving your revised manuscript.
+
+Thank you,
+
+Debby Mosher on behalf of Bashar Nuseibeh, EIC
+IEEE Transactions on Software Engineering
+tse@computer.org
+
+**************
+Editor Comments
+
+There are three reviews below.
+
+Editor
+Comments to the Author:
+Thank you for submitting your paper “Congruence Might Have No Effect: A Study of Coordination in a Software Project” to this special issue of Transactions on Software Engineering. The reviewers are enthusiastic about the potential of the manuscript and we recommend the authors prepare a revision that addresses the reviewers' comments. Special attention should be paid to the issues raised in terms of the methodological soundness of the study. As indicated by reviewer 1, the concept of congruence has been examined in various disciplines and the results reported in this manuscript challenge a relatively large body of empirical work. Therefore, demonstrating the validity of the empirical analysis is crucial.
+
+We look forward to see the revision of the paper. We also want to highlight that upon
+reception of the revision, a short second round of reviews will be performed and a final 
+decision of acceptance for publication in the special issue will be made.
+
+********************
+
+Reviewers' Comments
+
+Please note that some reviewers may have included additional comments in a separate file. If a review contains the note "see the attached file" under Section III A - Public Comments, you will need to log on to ScholarOne Manuscripts  to view the file. After logging in, select the Author Center, click on the "Manuscripts with Decisions" queue and then clicking on the "view decision letter" link for this manuscript. You must scroll down to the very bottom of the letter to see the file(s), if any.  This will open the file that the reviewer(s) or the Associate Editor included for you along with their review.
+
+Reviewer: 1
+
+Recommendation: Author Should Prepare A Major Revision For A Second Review
+
+Comments:
+This paper tests whether traditional measures of socio-technical congruence have a significant effect on build quality. The authors test their hypothesis (i.e. more congruence, better build quality) using data from IBM jazz project. Interestingly, the authors find no significant of congruence on build quality. The paper discusses the potential alternative explanation to this null-result and its implications to research in this area.
+I think this is a well-written and Interesting paper. It clearly fits strongly  with this special issue. Very good data set, even though it is focused on one application. In short, I like the paper and I think it has great potential. Yet, the paper needs important revisions to be publishable.
+
+My biggest concern is with the validity of the analysis. I think the analysis needs to be revised before concluding that there is no effect in the IBM Jazz project studied. In addition, I suggest to downplay the no-result by highlighting the difficulty of measuring congruence properly rather than suggesting that there is no effect. Toward that end the title is, in my view, misleading and should probably be revised.
+
+I hope my comments below help the authors to revise their paper for publication.
+
+Theory:
+1) Theoretically, coordination about a technical interface can be done not only by direct communication but also through indirect communication. Although the authors claim that reference [8] suggest that developers coordinate by communicating with each other, I think that it's assuming direct communication to be the only coordination mechanism is a big assumption.
+Indeed, one can see this paper as a test of this assumption, which leads to a narrow definition of "congruence".
+
+2) The paper does a great literature review, yet link to some key managerial papers are missing. This is important because the literature in both organizations and engineering design have also studied this topic (even before the IS community started studying it.) Key papers missing:
+-Henderson and Clark (Admin Sci Quat 1990)
+-Sosa et al. (Res in Eng Des 2007)
+-Gokpinar et al. (Mgmt Sci 2009)
+Section 2.2 should probably acknowledge that the notion of "congruence" have been studied in other fields as well. 
+
+3) Overall, I would separate the theoretical development associated with "congruence" from the empirical challenge of testing its effect on quality, which includes the challenge of measuring congruence. Moreover, you might want to explicitly formulate the hypothesis  you are testing in this paper.
+
+Empirics:
+4) You might want to compare your weighted congruence measure with the one introduced by Gokpinar et al. (Mgmt Sci 2009) to study the effect of congruence and quality in the automobile industry. They call it "coordination deficit"
+
+5) Your dependent variable and sample:
+Why do you define your dependent variable as a binary variable (error vs OK)? Why throwing  away the "warning" builds (63% of your sample of builds!!)?
+Your could  define an ordered categorical variable with three categories:
+error, warning, OK.
+
+6) I disagree with the statistical methods used. They  basically test for correlation between congruence and builds without controlling by many other factors that can influence such a relationship (as discussed in  section 7.3). 
+A better statistical approach would be  to estimate an ordered logistic regression model (with the dependent variable  suggested in point 5 above) that controls for the factors discussed in section 7.3 of the paper.
+
+7) How does the typical assignment matrix (A) looks like in your sample?
+I would be surprised to see a one-person-per-assignment for all the builds. This typically does not happen in software development. If so, then it is possible that your measures overestimate the amount of coordination needs. That is, if two interdependent work items have 3 people assigned to each, your CN matrix would indicate that three pairs people need to coordinate with each other. However, in reality, as long as one of all possible pairs coordinate should suffice. How are you controlling for such a possible overestimation of coordination needs? Do you see more of this in the OK builds?
+
+
+Detailed comments:
+-Your last paragraph of the  introduction should not say "some explanations of the effect we observed". Technically speaking, you did not observe any effect.
+-In page 5 (in the paragraph before the last one of section 5.2), you mention that some "additional people" may be dropped from the actual coordination matrix. How? Why? Pls, clarify.
+
+
+Additional Questions:
+How relevant is this manuscript to the readers of this periodical? Please explain under the Public Comments section below.: Very Relevant
+
+Is the manuscript technically sound? Please explain under the Public Comments section below.: Appears to be - but didn't check completely
+
+1. Are the title, abstract, and keywords appropriate? Please explain under the Public Comments section below.: No
+
+2. Does the manuscript contain sufficient and appropriate references? Please explain under the Public Comments section below.: Important references are missing; more references are needed
+
+3. Please rate the organization and  readability of this manuscript. Please explain under the Public Comments section below.: Easy to read
+
+Please rate the manuscript. Explain your rating under the Public Comments section below.: Good
+
+
+Reviewer: 1
+
+Recommendation: Author Should Prepare A Major Revision For A Second Review
+
+Comments:
+The paper is very interesting and tackles a number of interesting issues in the area of STC.
+It aims, at the very least, at providing insight on  the boundaries of applicability and usefulness of this particular metric and related methods. 
+It also suggests a number of research questions that are going to be important and can offer great starting points for more research in this area.
+
+I have, though, a number of concerns, wrt the method and results of the analysis. The most important one regards the subject of choice for the empirical study: the authors chose to examine the relationship between STC and build results. I am not convinced this is the best use for the STC metric. Build result is a boolean variable, and build failures may occur due to any number of factors, including very minor glitches in any point of the involved code, which might not have much to do with (lack of) coordination. Those two factors are IMHO likely to introduce a lot of noise. Therefore, even if the authors did a very good job at motivating their position that SW building is an activity that is strongly dependent on the quality of coordination, I am reluctant to embrace their position and these results. Other researchers, in previous investigations of STC, had chosen to look at the correlation with task resolution times. Again IMHO, that is a more suitable subject for this kind of study, since it is a continuous variable, and good/bad coordination is likely to have a stronger cumulative effect in the lifetime of a SW development task.  I am not sure why the authors have chosen to do away completely with that kind of analysis in this paper.
+It seems to me that it would have been beneficial to examine failed build, to spot the root cause(s) for the failure in the code, and try to see HOW MANY could be traced back to instances of STC gaps. Collecting that kind of data would have IMHO provided a more solid basis for the data analysis carried out here. 
+
+There are other likely issues in the methodology that I seem to have spotted while reading the paper, which I enumerate below in no particular order:
+- Wrt the analysis of inter-personal communication, I have a number of concerns:
+1) the authors explain satisfactorily why certain other forms of communication (e.g. email, F2F and mailing lists) can be discounted. However, they do not motivate why it is OK to discount communication via instant messaging and IRC, which seem like likely sources of coordination contextual to a development effort. 
+2) Since work item comments are unthreaded, it becomes difficult to accurately attribute bidirectional links to individual comments on a work item. In the WEIGHTED congruence calculation, and given the method for assigning those communication links, this may not be a major concern, but it looks like in the unweighted congruence calculations it might instead have a major effect.
+3) Again on the method for computing WEIGHTED inter-personal communication, it seems from the text (point 2 at the top of page 9, left-hand column) that multiple messages by the same person ON THE SAME WORK ITEM are not counted, whereas multiple messages by the same person ON DIFFERENT WORK ITEMS are. The motivation for that is not explained.
+- Also how coordination needs between developers are computed may be an issue, since the way technical dependencies are conceptualized seems to depart from what has been used in STC studies in the past, that I know of: it's neither based on static (call graph) dependencies, nor on the "files that often occur together in a change set" heuristic; instead, the authors use a "non-empty change set intersection" heuristic which might yield different results from both of those other techniques. The authors did not motivate this specific choice.
+- I am left wondering about the appropriateness of calculating gap size as a simple algebraic difference between weighted coordination needs and weighted observed coordination. Part of the issue is that, although the two values are normalized, the normalizations - as reported in the text - seem quite different (local to a SW entity for coordination needs; global across the whole Social Network for observed coordination). The authors have not IMO sufficiently motivated their choices.
+- The authors state describe their weighted congruence calculation technique as a way to appropriately assign importance ("size") to congruence gaps. The work by Ehrlich et al.  also describes a way to size and assign rank to gaps, as well as existing coordination arcs, in terms of their (potential) contribution to the overall congruence value for a socio-technical system. It would be great if the authors could compare the two methods and comment on whether they are equivalent, or how they differ.
+
+As a general comment, it would be great if the authors could go back and examine their method, pointing out whenever they've made some assumptions, in particular if they depart from techniques used in the state of the art, and explaining why they think those assumptions are appropriate. That would be really helpful for the reader, to better follow the method, appreciate its soundness, and satisfy questions that often spontaneously arise when reading through the current paper, of the "what if you did it this way instead?" sort. 
+
+Finally, I think that many of the observations and conclusions reported in this paper, beginning with the observation that STC is low in this project, and postulating that programming environments like JAzz, with their enhanced awareness support, may naturally present lower "explicit STC" values, are VERY important and intriguing. But they are not currently supported by sufficient evidence, and can be seen as promising preliminary results that need more confirmation and further investigation ... perhaps also some qualification.
+For example, what would the results be like if the most "trivial" builds (incorporating the least work items, and seemingly needing no coordination at all) were taken out of the picture?
+Numerous questions of this sort are immediate from reading the current analysis and should be tackled to an extent.
+
+
+
+Additional Questions:
+How relevant is this manuscript to the readers of this periodical? Please explain under the Public Comments section below.: Very Relevant
+
+Is the manuscript technically sound? Please explain under the Public Comments section below.: Partially
+
+1. Are the title, abstract, and keywords appropriate? Please explain under the Public Comments section below.: Yes
+
+2. Does the manuscript contain sufficient and appropriate references? Please explain under the Public Comments section below.: References are sufficient and appropriate
+
+3. Please rate the organization and  readability of this manuscript. Please explain under the Public Comments section below.: Easy to read
+
+Please rate the manuscript. Explain your rating under the Public Comments section below.: Good
+
+
+Reviewer: 2
+
+Recommendation: Revise and Resubmit as “new”
+
+Comments:
+Please read the attached file for the detailed reviews
+
+Additional Questions:
+How relevant is this manuscript to the readers of this periodical? Please explain under the Public Comments section below.: Very Relevant
+
+Is the manuscript technically sound? Please explain under the Public Comments section below.: No
+
+1. Are the title, abstract, and keywords appropriate? Please explain under the Public Comments section below.: Yes
+
+2. Does the manuscript contain sufficient and appropriate references? Please explain under the Public Comments section below.: References are sufficient and appropriate
+
+3. Please rate the organization and  readability of this manuscript. Please explain under the Public Comments section below.: Easy to read
+
+Please rate the manuscript. Explain your rating under the Public Comments section below.: Fair
+
+
+
+-- 
+This message has been scanned for viruses and
+dangerous content by MailScanner, and is
+believed to be clean.
+
+

@@ -1,0 +1,20 @@
+\begin{tabularx}{\columnwidth}{|l|X|X|X|X|X|X|X|}
+\hline
+Req	& Tech & II   & PR   & RC   & S    & SC	   \\\hline
+SA     & TL    & 100  & 100  & 100  & 100  & 100     \\\hline
+SA     & TcL   & x    & x    & x    & x    & x         \\\hline
+T      & T     & 56   & 95   & 79   & 87   & 75      \\\hline
+T      & TL    & 46   & 80   & 80   & 76   & 46      \\\hline
+T      & D     & 79   & 91   & 100  & 87   & 93      \\\hline
+TL     & SA    & 100  & 100  & 100  & 100  & 100     \\\hline
+TL     & T     & 0    & 80   & 80   & 20   & 100     \\\hline
+TL     & TcL   & 0    & 100  & 100  & 0    & 100     \\\hline
+D      & T     & 87   & 98   & 100  & 91   & 98      \\\hline
+D      & D     & 27   & 43   & 46   & 64   & 64       \\\hline
+D      & TcL   & 12   & 72   & 24   & 68   & 44       \\\hline
+TcL    & SA    & x    & x    & x    & x    & x         \\\hline
+TcL    & TL    & 22   & 100  & 100  & 22   & 100     \\\hline
+TcL    & D     & 40   & 48   & 40   & 84   & 76       \\\hline
+TcL    & TcL   & 0    & 0    & 0    & 0    & 0         \\\hline
+       & AVR   & 44   & 78   & 73   & 62   & 77       \\\hline
+\end{tabularx}

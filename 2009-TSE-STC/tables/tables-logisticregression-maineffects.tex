@@ -1,0 +1,20 @@
+
+\begin{tabular}{l|rrr|rrr}
+ & \multicolumn{3}{c|}{Unweighted} & \multicolumn{3}{c}{Weighted} \\\hline
+Variable & Coef. & S.E. & \emph{p} & Coef. & S.E. & \emph{p} \\
+	\hline                                                                
+	Intercept                &  0.5265 & 0.3040 & 0.0833 &  1.00416 & 0.2754 & 0.0003 \\
+	Congruence               &  0.9371 & 0.6807 & 0.1686 & -0.85692 & 0.8544 & 0.3159 \\
+	\textbf{Authors}         & \textbf{-0.5702} & \textbf{0.2003} & \textbf{**0.0044} & \textbf{-0.64635} & \textbf{0.2023} & \textbf{**0.0014} \\
+	\textbf{Files}           & \textbf{-0.6398} & \textbf{0.2477} & \textbf{**0.0098} & \textbf{-0.70618} & \textbf{0.2571} & \textbf{**0.0060} \\
+	Work~items                & -0.1755 & 0.1713 & 0.3055 & -0.13229 & 0.1689 & 0.4335 \\
+	Build type=I                   &  0.1693 & 0.4269 & 0.6917 &  0.06128 & 0.4154 & 0.8827 \\
+	Build type=N                   &  0.2133 & 0.7791 & 0.7842 &  0.29418 & 0.7811 & 0.7065 \\
+	Build date               & -0.1331 & 0.1821 & 0.4649 & -0.11291 & 0.1819 & 0.5349 \\
+	\hline
+Model likelihood ratio & 40.59 & $p \approx 0$ & $R^2=0.269$ & 39.52 & $p \approx 0$ &	$R^2 = 0.263$ \\
+& \multicolumn{3}{c}{191 observations} & \multicolumn{3}{c}{191 observations} \\
+\multicolumn{1}{l}{ } & \multicolumn{6}{l}{\scriptsize{Build type is set to continuous}} \\
+\multicolumn{1}{l}{\scriptsize{*$p < 0.05$; **$p < 0.01$}} & \multicolumn{6}{l}{\scriptsize{Nagelkerke is used as the pseudo-$R^2$ measure}}
+\end{tabular}
+

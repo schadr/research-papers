@@ -1,0 +1,33 @@
+\begin{table*}
+\begin{center}
+\begin{tabular}{lrrrrrr}
+  \hline
+Variable            & Coefficient & S.E.      & Wald Z & P       & Odds Ratio & 95\% CI \\
+Intercept           &   3.865e+00 & 8.598e-01 &  4.49  &  0.0000 &        &  \\
+authors             &  -1.180e-01 & 4.619e-02 & -2.55  &  **0.0106 & 0.31       & 0.13 -- 0.74\\
+files               &  -2.140e-03 & 2.125e-03 & -1.01  &  0.3139 & 0.88       & 0.63 -- 1.24\\
+workitems           &  -5.165e-03 & 6.807e-03 & -0.76  &  0.4480 & 0.82       & 0.48 -- 1.40\\
+type=I              &  -7.490e-01 & 6.428e-01 & -1.17  &  0.2439 & 0.48       & 0.14 -- 1.60\\
+type=N              &  -7.329e-02 & 9.427e-01 & -0.08  &  0.9380 & 0.91       & 0.18 -- 4.62\\
+needsCat            &   1.812e-02 & 3.809e-02 &  0.48  &  0.6343 & 1.61       & 0.26 -- 10.10\\
+commCat             &  -3.539e-01 & 2.399e-01 & -1.48  &  0.1400 & 0.31       & 0.07 -- 1.37\\
+authors * files     &   8.167e-05 & 1.031e-04 &  0.79  &  0.4285 &            & \\
+authors * needsCat  &  -9.900e-05 & 1.013e-03 & -0.10  &  0.9222 &            & \\
+authors * commCat   &   8.872e-03 & 7.679e-03 &  1.16  &  0.2479 &            & \\
+files * workitems   &   4.917e-06 & 1.154e-05 &  0.43  &  0.6701 &            & \\
+files * needsCat    &  -5.389e-06 & 1.861e-05 & -0.29  &  0.7722 &            & \\
+files * commCat     &  -6.083e-05 & 1.277e-04 & -0.48  &  0.6339 &            & \\
+workitems * needsCat&  -1.462e-04 & 1.694e-04 & -0.86  &  0.3879 &            & \\
+workitems * commCat &   8.478e-04 & 1.272e-03 &  0.67  &  0.5052 &            & \\
+type=I * needsCat   &   2.773e-03 & 9.011e-03 &  0.31  &  0.7583 &            & \\
+type=N * needsCat   &  -4.619e-03 & 1.059e-01 & -0.04  &  0.9652 &            & \\
+	\hline
+Likelihood Ratio $\chi^2$ & 54.46 \\
+
+	\hline
+\multicolumn{4}{l}{*$p < 0.1$, **$p < 0.05$, ***$p < 0.01$ }
+\end{tabular}
+\end{center}
+\label{tab:logr_unweighted_needscomm}
+\caption{Logistic Regression Analysis of Communication and Coordination Needs (unweighted) on build success}
+\end{table*}

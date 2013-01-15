@@ -1,0 +1,36 @@
+\begin{table*}
+\begin{center}
+\begin{tabular}{lrrrrrr}
+Variable & Coefficient & S.E. & Wald Z & p Value & Odds Ratio & 95\% CI \\
+	\hline
+Intercept                  &  2.666e+00  & 1.150e+00  &  2.32   & 0.0205 & - & - \\
+authors                    & -6.173e-02  & 5.627e-02  & -1.10   & 0.2726 & 9.401361e-01 & 0.11 -- 6.100000e-01    \\
+files                      & -7.955e-03  & 3.571e-03  & -2.23   & 0.0259 & 9.920763e-01 & 0.43 -- 8.500000e-01    \\
+workitems                  & -1.329e-03  & 1.978e-02  & -0.07   & 0.9464 & 9.986723e-01 & 0.35 -- 1.580000e+00    \\
+type=I                     &  2.654e-01  & 1.371e+00  &  0.19   & 0.8465 & 1.303928e+00 & 1.15 -- 7.580000e+00    \\
+type=N                     & -3.727e+01  & 2.230e+01  & -1.67   & 0.0947 & 6.481571e-17 & 0.18 -- 2.020000e+00    \\
+unweightedCong             &  5.702e+00  & 3.405e+00  &  1.67   & 0.0940 & 2.993381e+02 & 0.06 -- 8.016193e+10    \\
+\hline
+authors * files            &  1.651e-04  & 7.361e-05  &  2.24   & **0.0249 &              &  \\
+authors * workitems        & -4.685e-04  & 6.799e-04  & -0.69   & 0.4908 &              &  \\
+authors * type=I           &  2.087e-02  & 4.738e-02  &  0.44   & 0.6596 &              &  \\
+authors * type=N           &  3.034e+00  & 1.813e+00  &  1.67   & 0.0942 &              &  \\
+authors * unweightedCong   & -2.738e-01  & 2.015e-01  & -1.36   & 0.1741 &              &  \\
+files * workitems          &  7.790e-06  & 9.971e-06  &  0.78   & 0.4347 &              &  \\
+files * type=I             &  1.585e-03  & 1.304e-03  &  1.21   & 0.2244 &              &  \\
+files * type=N             & -2.054e-02  & 1.232e-02  & -1.67   & 0.0955 &              &  \\
+files * unweightedCong     &  1.045e-02  & 8.044e-03  &  1.30   & 0.1938 &              &  \\
+workitems * type=I         &  5.114e-03  & 1.292e-02  &  0.40   & 0.6922 &              &  \\
+workitems * type=N         &  4.539e-03  & 3.784e-02  &  0.12   & 0.9045 &              &  \\
+workitems * unweightedCong &  8.221e-03  & 2.532e-02  &  0.32   & 0.7455 &              &  \\
+type=I * unweightedCong    & -7.140e+00  & 2.808e+00  & -2.54   & **0.0110 &              &  \\
+type=N * unweightedCong    & -2.838e+00  & 3.420e+00  & -0.83   & 0.4067 &              &  \\
+	\hline
+Model likelihood ratio & 67.15 & $(p \approx 0)$ & & & &	 \\
+$R^2$ & 0.416 & & & & & \\
+	\hline
+\end{tabular}
+\end{center}
+\caption{Results of Logistic Regression Model: predictors of Build Success including unweighted congruence}
+\label{tab:logr_unweighted}
+\end{table*}

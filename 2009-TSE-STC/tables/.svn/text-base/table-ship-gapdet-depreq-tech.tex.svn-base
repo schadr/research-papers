@@ -1,0 +1,20 @@
+\begin{tabularx}{\columnwidth}{|l|X|X|X|X|X|X|X|}
+\hline
+Sender & Rec.  & Tech & II   & PR   & RC   & S    & SC	 \\\hline
+SA     & TL    & 100  &      &      &      &      &       \\\hline
+SA     & TcL   & x    &      &      &      &      &       \\\hline
+T      & T     & 56   &      &      &      &      &       \\\hline
+T      & TL    & 46   &      &      &      &      &       \\\hline
+T      & D     & 79   &      &      &      &      &       \\\hline
+TL     & SA    & 100  &      &      &      &      &       \\\hline
+TL     & T     & 0    &      &      &      &      &       \\\hline
+TL     & TcL   & 0    &      &      &      &      &       \\\hline
+D      & T     & 87   &      &      &      &      &       \\\hline
+D      & D     & 27   &      &      &      &      &       \\\hline
+D      & TcL   & 12   &      &      &      &      &       \\\hline
+TcL    & SA    & x    &      &      &      &      &       \\\hline
+TcL    & TL    & 22   &      &      &      &      &       \\\hline
+TcL    & D     & 40   &      &      &      &      &       \\\hline
+TcL    & TcL   & 0    &      &      &      &      &       \\\hline
+       & AVR   & 44   &      &      &      &      &       \\\hline
+\end{tabularx}

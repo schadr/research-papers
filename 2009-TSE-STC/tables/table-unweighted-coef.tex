@@ -1,0 +1,32 @@
+\begin{table*}
+\begin{center}
+\begin{tabular}{lrrr}
+  \hline
+Variable              & Model I   & Model II   & Model III    \\
+Intercept             & 9.64      & 6.7072     & 15.1 \\
+numauthors            & ***0.944  & ***0.9475  & (*)0.914 \\
+numfiles              & ***0.999  & ***0.9989  & **0.992 \\
+type=I                & 1.13      & 1.2457     & 1.45 \\
+type=N                & 1.29      & 1.2392     & 0.0     \\
+unweighted            &           & 2.2271     & (*)431 \\
+numauthors * numfiles &           &            & **1.00 \\
+numauthors * type=I   &           &            & 1.03 \\
+numauthors * type=N   &           &            & *19.7 \\
+numauthors * unweighted &           &            & 0.759 \\
+numfiles * type=I     &           &            & 1.00 \\
+numfiles * type=N     &           &            & *0.980 \\
+numfiles * unweighted   &           &            & 1.01 \\
+type=I * unweighted     &           &            & *0.000844 \\
+type=N * unweighted     &           &            & 0.0593 \\
+	\hline
+Null deviance             & 238  & 238  & 238 \\
+Residual deviance         & 200  & 199  & 173 \\
+Likelihood Ratio $\chi^2$ & 37.4 & 38.9 & 65.2 \\
+L.R. Model test (previous model) & -    & 1.54 ($p = 0.215$) & 26.2 ($p = 0.002$) \\
+	\hline
+\multicolumn{4}{l}{*$p < 0.1$, **$p < 0.05$, ***$p < 0.01$ }
+\end{tabular}
+\end{center}
+\label{tab:oddsratio_unweighted}
+\caption{Odds Ratios from Logistic Regression on build success using Unweighted Congruence}
+\end{table*}

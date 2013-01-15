@@ -1,0 +1,33 @@
+\begin{table*}
+\begin{center}
+\begin{tabular}{lrrrrrr}
+  \hline
+Variable               & Coefficient & S.E.      & Wald Z & P       & Odds Ratio & 95\% CI \\
+Intercept              &   3.340e+00 & 8.481e-01 &  3.94  & 0.0001  &            & \\
+authors                &  -1.469e-01 & 4.188e-02 & -3.51  & ***0.0005  & 0.32       & 0.16 -- 0.63 \\
+files                  &  -1.044e-03 & 3.708e-03 & -0.28  & 0.7782  & 0.89       & 0.44 -- 1.80\\
+workitems              &  -6.121e-03 & 9.847e-03 & -0.62  & 0.5342  & 0.82       & 0.48 -- 1.40\\
+type=I                 &   4.498e-01 & 5.877e-01 &  0.77  & 0.4441  & 1.48       & 0.50 -- 4.37 \\
+type=N                 &   8.412e-01 & 1.394e+00 &  0.60  & 0.5462  & 1.55       & 0.28 -- 8.76 \\
+needsWeight            &   3.536e-03 & 4.288e-03 &  0.82  & 0.4095  & 1.53       & 0.94 -- 2.51 \\
+commWeight             &  -1.379e+00 & 1.210e+00 & -1.14  & 0.2544  & 1.23       & 0.69 -- 2.20 \\
+authors * files        &   6.756e-05 & 9.191e-05 &  0.74  & 0.4623  &            & \\
+authors * needsWeight  &   1.223e-04 & 1.522e-04 &  0.80  & 0.4214  &            & \\
+authors * commWeight   &   1.469e-01 & 8.678e-02 &  1.69  & *0.0904  &            & \\
+files * workitems      &   1.866e-05 & 2.544e-05 &  0.73  & 0.4633  &            & \\
+files * needsWeight    &  -5.267e-06 & 3.576e-06 & -1.47  & 0.1408  &            & \\
+files * commWeight     &  -4.350e-03 & 6.603e-03 & -0.66  & 0.5101  &            & \\
+workitems * needsWeight&  -1.681e-05 & 4.097e-05 & -0.41  & 0.6816  &            & \\
+workitems * commWeight &  -1.112e-03 & 1.475e-02 & -0.08  & 0.9399  &            & \\
+type=I * needsWeight   &  -2.121e-03 & 2.696e-03 & -0.79  & 0.4316  &            & \\
+type=N * needsWeight   &  -1.482e-02 & 2.974e-02 & -0.50  & 0.6183  &            & \\
+	\hline
+Likelihood Ratio $\chi^2$ & 50.8\\
+
+	\hline
+\multicolumn{4}{l}{*$p < 0.1$, **$p < 0.05$, ***$p < 0.01$ }
+\end{tabular}
+\end{center}
+\label{tab:logr_weighted_needscomm}
+\caption{Logistic Regression Analysis of Communication and Coordination Needs (weighted) on Build Success}
+\end{table*}
