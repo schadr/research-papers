@@ -53,7 +53,3 @@ IEEE Software - accepted
 
 RSSE - accepted
 > Proposing a recommendation system to alliviate build failures by manipulating developer social networks.
-
-### 2007 ###
-
-### 2006 ###
