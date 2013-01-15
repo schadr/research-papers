@@ -26,6 +26,8 @@ TSE thesis - pre-submission
 ### 2010 ###
 
 ### 2009 ###
+ICSE - rejected
+> An investigation of the patterns produced by the recommendation system proposed at RSSE 2008.
 
 ### 2008 ###
 IBM Innotavation Award - accepted
