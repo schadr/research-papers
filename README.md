@@ -18,3 +18,17 @@ MSR DATA - pre-subimission
 
 TSE thesis - pre-submission
 > A jounral version of my thesis that can be found at https://github.com/schadr/ChatToSucceed
+
+### 2012 ###
+
+### 2011 ###
+
+### 2010 ###
+
+### 2009 ###
+
+### 2008 ###
+
+### 2007 ###
+
+### 2006 ###
