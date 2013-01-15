@@ -1,0 +1,64 @@
+% Word Limit: 5400 including figures and tables, which count 200 each.
+
+\documentclass[times, 10pt,twocolumn]{article}
+\usepackage{latex8}
+\usepackage{times}
+\usepackage{multirow}
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+
+% ------------------------------------------------------------------------- take
+% the % away on next line to produce the final camera-ready version
+%\pagestyle{empty}
+\pagenumbering{arabic}  % Arabic page numbers for submission.  Remove this
+
+\newcommand{\cu}{collaborative task}
+\newcommand{\people}{project member}
+% \newcommand{\ce}{Task-related Communication}
+
+
+\newcommand{\jazztm}{Jazz}
+
+% -------------------------------------------------------------------------
+\begin{document}
+
+\title{Mining Task-based Social Networks to Explore Collaboration in Software
+Teams} \author{
+Timo Wolf, Adrian Schr\"oter, Daniela Damian, Lucas D. Panjer, Thanh H. D.
+Nguyen\\ Software Engineering Global interAction Lab (SEGAL)\\
+Department of Computer Science\\
+University of Victoria\\
+Victoria, British Columbia, Canada\\
+\{timowolf, schadr, danielad, ldp, duythanh\}@uvic.ca\\
+}
+
+\maketitle
+\thispagestyle{empty}
+
+% \begin{abstract}
+% \end{abstract}
+
+\input{introduction}
+
+\input{generalDescription}
+
+\begin{figure*}[t!]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{./figures/related_work.pdf}
+%\caption{Constructing social networks}
+%\label{fig:indep}
+\end{center}
+\end{figure*}
+
+\input{Jazz}
+
+\input{PracticalImplications}
+
+\input{related}
+
+\input{conclusion}
+
+\bibliographystyle{latex8}
+\bibliography{IEEE_Software_MSR}
+
+\end{document}

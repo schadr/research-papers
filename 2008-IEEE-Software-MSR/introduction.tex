@@ -1,0 +1,77 @@
+Suppose you are the manager of a software team and are responsible for delivering
+a software product on a specific date. Your team uses a build system to integrate
+their work before delivery. When the build fails, your team needs to spend extra
+time diagnosing the integration issue and reworking code. As the manager, you
+suspect that your team failed to communicate about a code dependency which broke
+the build. Your team needs to communicate in timely manner to propagate
+information about their interdependent work to achieve a successful integration
+build. How can you understand the communication of your team? Social network
+analysis can give you insight into the communication patterns of your team that
+may have been the cause of the build failure.
+
+%R3.4
+% Visualization of social networks can provide insight into the communication
+% patterns of teams working on a feature, or at a particular geographic location.
+% Analysis of social network structures can also assist management in altering
+% organizational configurations to meet specific collaboration goals. For example,
+% the fact that two project members do not effectively communicate about their
+% interdependent work may be due to geographic distance. Managers may decide to
+% establish new communication channels or assign communication brokers so that
+% distributed teams can better coordinate interdependent work.
+
+Current and timely knowledge of the social network of people in your project,
+whether you are a project manager, a team leader, or a developer is important in
+many situations beyond broken builds. Knowledge of project experts and central
+communicators is 
+ information that is often invisible in the development
+environment. The distributed nature of software development, compounded with the
+typical high turnover in outsourcing relationships, only adds to this problem.
+Highly interdependent teams often need to function across organizational and
+geographic boundaries and face significant challenges to maintain awareness and
+effectively communicate with their team. Examination of social networks can
+identify collaboration problems such as missing communication links between
+interdependent team members. Since newcomers specifically lack historical project
+information, they may benefit from insights into the project's social networks
+that expose expertise and active communicators.
+
+%R3.4
+However, constructing an explicit representation of social networks within an
+organization is not trivial. Communications play a main role in social networks
+within organizations. The difficulty stems from the fact that people in software
+projects communicate through diverse channels some of which are not easily
+recordable. Given the difficulty of capturing and recording face-to-face and
+telephone conversations, software project repositories, such as bug databases,
+source code repositories, and automated build systems provide rich sources for
+mining developers' communication. The recorded communication artifacts must be
+translated into meaningful conversations about tasks of interest. How do you
+leverage developers' communication that is \emph{related} to a specific
+collaborative task? How can you construct a social network of people that
+collaborate on a task that is of interest to you?
+
+% DD. addressed comment #
+Recent research in software engineering has used social networks to study
+collaboration in software teams and mined data from different repositories, such
+as software and email
+archives~\cite{msr06:bird,herbsleb:2008fse,ehrlich:2008stc}. The social networks
+developed in these works are, however, difficult to compare, having been
+constructed for different research purposes. The research contribution of this
+paper is a systematic approach to mine large software repositories to generate
+social networks that use task-based communication between developers. This
+approach is independent of any specific repository and can be applied in any
+project that stores collaborative tasks and related communication information. We
+also describe our experiences in using this approach in our research and discuss
+practical implications for deployment. When applied to mine the software
+repository of the IBM Rational Jazz project, the described approach allowed us to
+discover that properties of developer social networks can be used to predict
+integration build results. As well, we found that the large Jazz team experienced
+less delay in communication than expected due to the distributed nature of the
+project. In addition, they exhibited a highly connected project-wide social
+network with effective information distribution among seven geographic sites.
+
+
+
+% The project also exhibited a highly connected project-wide social
+% network with effective  between seven development sites.
+
+%XXX maybe here, if needed, a brief summary of what the results of
+%our investigation of SN in \jazztm\ were, to whet the reader's appetite.

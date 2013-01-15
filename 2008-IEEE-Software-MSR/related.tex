@@ -1,0 +1,58 @@
+% \section{Related Work} The related work consists of three parts. The first is
+% focused on how social network were build in the past. The second shows practical
+% applications that make use of social networks and the third part gives a quick
+% overview over  what has been done with regards to failure prediction.
+% 
+% \subsection{How To Build Social Networks} Most automatically constructed social
+% networks are mined from SCM's~\cite{msr07:weissgerber,msr04:lopez,fse08:pinziger,
+% fse08:meneely}. These approaches usually assume that two
+% developers that worked together on a module are connected. In this case working
+% means that they changed the same module within a pre defined timeframe. This has
+% of course the disadvantage that the project specific communication between
+% developers is missing. One way to capture part of this communication is to mine
+% e-mail archives~\cite{msr06:bird,fse08:bird}. Still this medium is incomplete with
+% respect to actual ongoing communication therefore we leverage the discussion
+% around work items as provided within \jazztm\. But where were such social networks
+% used?
+% 
+% \subsection{Practical Applications for Social Networks} Social network have been
+% used in many different ways. Recent research has manly focused on knowledge
+% distribution and failure prediction.
+% \begin{description}
+% \item[Knowledge.] Efficiently distributing knowledge and fostering awareness in
+% teams is a hot topic within software development.
+% Several studies have addressed this issue recently. They reach from expertise
+% recommending systems within \cite{msr07:minto} and across projects \cite{msr05:ohira}.
+% \item[Prediction.] Other studies have leveraged simple networks mined from SCM's
+% to predict the existence of post release failures in software modules like
+% binaries~\cite{fse08:pinziger,fse08:meneely}.
+% \end{description}
+% Of course there are more than these application like ... argued the congruence of
+% social and technical networks is of use for It governance and de Souza used
+% social networks to study the behavior of teams with respect to whom they need and
+% want to display their actions.
+% 
+% \subsection{Failure Predictions} Recent research mostly focused on predicting
+% whether a software module (e.g. files or binaries) will fail after shipping a
+% product. Most features used to predict this kind of failures leverages the
+% technical part like module dependencies, code changes or simply code complexity.
+% One of the more recent prediction models by Zimmermann and Nagappan uses social
+% network measures on module dependency graphs to predict if a module is
+% failure-prone~\cite{icse08:zimmermann}. Others leveraged organizational structures
+% evolved around software modules. They connected those modules via developers that
+% worked on them to the organizational structure~\cite{icse08:nagappan}. There have been
+% studies that go one step further and do not focus on organizational structures
+% but look at how developers are connected, mainly those studies like ... and ...
+% constructed their networks from SCM systems. These networks connect developers
+% through modules they worked on together, which of course misses every other
+% communication that went on during that time.
+% 
+% All in all those approaches focus on failures that will occur after the release
+% of a software product since those are most inconvenient for the end user. In
+% contrast to that we focus on the product quality during the development. In
+% particular on the outcome of builds since if your build does not satisfies the
+% minimum quality requirements or does not even build than you cannot ship the
+% product. Kim et al. had a similar approach which is more fine grained. They
+% predicted if a change introduces a failure into the software \cite{icse07:kim}. This
+% method can be used during development but the fine level of detail does not focus
+% on the important part namely predicting if you reached a deployable state or not.

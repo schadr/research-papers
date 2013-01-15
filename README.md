@@ -29,7 +29,13 @@ TSE thesis - pre-submission
 
 ### 2008 ###
 IBM Innotavation Award - accepted
-> A proposal to implement the recommendation system we proposed at RSSE 2008
+> A proposal to implement the recommendation system we proposed at RSSE 2008.
+
+iReCoSE - accepted
+> Report on our mining experiences with IBM Rational Team Concert.
+
+IEEE Software - accepted
+> Detailing an approach to extract social networks from development repositories and their possible uses.
 
 ### 2007 ###
 
