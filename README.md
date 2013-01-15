@@ -20,6 +20,8 @@ TSE thesis - pre-submission
 > A jounral version of my thesis that can be found at https://github.com/schadr/ChatToSucceed
 
 ### 2012 ###
+CSCW - accepted
+> FSE resubmission.
 
 ### 2011 ###
 FSE - rejected
