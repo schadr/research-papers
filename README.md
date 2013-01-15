@@ -37,6 +37,9 @@ iReCoSE - accepted
 IEEE Software - accepted
 > Detailing an approach to extract social networks from development repositories and their possible uses.
 
+RSSE - accepted
+> Proposing a recommendation system to alliviate build failures by manipulating developer social networks.
+
 ### 2007 ###
 
 ### 2006 ###
