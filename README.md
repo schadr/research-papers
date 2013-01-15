@@ -22,6 +22,8 @@ TSE thesis - pre-submission
 ### 2012 ###
 
 ### 2011 ###
+FSE - rejected
+> Studying factors that trigger developer to talk about changes to source code.
 
 ### 2010 ###
 FSE - rejected
