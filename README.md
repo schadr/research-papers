@@ -29,6 +29,9 @@ TSE thesis - pre-submission
 ICSE - rejected
 > An investigation of the patterns produced by the recommendation system proposed at RSSE 2008.
 
+STC - accepted
+> Proposing the idea of weighing social and technical dependencies to gain a finer grained STC-metric.
+
 ### 2008 ###
 IBM Innotavation Award - accepted
 > A proposal to implement the recommendation system we proposed at RSSE 2008.
