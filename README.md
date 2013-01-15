@@ -28,6 +28,8 @@ TSE thesis - pre-submission
 ### 2009 ###
 
 ### 2008 ###
+IBM Innotavation Award - accepted
+> A proposal to implement the recommendation system we proposed at RSSE 2008
 
 ### 2007 ###
 

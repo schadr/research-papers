@@ -1,0 +1,235 @@
+%\documentclass{acm_proc_article-sp}
+\documentclass{sig-alternate}
+
+\oddsidemargin -0.5in
+\evensidemargin -0.5in
+\textwidth 7.4in
+\textheight 9.4in
+\setlength{\columnsep}{.18in}
+\begin{document}
+
+\title{\vspace{-15pt}Chat to Avoid Broken Builds}
+\subtitle{\vspace{-18pt}Jazz Innovation Award Proposal\vspace{-8pt}}
+\numberofauthors{1}
+\author{
+\alignauthor
+Daniela Damian and Adrian Schr\"oter \\
+       \affaddr{Software Engineering Global interAction Lab}\\
+       \affaddr{University of Victoria}\\
+       \affaddr{PO Box 3055, STN CSC}\\
+       \affaddr{British Columbia V8W 2P6, Canada}\\
+       \email{danielad@cs.uvic.ca, schadr@uvic.ca}\vspace{-200pt}
+}
+
+\maketitle
+
+%\begin{abstract}
+%\end{abstract}
+
+\section{Motivation}
+As software systems grow larger over time, it becomes more unlikely that a single person can keep the overview over such a system.
+Often it is challenging enough to keep track of the component one is working on.
+Changes made by team members within the component you are working on or changes to API's you use can cause problems if they are not communicated properly.
+With a growing component, a growing team, and a growing usage of API's such miss communications can occur more frequently and cause severe problems, such as broken builds or bugs in software release.
+
+IBM's Jazz platform together with the Eclipse based Rational Team Concert Client supports team collaboration and integrates source code control with a communication platform.
+This integration enables us to develop and implement the recommender system \emph{''Chat to Succeed''} that recommends developers to whom to talk to about what in order to increase software quality.
+Additionally, it will support managers to spot malicious patterns that need to be broken and best practices that should be fostered.
+
+\section{Chat To Succeed}
+This proposal builds on our current Jazz-related research that examined
+integration and communication practices in Jazz and identified a positive and
+strong relationship between broken builds and the quality of the communication
+of the team involved in the build~\cite{wolf:tr2008}. In this project we plan
+to take it one step further by recommending what actions need to be taken in order to prevent a build
+from braking. We tackle this goal by providing developers and managers alike with
+recommendations to improve collaboration within a team.
+% We tackle this goal by providing developers and managers alike with
+% recommendations that enable to collaborate with the right people and identify
+% emerging best practices.
+Therefore we formulate the following two objectives.
+
+\subsection{Objectives}
+The goal of this project is to develop and evaluate a recommender system that
+helps development teams to avoid broken integration builds by:
+ \vspace{-5pt}
+\begin{itemize}
+\item Supporting developer collaboration by recommending people to talk to and
+topics to talk about in order to prevent the next build from
+braking.\vspace{-8pt}
+\item Supporting effective management through recommendations for managers to
+identify emergent best collaboration practices, or malicious practices that, for
+instance, often lead to broken builds.
+\end{itemize}
+\vspace{-5pt}
+Reaching those objectives enables developers and managers to adjust the team
+collaboration dynamically, both at the individual and group level, consequently 
+increasing their development performance by lowering the number of broken
+builds.
+
+%% help devs
+%One \emph{objective} of this project is to provide a recommendation system that recommends people to talk to and topics to talk about in order to achieve a given goal such as preventing the next build from failing.
+%%
+%% help managers
+%The recommendation system is meant not only to support developers but also provides a recommendations for managers as well, thus forming our second objective.
+%Recommendations for managers are focused not on the individual level as in the developer case but on the group level.
+%These group level recommendations are supposed to identify emergent best practices such as certain communication structures or malicious patterns that for instance often lead to broken builds. 
+
+\pagebreak
+\subsection{Development Plan}
+To fulfill these objectives we develop a recommender system that uses project
+historical information on developer communication, integration build outcomes,
+and source code changes to recommend ways to prevent the current build from
+braking. Our recommender system will include a preparation (Step 1 and 2) and a recommendation (Step 2) component:\vspace{-0pt}
+\begin{enumerate}
+\item We extract developer relationships and examine
+them in relation to the health of the past integration builds. Specifically, we
+create the communication and technical dependency networks for each past build
+in the project. A \emph{communication network} for a build contains all people
+that commented on work items that are linked to that build. A communication
+line between two developers exists if they commented on at least one shared
+work item. Then we build the \emph{technical dependency network} that contains
+all people that made source code changes in the project. Each developer that
+changes a part of source code is connected to everyone that uses that
+part of the source code.
+\vspace{-3pt}
+\item  Having identified the communication and technical dependency networks for
+each build, we examine each pair of developers in the two networks. We identify
+whether the developers share a technical dependency, communication dependency,
+both, or none, and annotate the pair of developers and their relationship with
+the respective build outcome.
+%  1.  create and maintain a project repository of integration builds and
+% associated communication-based social networks. for each build: - compute
+% technical dependencies - construct social network of those that are technical
+% dependent - annotate certain properties of the social network (e.g. missing
+% communication among those in technical dependency) with integration build
+% outcome (failed or successful) - identify whether there are some communicated
+% technical dependencies that occur more often in broken builds; we term these
+% dependencies "problematic" patterns
+\vspace{-3pt}
+\item To make recommendations for the upcoming build we first construct
+the respective communication and technical networks and develop a
+recommendation algorithm that considers the properties of these networks in
+relation to the knowledge gained at Step 1. For example we could, for each
+developer pair, count how often their current relationship (Do they share a
+technical dependency, communication dependency, both, or none?) occurs with broken and successful builds. If the ratio between the occurring in broken and successful builds is higher than the ratio between  broken and successful builds, then we
+make the recommendation to change the developer relationship with respect to communication. This means if those developers did not communicate with each other we recommend to do so, in case they did we
+recommend to reevaluate the gained information.
+\end{enumerate}\vspace{-2pt}
+%  2. for a current integration build recommend action as follows: -
+% automatically construct communication-based social network for the current
+% build - run our previously developed build outcome prediction model - if the
+% predictive model predicts failed build then recommend action based on
+% historical data obtained in step 1. - specifically, identify whether some of
+% the problematic  patterns can be identified in the current build and signal
+% this to developers by indicating who they should talk about
+To managers, Step 1 is of particular interest, because it identifies emergent
+best collaboration practices, such as certain communication structures, or malicious
+patterns those that are likely to lead to broken builds.
+
+To further maximize the efficiency of the recommender system, we integrate our earlier developed red build predictive model~\cite{wolf:tr2008}.
+This gives developers and managers an indicator when it is most crucial to pay
+attention to our recommendation in order to prevent the next build from braking.
+
+
+
+%- automatically construct social network
+%- analyze properties of social network in relation to build outcome
+
+
+\subsection{Project Plan}
+We organize the project plan along four major \emph{\textbf{milestones}} in the
+following order:
+\begin{enumerate} \vspace{-4pt}
+\item Developing a recommendation algorithm and automate the extraction of communication and
+techical networks as in Step~1.
+\vspace{-6pt}
+\item Implement a prototype as RTC/Eclipse plug-in.\vspace{-6pt}
+\item Conduct a field study to evaluate the prototype.\vspace{-6pt}
+\item Release version 1.0 of the plug-in.
+\end{enumerate}\vspace{-5pt}
+
+
+\subsection{Resources}
+The resources needed to the fulfill this project include: a full-time PhD student
+to conduct the research and develop the recommender algorithm, a programmer to
+assist the PhD student in the RTC plug-in, and access to a development team
+that uses Jazz in their development to evaluate the recommender system. This
+leads us to appling for the full amount of 25,000\$.
+
+\section{Research Contribution}
+\emph{Chat to Succeed} expands the knowledge around socio-technical congruence, which studies the alignment of technical and social dependencies of a development team. 
+Research questions in this area are, for instance, do all developers
+communicate their changes to others that depend on the changed software part?
+We have obtained a first positive feedback
+on this project idea recently~\cite{schroeter:2008rsse}.
+
+Similar to other studies of socio-technical congruence, we analyze this
+congruence but are not as concerned with identifying all
+discrepancies between the social and technical networks in the project, but
+those discrepancies that specifically lead to broken builds.
+
+\section{Value to the Jazz Community}
+The Jazz community is provided with a RTC plug-in that enables developers and managers to improve their teams collaboration.
+This improvement is always towards a specific goal, such as preventing the next build from failing.
+Our recomemnder system will minimize the time spent with fixing
+broken builds and allow a more fluent development process in Jazz.
+
+\section{Dissemination and Openness}
+We plan to disseminate our results by announcing them on jazz.net as well as
+publish papers and articles in relevant software engineering conferences,
+workshops, and journals, such as the International Conference on Software
+Engineering(ICSE), Foundations of Software Engineering (FSE), Computer Supported
+Collaborative Work (CSCW), International Conference on Global Software
+Engineering (ICGSE), or Eclipse Technology eXchange (ETX).
+
+Additionally we plan to develop our prototypes and software in the soon
+available Jazz Research Community repository to gather additional early feedback
+from the research community. In addition each prototype will be made publicly
+available after completion on our website and announced on jazz.net.
+
+\section{Track Record/Backround}
+Our research group has extensive experience with Jazz development and
+Jazz-related research. We were among the first research group to receive the 
+first Jazz Grand Awards in 2005. Since then we became an active part of
+the Jazz research community and lately advanced to take a leading role. Together
+with Li-Te Cheng and Gail Murphy we are organizing the first workshop on
+infrastructure for research in collaborative software engineering~\cite{irecose08}
+at FSE 2008 venue that attracted mostly Jazz related
+publications.
+
+We also implemented two prototypes as Eclipse plug-ins leveraging the Jazz
+repository, \emph{FATE} and \emph{Related
+Contributors}~\cite{panjer:2008:chase,panjer:tr2007}. Both tools are meant to
+increase the awareness about, in case of \emph{FATE}, related artifacts, such as
+work items, and, in case of \emph{Related Contributors}, artifact related
+developers. These tools have been show-cased at OOPSLA 2007 at the Jazz Birds of
+a Feather session.
+
+Furthermore, we published reports on two projects that exmined communication in
+the Jazz team. The first project investigated the communication delay on work
+item discussions across different sites~\cite{Nguyen:2008Distance} and received
+an invitation for journal publication. The second investigated the relation
+between communication behavior and broken builds~\cite{wolf:tr2008}. The project,
+called ''The Red Build Predictive Model''  was also presented at the IBM Rational
+Developer Conference 2008 at the Jazz Main Event.
+
+Apart from these two project we gathered experience in
+extracting~\cite{wolf:ieee2009} and analyzing social
+networks~\cite{damian2007dmk,sabrina:re08} that arose around a single or a set of
+tasks. Our experience with developing plug-ins, extracting and analyzing social
+networks, as well as previous experience in mining software
+repositories~\cite{schroeter-isese-2006b} will enable us a successful
+implementation of this proposed project.
+% - jazz grand recipients - active part in the jazz community - main organizers
+% of the irecose(jazz workshop) - ieee msr - icgse / communication delay - red
+% build as in rsdc - fate - irwine
+
+%- social networks
+% - rcsn
+% - rdsn
+\small
+\bibliographystyle{abbrv}
+\bibliography{jazz-inovation-2008}  
+
+\end{document}
