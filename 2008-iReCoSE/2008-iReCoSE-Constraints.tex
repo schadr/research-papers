@@ -1,0 +1,76 @@
+\section{Options and Constraints}
+The Jazz repository gave us several choices on how to extract data from it: via the dataware house report, via the RTC client API, via the server API, and via the back-end database. Each of these choices comes with its own constraints. These constraints can be summarized in three categories: (1) the \emph{effort} needed, (2) the \emph{logistical overhead} in terms of travel or non legal permissions, and (3) the \emph{legal} issues such as guaranteeing the privacy of developers. In  addition to these constraints the four choices provided by the Jazz repository differ in the system level they are deployed at.
+ 
+\begin{table}[h]
+\begin{center}
+{\small
+\begin{tabular}{|c|c|c|c|}
+\hline \textbf{Option} & \textbf{Effort} & \textbf{Logistic} & \textbf{Legal} 	\\
+\hline                
+Report		& Hard 		& Easy	 	& Easy	\\ 
+\hline
+Client API	& Medium-Hard	& Medium	& Easy-Medium	\\ 
+\hline
+Server API	& Medium-Hard	& Medium-Hard	& Medium	\\ 
+\hline
+Database	& Easy		& Medium	& Hard	\\ 
+\hline
+\end{tabular}
+}
+
+\end{center}
+\caption{Our simple risk analysis based the available options and the constraints}
+\label{tab:OptionsVsConstraints}
+\end{table}%
+
+\begin{description}
+\item[Report]
+The report component in Jazz caches performance statistics of the Jazz repository
+and provides mechanisms to assess this information via the Jazz Dashboard. We
+could build a report that queries the data from the Jazz team server.
+
+The draw back in terms of effort following this option is that we need to learn
+how to set up the report and obtain the data from the given data warehouse. Note
+that the report component had changed since then. In term of effort, this option
+became easier now. Logistically, this is the easiest option because the report
+can be deployed and obtained online. It is also the easiest option in term of
+legal requirement because all of the information in the dataware house are
+supposed to be public. \item[Client API] Using the RTC client API we can write a
+plug-in to access the data via the RTC client. This plug-in can query  the data
+that is available to the client and serialize the result. We can then import the
+result into a relational database.
+
+The effort we need to spend in developing a plug-in using the client API lies in
+learning it. Although we are familiar with Java and Eclipse technologies, the
+APIs were constantly changed. More importantly, we are also restricted to the queries
+that are available to the client. We have to search the client code to find
+suitable queries and work around their restrictions. In terms of logistic, the
+development can be done off-site. The deployment have to be done on-site but it
+is not difficult because the query can be run inside a standard developer set up.
+Using the client API does not require a lot of legal advise because most data
+that is available through the client is available to the public.
+
+\item[Server API] Another option to query the data is bypassing all the client
+APIs and access the Jazz repository itself. This way we are still restricted
+by the repository API but not by the client API. Note that these APIs are not formally
+defined yet at the time of writing this article.
+
+Since we can bypass the client API, this option would take less effort on the
+programming. But it requires deep understanding of what the repository can
+provide. The learning process would have take as much effort as the client API
+option. In term of logistic, we would be able to run it on-site and it is harder
+to debug off-site because it can not be run from a nornal client. It may require
+working on-site with the repository team. Legally, this option can be tricky
+because we could get information that are not normally available to the public.
+\item[Database Backend] If we are allowed, we can also acquire a copy of the
+backend database of the Jazz repository.
+
+This option would be the least effort in term of programming. However, it would
+be very difficult, in term of legal requirement, to warranty privacy and
+intellectual property of the compant. Even if we are allow to, we would require
+to manage the task of getting the large data set and extracting the useful
+information from the raw data.
+
+\end{description}
+
+Table ~\ref{tab:OptionsVsConstraints} shows the simple risk analysis we did based on the options available and the constraints. We decided to obtain the data via the RTC client API. This option seem to have the average of medium risk. In term of effort, it is very time consuming but we have the resources to manage. For us, the logistic and legal requirement are more important and they are manageable on this option.

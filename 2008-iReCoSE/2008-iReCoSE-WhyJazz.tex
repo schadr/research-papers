@@ -1,0 +1,35 @@
+\section{Why Jazz}
+Jazz~\cite{Cheng:2003:ACMQueue,frost:2007:IEEESoftware} is a development
+environment that integrates programming, communication, and project management.
+The main goal of Jazz is to bring collaboration support for all of the software
+development activities such as planning, building, testing, and reporting. For
+developer, this means that they can communicate and coordinate their work through
+the very same tools they use to develop code. To achieve this, Jazz provides a
+central repository for all tools supporting the development process such as a planning
+wiki, a work item tracking system, a report component, and a build system.
+
+At the time of our study, Jazz consisted of three major
+components~\cite{IBM:2008:url}:
+\begin{itemize}
+\item The Jazz repository. 
+\item The Rational Team Concert (RTC) client.
+\item The dashboard, a web user interface.
+\end{itemize}
+The \emph{Jazz repository} stores all artifacts available to the two clients. 
+Examples for such artifacts are work items, comments, and build results. 
+The \emph{RTC client} is the main development client. 
+It is built upon the Eclipse platform and allows developers to control their work spaces, to perform version control functions, and to request builds. 
+The \emph{web user interface} allows developers to access most of the non-coding related artifacts, such as work items, iteration plans, and reports. 
+
+For researchers, Jazz provides an easy way to extract valuable research data. Due
+to the tight integration of the different components, links of artifacts to
+related software development activities already exists. For example, a comment
+is linked to tasks, also called work items, and source code changes in the form
+of change sets are attached to these work items. This is a major advancement to
+other systems that used their own heuristics to link software
+artifacts~\cite{cubranic:2003:icse}.
+
+%So if a build is red, we can find all of the communication around the build and, subsequently, construct the communication network associate with the red build.
+
+%In the next section we explore the different options to extract Jazz data and the constraints we face during the process.
+

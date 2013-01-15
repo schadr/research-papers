@@ -1,0 +1,40 @@
+\section{Design principles}
+The main requirement for our tool besides being able to extract all data is to
+not cause any problem in the development cycle of the team, such as causing to
+much load on their repository while extracting the data. We implemented these
+requirements in a program that was developed in several iterations.
+
+\paragraph{Iterative} 
+At the beginning of developing our mining tool, we evaluates the data that was
+available through the RTC client API. We found that the API did not support the
+extraction of all the data so we proceeded with an iterative development that was
+oriented at the different kind of data accessible through the API at a time.
+Similar to iterations in an Agile process, we extended the extraction capability
+of the tool one by one via adding data query set. At the end of each iteration,
+we asked our research contact at IBM to extract more data with the updated tool.
+This had the advantage that we received additional feedback about API usage from
+our IBM research contact.
+
+\paragraph{Minimally Invasive} 
+The data quantity we want to extract can cause a high load on the repository and
+thus disrupt the development process, each time we extract the data.
+% After several iteration, our query set started to put very high load on the
+% main repository which prevented developers access to it.
+We avoided causing such high repository load by updating the existing data
+instead of extracting all data every time we run the program. This had the
+advantage in case we finished a new query we did not need to extract all the data
+we extracted earlier again.
+
+\paragraph{Separation}
+In order to keep the additional load minimal on the repository we tried to remove
+redundancies in the queries as well as avoid the queries to load data that has
+already been extracted. At the beginning, some of our queries depended on each
+other or we could not avoid loading already extracted data. For example, if we
+wanted to fetch the new comments on work items, we had to fetch the work items
+themselves although they had not changed since the last extraction. This
+introduced additional load on the repository. We removed all unnecessary
+dependencies among queries and tried to minimize loading data that has already
+been extracted.
+
+% We think those decisions were important to the success of the project and may
+% be useful for future research.
