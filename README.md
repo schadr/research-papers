@@ -24,6 +24,8 @@ TSE thesis - pre-submission
 ### 2011 ###
 
 ### 2010 ###
+FSE - rejected
+> Resubmission of the icse paper with analysis investigating the predictive powers of the patterns.
 
 ### 2009 ###
 ICSE - rejected

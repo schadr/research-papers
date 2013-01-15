@@ -1,0 +1,590 @@
+% This is "sig-alternate.tex" V1.9 April 2009
+% This file should be compiled with V2.4 of "sig-alternate.cls" April 2009
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.4 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.4) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+%  ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V1.9 - April 2009
+
+\let\mymarginpar\marginpar
+
+\documentclass{sig-alternate}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{capt-of}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{pifont}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage{url}
+\usepackage{boxedminipage}
+\usepackage{xspace}
+\usepackage{sepnum}
+\usepackage{cite}
+\usepackage{fancyhdr}
+
+% Things to remember
+\newenvironment{mynote}%
+{\medskip
+\noindent
+\vspace{2pt}
+%\setlength{\fboxsep}{4pt}
+%\setlength{\leftmargini}{4pt}
+\let\emph=\textbf
+\begin{boxedminipage}{.99\columnwidth}\em}%
+{\end{boxedminipage}}
+
+\newcommand\remark[1]{%
+    \mymarginpar{\raggedright\hbadness=10000\tiny\it #1\par}}
+\def\todo#1{\noindent\colorbox{yellow}{X}\remark{{\bf TODO:} #1}}
+\def\fixme#1{\noindent\colorbox{yellow}{X}\remark{{\bf FIXME:} #1}}
+\def\TODO#1{\todo{#1}}
+\def\FIXME#1{\fixme{#1}}
+
+\newcommand\tm{\texttrademark}
+
+\overfullrule3pt
+
+\begin{document}
+%
+% --- Author Metadata here ---
+\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (200X) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+%\pagestyle{fancy}
+%\fancyhead{Submitted to ICSE 2009}
+
+
+%\title{STC and Build Success in Jazz}
+%\title{Is NOT Talking About Your Impact on Others Harmful?}
+\title{On Socio-Technical Coordination and its Relation \\to Build Failure}
+
+%\title{Communication Patterns}
+%\subtitle{[Extended Abstract]
+%\titlenote{A full version of this paper is available as
+%\textit{Author's Guide to Preparing ACM SIG Proceedings Using
+%\LaTeX$2_\epsilon$\ and BibTeX} at
+%\texttt{www.acm.org/eaddress.htm}}}
+
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{2} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Adrian Schr{\"o}ter\\
+       \affaddr{Univeristy of Victoria, Canada}\\
+       %\affaddr{1932 Wallamaloo Lane}\\
+       %\affaddr{Wallamaloo, New Zealand}\\
+       \email{schadr@uvic.ca}
+% 2nd. author
+\alignauthor
+Daniela Damian\\
+       \affaddr{University of Victoria, Canada}\\
+%       \affaddr{P.O. Box 1212}\\
+%       \affaddr{Dublin, Ohio 43017-6221}\\
+       \email{danielad@cs.uvic.ca}
+%% 3rd. author
+%\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
+%one who did all the really hard work.}\\
+%       \affaddr{The Th{\o}rv{\"a}ld Group}\\
+%       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
+%       \affaddr{Hekla, Iceland}\\
+%       \email{larst@affiliation.org}
+%\and  % use '\and' if you need 'another row' of author names
+%% 4th. author
+%\alignauthor Lawrence P. Leipuner\\
+%       \affaddr{Brookhaven Laboratories}\\
+%       \affaddr{Brookhaven National Lab}\\
+%       \affaddr{P.O. Box 5000}\\
+%       \email{lleipuner@researchlabs.org}
+%% 5th. author
+%\alignauthor Sean Fogarty\\
+%       \affaddr{NASA Ames Research Center}\\
+%       \affaddr{Moffett Field}\\
+%       \affaddr{California 94035}\\
+%       \email{fogartys@amesres.org}
+%% 6th. author
+%\alignauthor Charles Palmer\\
+%       \affaddr{Palmer Research Laboratories}\\
+%       \affaddr{8600 Datapoint Drive}\\
+%       \affaddr{San Antonio, Texas 78229}\\
+%       \email{cpalmer@prl.com}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+%\date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+%Investigating collaborative aspects of software development is becoming 
+%prominent in current research. Studies found that the misalignment
+%between the social and technical dimensions of software work leads to losses in
+%developer productivity and defects. We study the communication and technical dependencies between developers involved in software builds and
+%relate their misalignment to the integration success. Using data from the
+%IBM Jazz\texttrademark\ project we investigate socio-technical networks in relation to build failure. 
+%Our findings related a number of
+%developer pairs that did not communicate about their dependencies to build failure.
+%Not only can we use these pairs to predict build failure but, moreover, it is actionable knowledge upon developers and mangers can act to prevent build failure.  
+%If any one of these pairs is present in a
+%social network of a build, the build had at least an 74\% chance to fail.
+%
+Investigating social interactions in software development is becoming 
+prominent in current research. The misalignment
+between the social and technical dimensions of software work has been
+linked to losses in developer productivity and defects. In a case study of
+coordination in the IBM Jazz\texttrademark\ project, we investigate the
+communication and technical dependencies between developers involved in
+software builds and relate their misalignment to the build failure. We found
+that historical project information about socio-technical coordination and software
+builds can be used in a model that predicts the quality of upcoming builds. We
+also identify a number of
+developer pairs that did not communicate about their dependencies and thus
+increased the likelihood of build failure. Upon this actionable knowledge developers and mangers can act to prevent build failure. If any one of these pairs is present in a
+builds social network, the build had at least an 74\% chance to fail. 
+This has several practical implications for the design of collaborative systems, such as the integration of recommendations about inter-personal relationships.
+%
+%We discuss the practical implications for the design of collaborative systems that
+%can integrate real-time recommendations about the inter-personal relationships
+%that matter to avoid build failures in the project. 
+\end{abstract}
+
+
+\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, \linebreak performance measures]
+\category{D.2.9}{Software Engineering}{Management}[Programming Teams]
+\category{K.6.1}{Management of Computing and Information Systems}{Project and People Management}[Systems development]
+\category{K.6.3}{Management of Computing and Information Systems}{Software Management}[Software development]
+
+\terms{Human Factors, Measurement, Management}
+
+\keywords{Social Networks, Technical Networks, Socio-Technical Networks, Builds, Failures, Socio-Technical Congruence}
+
+%\pagebreak
+\section{Introduction}
+We hypothesize that with the ever growing size of software teams the lack of
+effective coordination is the main source of integration failures.  With the
+ever growing complexity and sophistication of large software projects,
+error-free integrations are not only important but difficult to achieve. The
+development work that precedes integrations involves significant coordination of
+developers that work in teams and need to rely on the code of others and its
+stability. But often code is everything but stable, further contributing to
+developers' need to coordinate to keep up with code changes that impact their work. This problem is
+amplified in software builds where an entire team needs to integrate their work
+and on which the development of new features depends. Not only do
+failed builds destabilize the product~\cite{cusumano1997} but they also demotivate
+software developers~\cite{holck2004}.
+
+Despite their importance, keeping integrations builds error-free can be a very time consuming
+process. A lightweight approach that can determine whether the build contains
+failures before invoking the build process is thus very valuable to developers.
+This lightweight approach could determine a builds outcome in minutes rather than hours or days. Having a faster way to
+assess the quality of a build helps developers to continue working with newest
+builds while being aware of its quality. Previous
+research~\cite{wolf:icse:2009,hassan:ase:2006} trained predictive models to assess the quality of software builds without the need of invoking large test
+suits. Although this research
+reaches a high degree of accuracy in their predictions, knowing that a
+build will fail does not necessarily help developers to actually prevent
+the build from failing.
+% limitation of previous research
+% SENTENCE HERE ABOUT WHY THIS IS A PROBLEM. SENTENCE ABOUT HOW THIS WAS STUDIED
+% BEFORE AND THE LIMITATION THAT RESEARCH HAD ONLY STUDIED PRECTIVE MODELS
+% WITHOUT THE ABILITY TO ACT ON THAT KNOWLEDGE.
+The goal of this research is to find a way to create actionable knowledge that
+developers can act upon to avoid
+integration failure.
+
+In this paper we describe a case study of IBM's Jazz project where we leverage
+information about socio-technical developer coordination and software builds to
+identify pairs of developers that negatively influence the quality of the
+upcoming build. Using historical project information we construct socio-technical
+networks that capture information about developers with technical dependencies
+as well as their ongoing communication as conceptualization of their coordination.
+We found that using a support vector machine on a combination of this social
+and technical project data yields a powerful predictor of build failure. We
+then identify that there are certain pairs of developers that have a
+negative influence on the build outcome. On this knowledge developers and management can
+act upon to avoid future build failure.
+
+Maintaining proper communication and awareness of work others perform is
+important in any kind of project. Specifically in software engineering many studies found
+that factors such as geographical and organizational distance have an impact on
+communication and even effect software quality~\cite{nagappan:icse:2008}. In our
+study we uncover the existence of pairs of
+developers, that, if technically dependent in a build but not discussing their
+dependencies, have a negative influence on the success on builds. This
+actionable knowledge can be integrated in real-time recommender systems that
+indicate, based on project historical data, which developer pairs tend to be
+failure related. Developers and management can then devise strategies to
+prevent the failure before build time. 
+
+
+The paper is organized as follows: We start with formulating our research
+questions (Section~\ref{sec:rq}) followed by putting our research into the
+perspective of related work (Section~\ref{sec:relwork}). Section~\ref{sec:data}
+covers details about our case study of IBM's Jazz team to investigate
+socio-technical coordination in relation to builds. Then
+Sections~\ref{sec:prediction} and \ref{sec:pattern} cover the actual analysis and
+their discussion. Before we concluding the paper in
+Section~\ref{sec:conclusions}, we discuss some practical implications in Section~\ref{sec:implications} and the threats to validity
+(Section~\ref{sec:threats}).
+
+
+
+%  ONCE SENTENCE HERE REMINDING THE READER THAT IN THIS PAPER WE PROPOSE A
+% LIGHTWEIGHT APPROACH THAT LEVERAGES DEVELOPERS SOCIAL NETWORKS BUILT FROM
+% PROJECT HISTORICAL DATA AND WHICH IDENTIFIES WHICH DEVELOPER PAIRS ARE
+% IMPORTANT WITH RESPECT TO THE QUALITY OF THE UPCOMING BUILD.
+
+\section{Research Questions}
+\label{sec:rq}
+Communication
+is an important mechanism for coordination in software development \cite{curtis:acm:1988,kraut1995:coordination}, especially in maintaining the awareness of changes relevant to your work. Past research showed that a high coverage of technical
+dependencies by social relationships correlates with higher productivity of development teams (e.g.~\cite{cataldo:cscw:2006}). 
+ We hypothesize that a similar relation
+exists between this coverage and the success of software builds. 
+
+Thus
+socio-technical networks that capture information about the social and technical
+relationships between developers, should predict build failure:
+
+\begin{itemize}
+\item[RQ1] Can we use information about relations (technical and social) between
+developers to predict build outcome?
+\end{itemize}
+
+Although valuable, having a model that predicts build outcome is often not
+enough. We seek to generate actionable knowledge upon which developer can act to
+avoid a build from failing. Past research suggests that the absence of
+communication between developers that are technically dependent leads to
+problems, such as slow down in development~\cite{cataldo:esem:2008}.
+
+
+We hypothesize that due to the high coordination needs the absence of this
+important communication also has a negative influence on build outcome. Communication problems can arise from many factors including organizational,
+social or technical reasons. Being able to pinpoint
+mismatches between technical dependencies and required communication that
+relate to build failure is even more important in a team's
+ability to devise strategies to avoid build failure. Thus, we
+investigate pairs of developers that share a technical dependency without talking
+with each other (referred to as \emph{technical pairs}):
+
+
+\begin{itemize}
+\item[RQ2] Are there technical pairs that influence the build outcome?
+\end{itemize}
+
+Acknowledging that build failure can be the result
+of factors other than lack of developer
+communication, e.g. the number of changes or developers in a build~\cite{hassan:ase:2006}, our
+analysis also studies the effect of technical pairs in the presence of such
+confounding variables. 
+
+
+
+%The answer to this question will tell us if we really can devise strategies to
+%prevent builds from failing. 
+
+
+\input{relatedwork}
+%\pagebreak
+\input{methodology}
+
+\input{failure-prediction}
+
+\begin{table}[t]
+\centering%\vspace{1cm}
+\begin{tabular}{rcc}
+\toprule
+ & successful & failed  \\
+ \midrule
+(Adam, Bart) & 3 & 13 \\
+$\neg$ (Adam, Bart) & 224 & 86\\
+\midrule
+total&227&99\\\bottomrule
+%User3493, User2943 & 3 & 13
+\end{tabular}
+\caption{Contingency table for technical pair (Adam, Bart) in relation to build
+success or failure}
+\label{tab:contingencytable}
+\end{table}
+
+\input{pattern-analysis}
+
+%\input{regression-analysis}
+
+
+
+
+
+
+
+\section{Practical Implications}
+\label{sec:implications}
+Our findings have several implications for the design of collaborative systems.
+By automating the analyses presented here we can incorporate the knowledge about
+developer pairs that tend to be failure related in a real-time recommender
+system. Not only do we provide the recommendations that matter to the upcoming
+build, we also provide incentives to motivate developers to talk about their
+technical dependencies. 
+
+Such a recommender system can use project historical data to
+calculate the likelihood that an upcoming build fails given a particular
+developer pair that worked on that build without communicating to each other. In
+the case of the pair (Adam, Bart) the system may recommend that these
+developers should communicate about their technical dependencies, as there
+would be a probability
+of 91\% of failure of the next build should they not follow the
+recommendation. This probability of failure serves as mechanism to
+rank importance of a socio-technical gap and more importantly as an
+incentive to act upon.
+
+For management, such a recommender system can provide details about the
+individual developers in, and properties of, these potentially problematic
+developer pairs. Individual developers may be an explanation for the behavior of
+the pairs we found in Jazz\texttrademark. This may indicate developers that are
+harder to work with or too busy to coordinate appropriately, prompting management
+to reorganize teams and workloads. This would minimize the likelihood of a build
+to fail, by removing the underlying cause of a pair to be failure related.
+Similarly, as another example from our study, most developer pairs
+consisted of developers that were part of different teams. In such
+situations management may decide to investigate reasons for coordination
+problems that include factors such as geographical or functional distance in the project.
+
+
+
+
+\section{Threats To Validity}
+\label{sec:threats}
+%\todo{rework}
+During our study we identified two main threats. 
+One threat covers issues that arise from the underlying data we used.
+The other threat deals with possible problems from the conceptualization of
+constructs in our study.
+
+\subsection{Data}
+We performed all our analysis on one set of data, the Jazz\texttrademark\
+repository. This limits the generalizability of our findings, due to the fact
+that we only made the observations within one project. The  
+project size and the project properties -- incorporating open
+source practices such as open development and encouraging community involvement
+-- make us believe that our findings still hold value.
+
+Furthermore we only investigated three months of the project's lifetime. This
+might lead to smaller significance of our results. However, since the three
+months are directly before a major release of the project, this dataset contains
+the most viable data for our analysis. In those three months a lack of necessary
+coordination is the most harmful to the project.
+
+Another threat that is inevitable in studies of software engineers is
+the possible lack of recorded communication. This and the possibility of people
+coordinating without communicating, such as reading each others source
+code~\cite{bolici:stc:2009}, are mitigated in Jazz by its development process.
+The Jazz\texttrademark\ team's development process demands that the developers
+coordinate using workitem discussion. 
+
+
+\subsection{Conceptualization}
+Our conceptualization of the three edges we use to construct the
+socio-technical networks might introduce inaccuracy in our findings.
+First, social edges are extracted from workitem discussions. We assumed that
+every developer commenting on or subscribed to a work item reads all comments of that
+work item. This assumption might not always be correct. By manual inspection of
+a selected number of work items, however, we found that developers who
+commented on a work item are aware of the other comments, confirming our assumption.
+
+Second, the technical edges are not problematic by themselves, but they are not
+complete, since there are more technical relationships between developers that
+can be examined. For example, two developers can be connected if one developer
+changes someone else's code. This however does not invalidate our findings, it
+just suggests that there is room for improvement, which we should address
+next.
+
+Third, socio-technical edges on the other hand may suffer from the combination of
+social and technical edges. For example, it is not necessarily true that the
+discussion of  two developers in a technical dependency is always about their
+technical dependency. 
+In our study however, since the changes to
+source code files we use to extract technical dependencies are attached to workitem discussion, we are
+confident that they addressed the changes at least indirectly.
+
+
+
+\section{Conclusion}
+\label{sec:conclusions}
+Our study investigated the relationship between pairs of developers that share
+a technical dependency but do not communicate and build failures. We were
+motivated by findings in the literature that suggested that high alignment between technical dependencies and actual coordination in a project has a positive effect on task
+performance.
+%
+We hypothesized that a similar relationship may be found in relation to a broader
+coordination outcome, i.e. integration outcome, because developers not
+coordinating about dependencies in their work might lead to errors remaining in
+the code that break the build.
+
+Our case study of coordination in the Jazz project indicates that 
+historical project information about socio-technical coordination and software
+builds can be used in a model that predicts the quality of upcoming builds. We also found
+that the influence of developer pairs with a socio-technical gap on the build
+failure was very high. This means that if any one of these pairs was present in a
+social network of a build, the build had at least an 74\% chance to fail.
+Thus, we add to the literature on failure prediction with a method that
+provides actionable knowledge to avoid failures. 
+
+Besides the possible of integrating our findings into a real-time recommender system that indicates the specific developer pairs that should talk about their dependencies, our results add to the research in
+collaborative software engineering. Not only do we add to the evidence about
+the role of effective communication in the development of high quality
+software, but our findings indicate that measures of socio-technical congruence can
+serve as a mechanism to identify which inter-personal relationships are
+important to avoid breaking software integrations. 
+%
+We plan to extend this research in a number of directions:
+
+% \begin{description}
+\emph{More specific information in socio-technical networks.}
+We plan to study socio-technical coordination at a finer level by refining all
+three edge types social, technical and socio-technical as well as the
+information about developers. For the social edges we plan on identifying who
+people are talking to and exactly about what. Technical edges can be refined by examining other source code relations, such as call
+graphs, or changes made to others' source code. 
+%
+To combine social and technical
+edges to socio-technical edges we plan to use content analysis techniques on
+communication to match it to the appropriate technical edge. We also plan
+on also investigating the developers that are part of the social networks more
+closely by incorporating developer characteristics, such as experience,
+geographical location, role or team allocation.
+
+\emph{Additional edges that indicate emergent coordination.}
+In this study we focused on technical pairs and only briefly touched on
+socio-technical pairs. In the future we plan to extend this focus to include a
+detailed analysis of socio-technical pairs and of those
+developer pairs that communicated without sharing a technical dependency, and
+which indicate emerging communication in the project, and expertize seeking
+behaviors that are important to effective coordination.
+
+\emph{Different types of failures.}
+A build fails often because of a single or several failures scattered across several locations
+Hence we plan on
+investigating single bugs. This additionally enables us to investigate pre-release and post-relase failures separately.
+%\end{description}
+
+
+%\pagebreak
+\section{Acknowledgements}
+This project is funded by an IBM Jazz Innovation Award and a Univeristy fellowship of the University of Victoria.
+Thanks for continuous feedback go to the SEGAL Group members especially to Irwin
+Kwan, Sarbina Marczak, and Mattew Richards.
+And special thanks goes to the Jazz\tm\ development team as well as the IBM
+research for they ongoing support.
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{fse2010-schroeter}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+
+%\balancecolumns % GM June 2007
+% That's all folks!
+\end{document}

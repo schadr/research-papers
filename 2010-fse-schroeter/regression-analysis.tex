@@ -1,0 +1,43 @@
+\input{regressiontable}
+
+\section{Regression Analysis}
+\label{sec:regression}
+Although the previous analysis showed that there are technical pairs that seem to have a negative influence on the build result we need to check how they influence each other.
+Additionally we need to control for confounding variables that might have an influence on the build outcome.
+Such variables are: number of developers involved in a build, number of work items related to a build, number of change sets per build, and number of files changed.
+We build a logistical regression model using the control variables.
+
+Overall the logistic regression is confirming the developer pairs identified in Section~\ref{sec:pattern}.
+Even in the presence of confounding variables such as number of files changed and numbers of developers contributing to a build.
+Thus we can answer our third research question with yes the identified technical pairs are still significant in the presence of possibly confounding variables.
+In other words this means that the developer pairs add additional information besides common indices for software quality.
+
+Table~\ref{tab:regression} shows an excerpt from the complete logistical regression.
+Because we have 2872 developer pairs, space constraints prevent us from reporting the whole regression model.
+We chose to report on the coefficients for the twenty pairs that we reported in Table~\ref{tab:regression} as well as the coefficients for the four control features.
+
+All features shown in Table~\ref{tab:regression} are significant at the $\alpha=.001$ level.
+We checked for all the other technical pairs that were reported significant using the approach described in the previous section and found that they are all significant in the regression model as well.
+Moreover,the four control variables number of developers per build, number of work items per build, number of change sets per build, and number of files changed per build are also significant.
+
+% explain the coefficient interpretation
+% some of the pairs are positive
+% some are negative
+% extreme magnitude
+Since we model ERROR builds with 0 and OK builds with 1, a negative coefficient means that the feature increases the chances of a failure.
+All pairs reported in Table~\ref{tab:regression} and the technical pairs that we identified to be related to build failure have a negative coefficient.
+ 
+% about the control variables
+As shown in Table~\ref{tab:regression} two of the four control features, number of change sets per build and number of developers contributing to a build increase the likelihood of a build succeeding.
+On the other hand number of files changed per build and number of work items per build increase the likelihood of a build failing.
+
+%\subsection{Discussion}
+% regression confirms the determined patterns in the presence of confounding variables
+% Answer to the research question is yes
+
+
+
+% The influence of confounding variables
+% good: cs, devs
+% bad: files, wi
+
